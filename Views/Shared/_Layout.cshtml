@@ -18,7 +18,6 @@
             <div class="page-content">
                 <div class="container-fluid">
                     @Html.Partial("~/Views/Shared/_page_title.cshtml")
-
                     @RenderBody()
                 </div>
             </div>
@@ -27,15 +26,13 @@
 
     </div>
     <!-- END layout-wrapper -->
-    @Html.Partial("~/Views/Shared/_customizer.cshtml")
+    @*@Html.Partial("~/Views/Shared/_customizer.cshtml")*@
 
     @Html.Partial("~/Views/Shared/_vendor_scripts.cshtml")
 
     @RenderSection("scripts", required: false)
 </body>
 </html>
-
-
 
    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">

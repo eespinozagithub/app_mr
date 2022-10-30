@@ -89,7 +89,7 @@
                                     <div class="p-lg-5 p-4">
                                         <div>
                                             <h5 class="text-primary">Formulario de ingreso</h5>
-                                            <p class="text-muted">Ingrese sus datos.</p>
+                                            <p class="text-muted">Ingrese sus datos. | <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color:#0000B0;">Registrar nuevo usuario</a></p>
                                         </div>
                                         
                                         <div class="mt-4">
@@ -120,10 +120,9 @@
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button id="login-submit" type="submit" class="btn btn-success w-100">Ingresar  </button>
-                                                    
+                                                    <button id="login-submit" type="submit" class="btn btn-success w-100">Ingresar  </button>                                                    
                                                 </div>
-                                               </form>
+                                            </form>
                                         </div>
                                     </div>                                
                                 <!-- end col -->
