@@ -11,8 +11,8 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221028181400_Inicial")]
-    partial class Inicial
+    [Migration("20221031030648_CargaInicial")]
+    partial class CargaInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

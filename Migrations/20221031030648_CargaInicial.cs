@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TransportesMR.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class CargaInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

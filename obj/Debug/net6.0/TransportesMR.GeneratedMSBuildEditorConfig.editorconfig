@@ -175,12 +175,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/Camiones/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/Camiones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/MarcasVehiculos/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXENyZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/MarcasVehiculos/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/MarcasVehiculos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/ModelosVehiculos/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/ModelosVehiculos/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/ModelosVehiculos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Rodrigo Araya/Desktop/TransportesMR/Views/Shared/Error.cshtml]
