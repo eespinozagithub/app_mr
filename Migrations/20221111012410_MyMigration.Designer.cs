@@ -11,8 +11,8 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221031030648_CargaInicial")]
-    partial class CargaInicial
+    [Migration("20221111012410_MyMigration")]
+    partial class MyMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,6 +223,237 @@ namespace TransportesMR.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TransportesMR.Models.MarcaVehiculo", b =>
+                {
+                    b.Property<int>("IdMarca")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Marca")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("IdMarca");
+
+                    b.ToTable("MarcaVehiculo");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.ModeloVehiculo", b =>
+                {
+                    b.Property<int>("IdModelo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdMarca")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("IdModelo");
+
+                    b.HasIndex("IdMarca");
+
+                    b.ToTable("ModeloVehiculo");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.Remolque", b =>
+                {
+                    b.Property<int>("IdRemolque")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Año")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CapacidadRemolque")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("IdTipoRemolque")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumeroRemolque")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Patente")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.HasKey("IdRemolque");
+
+                    b.HasIndex("IdTipoRemolque");
+
+                    b.ToTable("Remolques");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.TipoRemolque", b =>
+                {
+                    b.Property<int>("IdTipoRemolque")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<float>("capacidad")
+                        .HasColumnType("float");
+
+                    b.HasKey("IdTipoRemolque");
+
+                    b.ToTable("TipoRemolques");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.Trabajador", b =>
+                {
+                    b.Property<int>("IdTrabajador")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApellidoMaterno")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Ciudad")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Comuna")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("ContratoFin")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("ContratoInicio")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EstadoCivil")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaNacimiento")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LicenciaConducirCodigoBarra")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LicenciaConducirTipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("LicenciaConducirVencimiento")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Rut")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("Sexo")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SueldoBase")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TelefonoEmergencia")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.HasKey("IdTrabajador");
+
+                    b.ToTable("Trabajador");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.Vehiculo", b =>
+                {
+                    b.Property<int>("IdVehiculo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Año")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Chasis")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("IdMarca")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NumeroMotor")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Patente")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.HasKey("IdVehiculo");
+
+                    b.HasIndex("IdMarca");
+
+                    b.ToTable("Vehiculos");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Vehiculo");
+                });
+
             modelBuilder.Entity("TransportesMR.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -236,6 +467,19 @@ namespace TransportesMR.Migrations
                         .HasColumnType("longtext");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.Camion", b =>
+                {
+                    b.HasBaseType("TransportesMR.Models.Vehiculo");
+
+                    b.Property<int>("Cilindrada")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCamion")
+                        .HasColumnType("int");
+
+                    b.HasDiscriminator().HasValue("Camion");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -287,6 +531,39 @@ namespace TransportesMR.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.ModeloVehiculo", b =>
+                {
+                    b.HasOne("TransportesMR.Models.MarcaVehiculo", "MarcaVehiculo")
+                        .WithMany()
+                        .HasForeignKey("IdMarca")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MarcaVehiculo");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.Remolque", b =>
+                {
+                    b.HasOne("TransportesMR.Models.TipoRemolque", "TipoRemolque")
+                        .WithMany()
+                        .HasForeignKey("IdTipoRemolque")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoRemolque");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.Vehiculo", b =>
+                {
+                    b.HasOne("TransportesMR.Models.MarcaVehiculo", "MarcaVehiculo")
+                        .WithMany()
+                        .HasForeignKey("IdMarca")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MarcaVehiculo");
                 });
 #pragma warning restore 612, 618
         }

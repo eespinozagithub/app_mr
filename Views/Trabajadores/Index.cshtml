@@ -1,0 +1,154 @@
+﻿@model IEnumerable<TransportesMR.Models.Trabajador>
+@{
+    ViewData["Title"] = "Listado de Trabajadores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Layout config Js -->
+<script src="~/assets/js/layout.js"></script>
+<!-- Bootstrap Css -->
+<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- Icons Css -->
+<link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+<!-- App Css-->
+<link href="~/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+<!-- custom Css-->
+<link href="~/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Trabajador</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    @*<li class="breadcrumb-item"><a href="javascript: void(0);">Inicio</a></li>*@
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <div id="customerList">
+                    <div class="row g-4 mb-3">
+                        <div class="col-sm-auto">
+                            <div>
+                                <a asp-action="CrearTrabajador" class="btn btn-success add-btn"><i class="ri-add-line align-bottom me-1"></i> Crear Trabajador</a>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="search-box ms-2">
+                                    <input type="text" class="form-control search" placeholder="Buscar...">
+                                    <i class="ri-search-line search-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Model.Count() > 0)
+                    {
+    
+                        <div class="table-responsive table-card mt-3 mb-1">
+                            <table class="table align-middle table-nowrap" id="customerTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="sort">Id Trabajador</th>
+                                        <th class="sort">Nombre</th>
+                                        <th class="sort">Rut</th>
+                                        <th class="sort">Inicio de Contrato</th>
+                                        <th class="sort">Fin de Contrato</th>
+                                        <th class="sort">Estado</th>
+                                        <th class="sort">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list form-check-all">
+
+                                    @foreach (var trabajador in Model)
+                                    {
+                                        <tr>
+                                            <td>@trabajador.IdTrabajador</td>
+                                            <td>@trabajador.Nombre @trabajador.ApellidoPaterno @trabajador.ApellidoMaterno</td>
+                                            <td>@trabajador.Rut</td>
+                                            <td>
+                                                @if (@trabajador.ContratoInicio != null)
+                                                {
+                                                    @trabajador.ContratoInicio.Value.ToString("dd/MM/yyyy")
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (@trabajador.ContratoFin != null)
+                                                {
+                                                    @trabajador.ContratoFin.Value.ToString("dd/MM/yyyy")
+                                                }
+                                            </td>
+                                            @if (trabajador.Estado == 1)
+                                            {
+                                                <td>Activo</td>
+                                            }
+                                            else if (trabajador.Estado == 0)
+                                            {
+                                                <td>Desactivo</td>
+                                            }
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarTrabajador" asp-route-id="@trabajador.IdTrabajador">
+                                                            <i class="ri-edit-2-line"></i> Modificar
+                                                        </a>
+                                                    </div>                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>                           
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <div class="pagination-wrap hstack gap-2">
+                                <a class="page-item pagination-prev disabled" href="#">
+                                    Antes
+                                </a>
+                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                <a class="page-item pagination-next" href="#">
+                                    Siguiente
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Sin trabajadores ingresados</p>
+                    }
+                </div>
+            </div><!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+
+<!-- JAVASCRIPT -->
+<script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="~/assets/libs/node-waves/waves.min.js"></script>
+<script src="~/assets/libs/feather-icons/feather.min.js"></script>
+<script src="~/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+<script src="~/assets/js/plugins.js"></script>
+
+<!-- App js -->
+<script src="~/assets/js/app.js"></script>

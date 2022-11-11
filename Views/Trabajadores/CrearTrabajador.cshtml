@@ -1,0 +1,224 @@
+﻿@model TransportesMR.Models.Trabajador
+
+@{
+    ViewData["Title"] = "Crear Trabajador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .field-validation-error{
+        color:#FF0102;
+    }
+</style>
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Trabajador</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-action="Index">Listado de trabajadores</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+            <div class="card-body">               
+                
+                <div class="live-preview">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <form method="post" asp-action="CrearTrabajador">
+                        
+                        <div class="row g-3">
+                            <!--FILA 1-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Nombre" class="form-control" placeholder="Ingrese el Nombre" />
+                                    <label asp-for="Nombre"></label>                                    
+                                    <span asp-validation-for="Nombre"></span>                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="ApellidoPaterno" class="form-control" placeholder="Ingrese el Apellido Paterno">
+                                    <label asp-for="ApellidoPaterno"></label>
+                                    <span asp-validation-for="ApellidoPaterno"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="ApellidoMaterno" class="form-control" placeholder="Ingrese el Apellido Materno">
+                                    <label asp-for="ApellidoMaterno"></label>
+                                    <span asp-validation-for="ApellidoMaterno"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 2-->
+                            <div class="col-lg-2">
+                                <div class="form-floating">
+                                    <input asp-for="Rut" class="form-control" placeholder="Ingrese el Rut"
+                                           pattern="\d{3,8}-[\d|kK]{1}" title="Debe ser un Rut válido" />
+                                    <label asp-for="Rut"></label>
+                                    <span asp-validation-for="Rut"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-floating">
+                                    <span style="color:#6E6E6E; font-size:12px">* Debe ingresar solo el guion (-), sin puntos</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="Sexo" class="form-select">
+                                        <option value="" selected>Seleccione...</option>
+                                        <option value="1">Masculino</option>
+                                        <option value="2">Femenino</option>
+                                    </select>
+                                    <label asp-for="Sexo"></label>
+                                    <span asp-validation-for="Sexo"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="FechaNacimiento" class="form-control" placeholder="Ingrese la Fecha de Nacimiento">
+                                    <label asp-for="FechaNacimiento"></label>
+                                    <span asp-validation-for="FechaNacimiento"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 3-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="EstadoCivil" class="form-select" id="floatingSelect">
+                                        <option value="" selected>Seleccione...</option>
+                                        <option value="1">Soltero(a)</option>
+                                        <option value="2">Casado(a)</option>
+                                        <option value="2">Divorciado(a)</option>
+                                    </select>
+                                    <label asp-for="EstadoCivil"></label>
+                                    <span asp-validation-for="EstadoCivil"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Comuna" class="form-control" placeholder="Ingrese la Comuna">
+                                    <label asp-for="Comuna"></label>
+                                    <span asp-validation-for="Comuna"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Ciudad" class="form-control" placeholder="Ingrese la Ciudad">
+                                    <label asp-for="Ciudad"></label>
+                                    <span asp-validation-for="Ciudad"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 4-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Direccion" class="form-control" placeholder="Ingrese la Dirección" />
+                                    <label asp-for="Direccion"></label>
+                                    <span asp-validation-for="Direccion"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Telefono" class="form-control" placeholder="Ingrese el Teléfono">
+                                    <label asp-for="Telefono"></label>
+                                    <span asp-validation-for="Telefono"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="TelefonoEmergencia" class="form-control" placeholder="Ingrese el Teléfono Emergencia">
+                                    <label asp-for="TelefonoEmergencia"></label>
+                                    <span asp-validation-for="TelefonoEmergencia"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 5-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="LicenciaConducirTipo" class="form-control" placeholder="Ingrese el Tipo de Licencia de Conducir" />
+                                    <label asp-for="LicenciaConducirTipo"></label>
+                                    <span asp-validation-for="LicenciaConducirTipo"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="LicenciaConducirVencimiento" class="form-control" placeholder="Ingrese la Fecha de Vencimiento ">
+                                    <label asp-for="LicenciaConducirVencimiento"></label>
+                                    <span asp-validation-for="LicenciaConducirVencimiento"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="LicenciaConducirCodigoBarra" class="form-control" placeholder="Ingrese el Código de Barras">
+                                    <label asp-for="LicenciaConducirCodigoBarra"></label>
+                                    <span asp-validation-for="LicenciaConducirCodigoBarra"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 6-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="ContratoInicio" class="form-control" placeholder="Ingrese la Fecha de Inicio de Contrato" />
+                                    <label asp-for="ContratoInicio"></label>
+                                    <span asp-validation-for="ContratoInicio"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="ContratoFin" class="form-control" placeholder="Ingrese la Fecha de Fin de Contrato">
+                                    <label asp-for="ContratoFin"></label>
+                                    <span asp-validation-for="ContratoFin"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="SueldoBase" class="form-control" placeholder="Ingrese el Sueldo Base">
+                                    <label asp-for="SueldoBase"></label>
+                                    <span asp-validation-for="SueldoBase"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 7-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="Estado" class="form-select">
+                                        <option value="1">Activo</option>
+                                        <option value="0">Desactivo</option>
+                                    </select>
+                                    <label asp-for="Estado"></label>
+                                    <span asp-validation-for="Estado"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Crear Trabajador</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

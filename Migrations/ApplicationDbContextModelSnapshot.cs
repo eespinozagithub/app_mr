@@ -316,6 +316,94 @@ namespace TransportesMR.Migrations
                     b.ToTable("TipoRemolques");
                 });
 
+            modelBuilder.Entity("TransportesMR.Models.Trabajador", b =>
+                {
+                    b.Property<int>("IdTrabajador")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApellidoMaterno")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Ciudad")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Comuna")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("ContratoFin")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("ContratoInicio")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EstadoCivil")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaNacimiento")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LicenciaConducirCodigoBarra")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LicenciaConducirTipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("LicenciaConducirVencimiento")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Rut")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("Sexo")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SueldoBase")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TelefonoEmergencia")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.HasKey("IdTrabajador");
+
+                    b.ToTable("Trabajador");
+                });
+
             modelBuilder.Entity("TransportesMR.Models.Vehiculo", b =>
                 {
                     b.Property<int>("IdVehiculo")
