@@ -11,7 +11,7 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221111012410_MyMigration")]
+    [Migration("20221112024136_MyMigration")]
     partial class MyMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -351,7 +351,7 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Estado")
+                    b.Property<int?>("Estado")
                         .HasColumnType("int");
 
                     b.Property<int?>("EstadoCivil")

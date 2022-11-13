@@ -16,8 +16,8 @@ namespace TransportesMR.Controllers
 
         public IActionResult Index()
         {
-            List<Trabajador> ListaTrabajador = _context.Trabajador.OrderByDescending(x => x.Estado).ToList();
-            return View(ListaTrabajador);
+            List<Trabajador> listaTrabajador = _context.Trabajador.OrderByDescending(x => x.Estado).ToList();
+            return View(listaTrabajador);
         }
 
         [HttpGet]
@@ -56,6 +56,7 @@ namespace TransportesMR.Controllers
             
             return View(trabajador);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ModificarTrabajador(Trabajador trabajador)

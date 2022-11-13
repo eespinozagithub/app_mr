@@ -20,6 +20,7 @@ namespace TransportesMR.Data
         public DbSet<Camion> Camiones { get; set; }
         public DbSet<TipoRemolque> TipoRemolques { get; set; }
         public DbSet<Trabajador> Trabajador { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

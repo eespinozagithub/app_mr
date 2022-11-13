@@ -34,12 +34,6 @@
             <!--MENÚ PLANTILLA-->
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="/Identity/Account/Register">
-                        <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Usuarios</span>
-                    </a>
-                </li>   
                 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="@Url.Action("Index", "Trabajadores")">
@@ -66,6 +60,18 @@
                         </ul>
                     </div>
                 </li> <!-- end camiones Menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="@Url.Action("Index", "Empresas")">
+                        <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Empresas</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="/Identity/Account/Register">
+                        <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Usuarios</span>
+                    </a>
+                </li>
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
 

@@ -138,7 +138,7 @@ namespace TransportesMR.Migrations
                     ContratoFin = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     SueldoBase = table.Column<int>(type: "int", nullable: false),
                     FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Estado = table.Column<int>(type: "int", nullable: false)
+                    Estado = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
