@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-3">
-        <a asp-action="Crear" class="btn btn-primary form-control">Crear Camion</a>
+        <a asp-action="CrearCamion" class="btn btn-primary form-control">Crear Camion</a>
     </div>
 </div>
 
@@ -19,16 +19,30 @@
     {
         <table class="table table-striped border">
             <tr>
-                <th>Marcas</th>
-                <th></th>
+            
+                <th>@Html.DisplayNameFor(a => a.Patente)</th>
+                <th>@Html.DisplayNameFor(a => a.IdCamion)</th>
+                <th>@Html.DisplayNameFor(a => a.MarcaVehiculo) </th>
+                <th>@Html.DisplayNameFor(a => a.ModeloVehiculo) </th>
+                <th>@Html.DisplayNameFor(a => a.Año) </th>
+                <th>@Html.DisplayNameFor(a => a.Chasis) </th>
+                <th>@Html.DisplayNameFor(a => a.Color) </th>
+                <th>@Html.DisplayNameFor(a => a.Cilindrada) </th>
             </tr>
 
             @foreach (var camion in Model)
             {
                 <tr>
                     <td>@camion.Patente</td>
+                    <td>@camion.IdCamion</td>
+                    <td>@camion.MarcaVehiculo.Marca</td>
+                    <td>@camion.ModeloVehiculo.Modelo</td>
+                    <td>@camion.Año</td>
+                    <td>@camion.Chasis</td>
+                    <td>@camion.Color</td>
+                    <td>@camion.Cilindrada</td>
                     <td>
-                        <a class="btn btn-primary text-white" asp-action="Editar" asp-route-id="@camion.IdVehiculo">Editar</a>
+                        <a class="btn btn-primary text-white" asp-action="EditarCamion" asp-route-id="@camion.IdVehiculo">Editar</a>
                         <a class="btn btn-danger text-white" asp-action="getBorrar" asp-route-id="@camion.IdVehiculo">Borrar</a>
 
                     </td>

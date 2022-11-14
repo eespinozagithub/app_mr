@@ -4,6 +4,6 @@
     {
         public int IdCamion { get; set; }
 
-        public int Cilindrada { get; set; }
+        public float Cilindrada { get; set; }
     }
 }

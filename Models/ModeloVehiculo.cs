@@ -1,4 +1,6 @@
-﻿namespace TransportesMR.Models
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace TransportesMR.Models
 {
     public class ModeloVehiculo
     {
@@ -14,6 +16,11 @@
         [Required]
         public int IdMarca { get; set; }
         public MarcaVehiculo? MarcaVehiculo { get; set; }
+
+      
+
+
+
     }
 }
 

@@ -3,12 +3,13 @@ using TransportesMR.Models;
 
 namespace TransportesMR.ViewModels
 {
-    public class MarcaModeloVM
+    public class MarcaModeloVM :Vehiculo
     {
         public ModeloVehiculo ModeloVehiculo { get; set; }
 
         //public MarcaVehiculo MarcaVehiculo { get; set; }
         public IEnumerable<SelectListItem> ListaMarca { get; set; }
+       
 
 
     }

@@ -28,10 +28,16 @@
 
 
         [ForeignKey("MarcaVehiculo")]
-        [Required]
-        public int IdMarca { get; set; }
+     
+        public int? IdMarca { get; set; }
 
-        public MarcaVehiculo MarcaVehiculo { get; set; }
+        public MarcaVehiculo? MarcaVehiculo { get; set; }
+
+        [ForeignKey("ModeloVehiculo")]
+        [Required]
+        public int? IdModelo { get; set; }
+
+        public ModeloVehiculo? ModeloVehiculo { get; set; }
 
     }
 }

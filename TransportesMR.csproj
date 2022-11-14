@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Camiones\Crear.cshtml" />
+    <None Include="Views\Camiones\CrearCamion.cshtml" />
     <None Include="Views\Camiones\Index.cshtml" />
     <None Include="Views\MarcasVehiculos\Crear.cshtml" />
     <None Include="Views\MarcasVehiculos\Editar.cshtml" />
