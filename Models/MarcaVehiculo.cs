@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 namespace TransportesMR.Models
 {
     public class MarcaVehiculo
@@ -10,5 +12,6 @@ namespace TransportesMR.Models
         [MaxLength(100)]
         public string Marca { get; set; }
 
+        //public IEnumerable<SelectListItem> ListaMarca { get; set; }
     }
 }

@@ -261,7 +261,10 @@ namespace TransportesMR.Migrations
 
                     b.Property<int?>("TelefonoEncargado")
                         .IsRequired()
+<<<<<<< HEAD
                         .HasMaxLength(40)
+=======
+>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95
                         .HasColumnType("int");
 
                     b.HasKey("IdEmpresa");
@@ -487,7 +490,8 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Año")
+                    b.Property<DateTime?>("Año")
+                        .IsRequired()
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Chasis")
@@ -504,10 +508,17 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("Estado")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<int?>("Estado")
+                        .IsRequired()
+                        .HasColumnType("int");
 
-                    b.Property<int>("IdMarca")
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("IdMarca")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdModelo")
                         .HasColumnType("int");
 
                     b.Property<string>("NumeroMotor")
@@ -523,6 +534,8 @@ namespace TransportesMR.Migrations
                     b.HasKey("IdVehiculo");
 
                     b.HasIndex("IdMarca");
+
+                    b.HasIndex("IdModelo");
 
                     b.ToTable("Vehiculos");
 
@@ -548,8 +561,8 @@ namespace TransportesMR.Migrations
                 {
                     b.HasBaseType("TransportesMR.Models.Vehiculo");
 
-                    b.Property<int>("Cilindrada")
-                        .HasColumnType("int");
+                    b.Property<float>("Cilindrada")
+                        .HasColumnType("float");
 
                     b.Property<int>("IdCamion")
                         .HasColumnType("int");
@@ -634,11 +647,15 @@ namespace TransportesMR.Migrations
                 {
                     b.HasOne("TransportesMR.Models.MarcaVehiculo", "MarcaVehiculo")
                         .WithMany()
-                        .HasForeignKey("IdMarca")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdMarca");
+
+                    b.HasOne("TransportesMR.Models.ModeloVehiculo", "ModeloVehiculo")
+                        .WithMany()
+                        .HasForeignKey("IdModelo");
 
                     b.Navigation("MarcaVehiculo");
+
+                    b.Navigation("ModeloVehiculo");
                 });
 #pragma warning restore 612, 618
         }

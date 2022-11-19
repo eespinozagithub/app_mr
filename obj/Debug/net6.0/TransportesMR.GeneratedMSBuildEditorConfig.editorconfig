@@ -176,8 +176,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/Camiones/Crear.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcQ3JlYXIuY3NodG1s
+[C:/Users/araya/Desktop/app_mr/Views/Camiones/CrearCamion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcQ3JlYXJDYW1pb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/araya/Desktop/app_mr/Views/Camiones/EditarCamion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcRWRpdGFyQ2FtaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/Camiones/Index.cshtml]
@@ -240,12 +244,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1JlbW9scXVlXE1vZGlmaWNhck1vZGVsb1JlbW9scXVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/Crear.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xDcmVhci5jc2h0bWw=
+[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/CrearModelo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xDcmVhck1vZGVsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xFZGl0YXIuY3NodG1s
+[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/EditarModeloVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xFZGl0YXJNb2RlbG9WZWhpY3Vsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/Index.cshtml]
