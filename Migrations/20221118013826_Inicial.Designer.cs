@@ -11,8 +11,8 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221112024136_MyMigration")]
-    partial class MyMigration
+    [Migration("20221118013826_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,6 +223,70 @@ namespace TransportesMR.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TransportesMR.Models.Empresa", b =>
+                {
+                    b.Property<int>("IdEmpresa")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApellidosEncargado")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EmailContacto")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("varchar(80)");
+
+                    b.Property<string>("Giro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("NombresEncargado")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RazonSocial")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("varchar(40)");
+
+                    b.Property<string>("Rut")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("varchar(40)");
+
+                    b.Property<int?>("TelefonoEncargado")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("int");
+
+                    b.HasKey("IdEmpresa");
+
+                    b.ToTable("Empresa");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.MarcaRemolque", b =>
+                {
+                    b.Property<int>("IdMarca")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Marca")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("IdMarca");
+
+                    b.ToTable("MarcaRemolque");
+                });
+
             modelBuilder.Entity("TransportesMR.Models.MarcaVehiculo", b =>
                 {
                     b.Property<int>("IdMarca")
@@ -237,6 +301,27 @@ namespace TransportesMR.Migrations
                     b.HasKey("IdMarca");
 
                     b.ToTable("MarcaVehiculo");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.ModeloRemolque", b =>
+                {
+                    b.Property<int>("IdModelo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdMarca")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("IdModelo");
+
+                    b.HasIndex("IdMarca");
+
+                    b.ToTable("ModeloRemolque");
                 });
 
             modelBuilder.Entity("TransportesMR.Models.ModeloVehiculo", b =>
@@ -266,23 +351,22 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Año")
+                    b.Property<DateTime>("Anio")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("CapacidadRemolque")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                    b.Property<int>("Capacidad")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("IdTipoRemolque")
+                    b.Property<int>("Modelo")
                         .HasColumnType("int");
+
+                    b.Property<string>("NumeroChasis")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
 
                     b.Property<int>("NumeroRemolque")
                         .HasColumnType("int");
@@ -292,30 +376,12 @@ namespace TransportesMR.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
-                    b.HasKey("IdRemolque");
-
-                    b.HasIndex("IdTipoRemolque");
-
-                    b.ToTable("Remolques");
-                });
-
-            modelBuilder.Entity("TransportesMR.Models.TipoRemolque", b =>
-                {
-                    b.Property<int>("IdTipoRemolque")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("TipoRemolque")
                         .HasColumnType("int");
 
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                    b.HasKey("IdRemolque");
 
-                    b.Property<float>("capacidad")
-                        .HasColumnType("float");
-
-                    b.HasKey("IdTipoRemolque");
-
-                    b.ToTable("TipoRemolques");
+                    b.ToTable("Remolque");
                 });
 
             modelBuilder.Entity("TransportesMR.Models.Trabajador", b =>
@@ -334,11 +400,13 @@ namespace TransportesMR.Migrations
 
                     b.Property<string>("Ciudad")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
 
                     b.Property<string>("Comuna")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
 
                     b.Property<DateTime?>("ContratoFin")
                         .HasColumnType("datetime(6)");
@@ -367,11 +435,13 @@ namespace TransportesMR.Migrations
 
                     b.Property<string>("LicenciaConducirCodigoBarra")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(80)
+                        .HasColumnType("varchar(80)");
 
                     b.Property<string>("LicenciaConducirTipo")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<DateTime?>("LicenciaConducirVencimiento")
                         .IsRequired()
@@ -383,7 +453,8 @@ namespace TransportesMR.Migrations
 
                     b.Property<string>("Rut")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int?>("Sexo")
                         .IsRequired()
@@ -533,6 +604,17 @@ namespace TransportesMR.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TransportesMR.Models.ModeloRemolque", b =>
+                {
+                    b.HasOne("TransportesMR.Models.MarcaRemolque", "MarcaRemolque")
+                        .WithMany()
+                        .HasForeignKey("IdMarca")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MarcaRemolque");
+                });
+
             modelBuilder.Entity("TransportesMR.Models.ModeloVehiculo", b =>
                 {
                     b.HasOne("TransportesMR.Models.MarcaVehiculo", "MarcaVehiculo")
@@ -542,17 +624,6 @@ namespace TransportesMR.Migrations
                         .IsRequired();
 
                     b.Navigation("MarcaVehiculo");
-                });
-
-            modelBuilder.Entity("TransportesMR.Models.Remolque", b =>
-                {
-                    b.HasOne("TransportesMR.Models.TipoRemolque", "TipoRemolque")
-                        .WithMany()
-                        .HasForeignKey("IdTipoRemolque")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TipoRemolque");
                 });
 
             modelBuilder.Entity("TransportesMR.Models.Vehiculo", b =>

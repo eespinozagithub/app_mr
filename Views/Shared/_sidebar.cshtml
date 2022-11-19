@@ -61,6 +61,27 @@
                     </div>
                 </li> <!-- end camiones Menu -->
 
+                <!-- REMOLQUES-->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarRemolques" data-bs-toggle="collapse" role="button"
+                       aria-expanded="false" aria-controls="sidebarRemolques">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Remolques</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarRemolques">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="@Url.Action("ListadoRemolque", "Remolques")" class="nav-link" data-key="t-analytics"> Remolques </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ListadoMarcaRemolque", "MarcasRemolque")" class="nav-link" data-key="t-analytics"> Mantenedor Marca </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("ListadoModeloRemolque", "ModelosRemolque")" class="nav-link" data-key="t-analytics"> Mantenedor Modelos </a>
+                            </li>                            
+                        </ul>
+                    </div>
+                </li> <!-- end camiones Menu -->
+
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="@Url.Action("Index", "Empresas")">
                         <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Empresas</span>

@@ -3,28 +3,34 @@
     public class Remolque
     {
         [Key]
+        [Display(Name = "ID")]
         public int IdRemolque { get; set; }
+
+        [Required]
+        [Display(Name = "Número Remolque")]
+        public int NumeroRemolque { get; set; }
 
         [Required]
         [MaxLength(10)]
         public string Patente { get; set; }
-        public string CapacidadRemolque { get; set; }
+
+        public int Capacidad { get; set; }
+
+        [MaxLength(60)]
+        [Display(Name = "Número de Chasis")]
+        public string NumeroChasis { get; set; }
+
+        public int Modelo { get; set; }
 
         [Required]
-        public DateTime Año { get; set; }
+        [Display(Name = "Año")]
+        public DateTime Anio { get; set; }
 
-        [MaxLength(100)]
-        public string Color { get; set; }
-        [Required]
-        public int NumeroRemolque { get; set; }
+        [Display(Name = "Tipo Remolque")]
+        public int TipoRemolque { get; set; }
 
         [Required]
         public bool Estado { get; set; }
-
-        [ForeignKey("TipoRemolque")]
-        [Required]
-        public int IdTipoRemolque { get; set; }
-        public TipoRemolque? TipoRemolque { get; set; }
 
     }
 }

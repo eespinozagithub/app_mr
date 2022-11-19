@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rodrigo Araya\\Desktop\\app_mr\\TransportesMR.csproj": {}
+    "C:\\Users\\araya\\Desktop\\app_mr\\TransportesMR.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rodrigo Araya\\Desktop\\app_mr\\TransportesMR.csproj": {
+    "C:\\Users\\araya\\Desktop\\app_mr\\TransportesMR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rodrigo Araya\\Desktop\\app_mr\\TransportesMR.csproj",
+        "projectUniqueName": "C:\\Users\\araya\\Desktop\\app_mr\\TransportesMR.csproj",
         "projectName": "TransportesMR",
-        "projectPath": "C:\\Users\\Rodrigo Araya\\Desktop\\app_mr\\TransportesMR.csproj",
-        "packagesPath": "C:\\Users\\Rodrigo Araya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rodrigo Araya\\Desktop\\app_mr\\obj\\",
+        "projectPath": "C:\\Users\\araya\\Desktop\\app_mr\\TransportesMR.csproj",
+        "packagesPath": "C:\\Users\\araya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\araya\\Desktop\\app_mr\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Rodrigo Araya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\araya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

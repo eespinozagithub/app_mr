@@ -19,6 +19,7 @@ namespace TransportesMR.Models
         public string ApellidoMaterno { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Rut")]
+        [StringLength(50)]
         public string Rut { get; set; }
 
         [Required(ErrorMessage = "Debe seleccionar el Sexo")]
@@ -35,9 +36,11 @@ namespace TransportesMR.Models
         public int? EstadoCivil { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Comuna")]
+        [StringLength(60)]
         public string Comuna { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Ciudad")]
+        [StringLength(60)]
         public string Ciudad { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Dirección")]
@@ -52,9 +55,9 @@ namespace TransportesMR.Models
         [Display(Name = "Teléfono de Emergencia")]
         public int? TelefonoEmergencia { get; set; }
 
-
         [Required(ErrorMessage = "Debe ingresar la Licencia de Conducir")]
         [Display(Name = "Tipo de Licencia de Conducir")]
+        [StringLength(50)]
         public string LicenciaConducirTipo { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Fecha de Vencimiento")]
@@ -65,6 +68,7 @@ namespace TransportesMR.Models
 
         [Required(ErrorMessage = "Debe ingresar el Código de Barras")]
         [Display(Name = "Código de Barra de Licencia de Conducir")]
+        [StringLength(80)]
         public string LicenciaConducirCodigoBarra { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Fecha de Inicio de Contrato")]
@@ -72,8 +76,7 @@ namespace TransportesMR.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyy}", ApplyFormatInEditMode = false)]
         [DataType(DataType.Date, ErrorMessage = "Formato de fecha inválido")]
         public DateTime? ContratoInicio { get; set; }
-
-        //[Required(ErrorMessage = "Debe ingresar la Fecha de Fin de Contrato")]
+                
         [Display(Name = "Fecha de Fin de Contrato")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyy}", ApplyFormatInEditMode = false)]
         [DataType(DataType.Date, ErrorMessage = "Formato de fecha inválido")]

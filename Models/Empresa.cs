@@ -6,13 +6,16 @@
         public int IdEmpresa { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Rut")]
+        [StringLength(40)]
         public string Rut  { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Razón Social")]
+        [StringLength(40)]
         [Display(Name = "Razón Social")]
         public string RazonSocial { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Giro")]
+        [StringLength(100)]
         public string Giro { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar los Nombres")]
@@ -25,11 +28,13 @@
 
         [Required(ErrorMessage = "Debe ingresar el Teléfono")]
         [Display(Name = "Teléfono Encargado")]
+        [StringLength(40)]
         public int? TelefonoEncargado { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Email")]
         [EmailAddress(ErrorMessage = "Correo ingresado no válido")]
         [Display(Name = "Email de Contacto")]
+        [StringLength(80)]
         public string EmailContacto { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Dirección")]

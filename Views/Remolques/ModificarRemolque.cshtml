@@ -1,0 +1,133 @@
+﻿@model TransportesMR.Models.Remolque
+@{
+    ViewData["Title"] = "Modificar Remolque";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .field-validation-error {
+        color: #FF0102;
+    }
+</style>
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Remolque</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-action="ListadoRemolque">Listado de remolques</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+
+                <div class="live-preview">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <form method="post" asp-action="ModificarRemolque">
+                        
+                        <!--Envair ID-->
+                        <input type="hidden" asp-for="IdRemolque" />
+
+                        <div class="row g-3">
+                            <!--FILA 1-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="NumeroRemolque" class="form-control" placeholder="Ingrese el Número" />
+                                    <label asp-for="NumeroRemolque"></label>
+                                    <span asp-validation-for="NumeroRemolque"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Patente" class="form-control" placeholder="Ingrese la Patente">
+                                    <label asp-for="Patente"></label>
+                                    <span asp-validation-for="Patente"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Capacidad" class="form-control" placeholder="Ingrese la Capacidad">
+                                    <label asp-for="Capacidad"></label>
+                                    <span asp-validation-for="Capacidad"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 2-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="NumeroChasis" class="form-control" placeholder="Ingrese el Numero de Chasis" />
+                                    <label asp-for="NumeroChasis"></label>
+                                    <span asp-validation-for="NumeroChasis"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Modelo" class="form-control" placeholder="Ingrese el modelo">
+                                    <label asp-for="Modelo"></label>
+                                    <span asp-validation-for="Modelo"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="form-floating">
+                                    <input asp-for="Anio" class="form-control" placeholder="Ingrese el Año">
+                                    <label asp-for="Anio"></label>
+                                    <span asp-validation-for="Anio"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 3-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="TipoRemolque" class="form-select">
+                                        <option value="1">[Seleccione]</option>
+                                        <option value="1">Slider</option>
+                                        <option value="2">Plana</option>
+                                        <option value="3">Termo</option>
+                                        <option value="4">General</option>
+                                    </select>
+                                    <label asp-for="TipoRemolque"></label>
+                                    <span asp-validation-for="TipoRemolque"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="Estado" class="form-select">
+                                        <option value="true">Activo</option>
+                                        <option value="false">Desactivo</option>
+                                    </select>
+                                    <label asp-for="Estado"></label>
+                                    <span asp-validation-for="Estado"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Modificar Remolque</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
