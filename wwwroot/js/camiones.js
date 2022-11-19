@@ -1,12 +1,14 @@
 ﻿
 $(document).ready(function () {
-
+	//ListadoMarcas();
 	
 	$("#cmbMarcas").change(function () {
 		/*const valorSeleccionado = $(this).val();*/
 		
 		ListadoModelos($("#cmbMarcas").val());
 	});
+	
+
 	
 });
 
@@ -38,32 +40,31 @@ function ListadoModelos(IdMarca) {
 	});
 }
 
-//function ListadoModelos(IdMarca) {
+function ListadoMarcas() {
 
-//	var cmbModelos = "#cmbModelos";
-//	$.ajax({
-//		/*contentType: "application/json",*/
-//		dataType: 'json',
-//		type: "POST",
-//		url: '../Camiones/getModelos',
-//		data: { 'IdMarca': IdMarca },
-//		success: function (data) {
-//			//$(cmbModelos).html("");
+	var cmbMarcas = "#cmbMarcas";
+	$.ajax({
+		/*contentType: "application/json",*/
+		dataType: 'json',
+		type: "POST",
+		url: '../Camiones/TraeMarcas',
+		data: {},
+		success: function (data) {
+			console.log(data);
+			$(cmbMarcas).html("");
+			console.log(data);
+			$(cmbMarcas).html("<option value='0'> Seleccione una marca </option>");
 
-//			//$(cmbModelos).html("<option value='0'> Seleccione un terminal </option>");
+			$.each(data, function (i, data) {
+				$(cmbMarcas).append('<option value="' + data.value + '">' +
+					data.text + '</option>');
 
-//			////$.each(data,
-//			////	function (i,val) {
-//			////		$(cmbModelos).append($('<option />', { value: val.IdModelo, text: Modelo }));
-//			////	});
+			});
+
+			$(cmbMarcas).val("0");
 
 
-//			//$(cmbModelos).val("0");
-//			$.each(data, function (key, registro) {
-//				$("#Select").append('<option value=' + registro.id + '>' + registro.nombre + '</option>');
-//			});
+		},
 
-//		},
-
-//	});
-//}
+	});
+}

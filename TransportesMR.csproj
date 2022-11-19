@@ -20,8 +20,8 @@
     <None Include="Views\MarcasVehiculos\Crear.cshtml" />
     <None Include="Views\MarcasVehiculos\Editar.cshtml" />
     <None Include="Views\MarcasVehiculos\Index.cshtml" />
-    <None Include="Views\ModelosVehiculos\Crear.cshtml" />
-    <None Include="Views\ModelosVehiculos\Editar.cshtml" />
+    <None Include="Views\ModelosVehiculos\CrearModelo.cshtml" />
+    <None Include="Views\ModelosVehiculos\EditarModeloVehiculo.cshtml" />
     <None Include="Views\ModelosVehiculos\Index.cshtml" />
   </ItemGroup>
 

@@ -10,10 +10,12 @@ namespace TransportesMR.Controllers
     public class ModelosVehiculosController : Controller
     {
         public readonly ApplicationDbContext _context;
+        private List<MarcaVehiculo> lstMarcas;
 
         public ModelosVehiculosController(ApplicationDbContext context)
         {
             _context = context;
+            lstMarcas = _context.MarcaVehiculo.ToList();
         }
         public IActionResult Index()
         {
@@ -23,7 +25,7 @@ namespace TransportesMR.Controllers
 
 
         [HttpGet]
-        public IActionResult Crear()
+        public IActionResult CrearModelo()
         {
             MarcaModeloVM marcaModelo = new MarcaModeloVM();
             marcaModelo.ListaMarca = _context.MarcaVehiculo.Select(i => new SelectListItem
@@ -38,7 +40,7 @@ namespace TransportesMR.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult setCrear(ModeloVehiculo modeloVehiculo)
+        public IActionResult CrearModelo(ModeloVehiculo modeloVehiculo)
         {
 
             if (ModelState.IsValid)
@@ -52,8 +54,9 @@ namespace TransportesMR.Controllers
         }
         [HttpGet]
 
-        public IActionResult Editar(int? id)
+        public IActionResult EditarModeloVehiculo(int? id)
         {
+            ViewBag.Marcas = lstMarcas;
             if (id == null)
             {
                 return View();
@@ -64,8 +67,9 @@ namespace TransportesMR.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult setEditar(ModeloVehiculo modeloVeh)
+        public IActionResult EditarModeloVehiculo(ModeloVehiculo modeloVeh)
         {
+            ViewBag.Marcas = lstMarcas;
             if (ModelState.IsValid)
             {
                 _context.ModeloVehiculo.Update(modeloVeh);

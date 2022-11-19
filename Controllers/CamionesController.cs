@@ -17,7 +17,7 @@ namespace TransportesMR.Controllers
         }
         public IActionResult Index()
         {
-            List<Camion> ListaCamiones = _context.Camiones.Include(c=> c.ModeloVehiculo).ThenInclude(x => x.MarcaVehiculo).Where(c=> c.Estado == true).ToList();
+            List<Camion> ListaCamiones = _context.Camiones.Include(c=> c.ModeloVehiculo).ThenInclude(x => x.MarcaVehiculo).Where(c=> c.Estado == 1).ToList();
             return View(ListaCamiones);
         }
 
@@ -44,9 +44,9 @@ namespace TransportesMR.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult setCrearCamion(Camion camion)
+        public IActionResult CrearCamion(Camion camion)
         {
-            camion.Estado = true;
+            camion.Estado = 1;
             if (ModelState.IsValid)
             {
 
@@ -68,20 +68,30 @@ namespace TransportesMR.Controllers
 
             var camiones = _context.Camiones.FirstOrDefault(c => c.IdVehiculo == id);
             return View(camiones);
+            
+
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult EditarCamion(Camion camion)
         {
+            //camion.Estado = true;
             if (ModelState.IsValid)
             {
-                _context.Camiones.Update(camion);
+                _context.Camiones.UpdateRange(camion);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(camion);
         }
-
+        [HttpPost]
+        public JsonResult TraeMarcas()
+        {
+            var marcas = _context.MarcaVehiculo.ToList();
+            return Json(new SelectList(marcas, "IdMarca", "Marca"));
+        }
+             
     }
     
 }

@@ -1,148 +1,182 @@
-﻿@model TransportesMR.ViewModels.CamionMarcaVM
+﻿@model TransportesMR.Models.Camion
+
 @{
     ViewData["Title"] = "Crear Camion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .field-validation-error {
+        color: #FF0102;
+    }
+</style>
 
-<h3 class="text-center">Editar camión</h3>
-<form method="post" asp-action="EditarCamion">
-    <div class="row">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="col-12 mt-4">
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.Patente"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.Patente" class="form-control" />
-                    <span asp-validation-for="Camion.Patente" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.NumeroMotor"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.NumeroMotor" class="form-control" />
-                    <span asp-validation-for="Camion.NumeroMotor" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.Chasis"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.Chasis" class="form-control" />
-                    <span asp-validation-for="Camion.Chasis" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.Cilindrada"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.Cilindrada" class="form-control" />
-                    <span asp-validation-for="Camion.Cilindrada" class="text-danger"></span>
-                </div>
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Camiones</h4>
 
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.IdCamion"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.IdCamion" class="form-control" />
-                    <span asp-validation-for="Camion.IdCamion" class="text-danger"></span>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.Año"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.Año" class="form-control" />
-                    <span asp-validation-for="Camion.Año" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <label asp-for="Camion.Color"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Camion.Color" class="form-control" />
-                    <span asp-validation-for="Camion.Color" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="col-12 mt-4">
-                <div class="row">
-                    <div class="col-4">
-                        <label asp-for="Camion.IdMarca"></label>
-                    </div>
-                    @*      <div class="col-8">
-                    @Html.DropDownList("cmbMarcas",Model.ListaMarca,"Seleccionar Marca", new{@class="form-control"}  )
-
-
-                    </div>*@
-                    <div class="col-8">
-                        @Html.DropDownListFor(u => u.Camion.IdMarca, Model.ListaMarca,"--Lista de marcas--",
-                        new {id = "cmbMarcas",@class = "form-control" })
-                        <span asp-validation-for="Camion.IdMarca" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-4">
-                        <label>Modelo</label>
-                    </div>
-                    <div class="col-8 form-group">
-                        <select asp-for="Camion.IdModelo" class="form-select" id="cmbModelos">
-                            <option value="Camion.IdModelo" selected>Seleccione...</option>
-
-                        </select>
-                        <span asp-validation-for="Camion.IdModelo"></span>
-
-
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-3">
-                <a asp-action="Index">Volver a lista</a>
-            </div>
-            <div class="col-5 offset-4">
-                <button type="submit" class="btn btn-primary form-control">Crear</button>
-                &nbsp;
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-action="Index">Editar camiones</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
             </div>
         </div>
     </div>
-</form>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+
+                <div class="live-preview">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <form method="post" asp-action="EditarCamion">
+                        <!--Importante para editar-->
+                        <input type="hidden" asp-for="IdVehiculo" />
+
+                        <div class="row g-3">
+                            <!--FILA 1-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="IdCamion" class="form-control" />
+                                    <label asp-for="IdCamion"></label>
+                                    <span asp-validation-for="IdCamion"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Patente" class="form-control" >
+                                    <label asp-for="Patente"></label>
+                                    <span asp-validation-for="Patente"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="NumeroMotor" class="form-control" >
+                                    <label asp-for="NumeroMotor"></label>
+                                    <span asp-validation-for="NumeroMotor"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 2-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Chasis" class="form-control"/>
+                                    <label asp-for="Chasis"></label>
+                                    <span asp-validation-for="Chasis"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Cilindrada" class="form-control" >
+                                    <label asp-for="Cilindrada"></label>
+                                    <span asp-validation-for="Cilindrada"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Año" class="form-control" />
+                                    <label asp-for="Año"></label>
+                                    <span asp-validation-for="Año"></span>
+                                </div>
+                            </div>
+                            <!--FILA 3-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="Estado" class="form-select">
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                    <label asp-for="Estado"></label>
+                                    <span asp-validation-for="Estado"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="IdMarca" class="form-select" id="cmbMarcas">
+                                    </select>
+                                    <option value="IdMarca" selected></option>
+                                    <label asp-for="IdMarca"></label>
+                                    <span asp-validation-for="IdMarca"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="IdModelo" class="form-select" id="cmbModelos">
+                                    </select>
+                                    <option value="IdModelo" selected></option>
+                                    <label asp-for="IdModelo"></label>
+                                    <span asp-validation-for="IdModelo"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Color" class="form-control" />
+                                    <label asp-for="Color"></label>
+                                    <span asp-validation-for="Color"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="Estado" class="form-select">
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                    <label asp-for="Estado"></label>
+                                    <span asp-validation-for="Estado"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Editar Camion</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts{
-    <partial name="_ValidationScriptsPartial" />
-    @*
-    <script>
-        $("#cmbMarcas").change(async function () {
-            const valorSeleccionado = $(this).val();
+    @*  <partial name="_ValidationScriptsPartial" />*@
 
-            const respuesta = await fetch('',{
-                method: 'POST',
-                body: valorSeleccionado,
-                headers:{
-                    'Content-Type':'application/json'
-                }
-            });
-            const json = await respuesta.json();
-            console.log(json);
-
-            //ListadoModelos($("#cmbMarcas").val());
-        });
-    </script>*@
-
-    <script src="~/js/camiones.js"></script>
+    <script src="~/js/editarcamiones.js"></script>
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

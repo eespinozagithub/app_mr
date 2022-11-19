@@ -1,0 +1,54 @@
+﻿@model TransportesMR.ViewModels.MarcaModeloVM
+@{
+    ViewData["Title"] = "Crear Modelo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h3 class="text-center">Crear un nuevo modelo</h3>
+<form method="post" asp-action="CrearModelo">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="ModeloVehiculo.Modelo"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ModeloVehiculo.Modelo" class="form-control" />
+                    <span asp-validation-for="ModeloVehiculo.Modelo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="ModeloVehiculo.MarcaVehiculo.Marca"></label>
+                    </div>
+                    <div class="col-8">
+                        @Html.DropDownListFor(u => u.ModeloVehiculo.IdMarca, Model.ListaMarca,"--Lista de marcas--",
+                        new {@class = "form-control" })
+                        <span asp-validation-for="ModeloVehiculo.IdMarca" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">
+                <a asp-action="Index">Volver a lista</a>
+            </div>
+            <div class="col-5 offset-4">
+                <button type="submit" class="btn btn-primary form-control">Crear</button>
+                &nbsp;
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
