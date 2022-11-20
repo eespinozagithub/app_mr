@@ -188,6 +188,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcTW9kaWZpY2FyQ2FtaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/araya/Desktop/app_mr/Views/Ciudades/CrearCiudad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkZXNcQ3JlYXJDaXVkYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/araya/Desktop/app_mr/Views/Ciudades/ListadoCiudades.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkZXNcTGlzdGFkb0NpdWRhZGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/araya/Desktop/app_mr/Views/Ciudades/ModificarCiudad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkZXNcTW9kaWZpY2FyQ2l1ZGFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/araya/Desktop/app_mr/Views/CombustiblesRemolques/CrearCargaCombustibleRemolque.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tYnVzdGlibGVzUmVtb2xxdWVzXENyZWFyQ2FyZ2FDb21idXN0aWJsZVJlbW9scXVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -210,6 +222,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/araya/Desktop/app_mr/Views/Combustibles/ModificarCargaCombustible.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tYnVzdGlibGVzXE1vZGlmaWNhckNhcmdhQ29tYnVzdGlibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/araya/Desktop/app_mr/Views/DetalleVueltas/ListadoVueltas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZ1ZWx0YXNcTGlzdGFkb1Z1ZWx0YXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/Empresas/CrearEmpresa.cshtml]
