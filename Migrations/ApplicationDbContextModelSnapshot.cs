@@ -221,6 +221,7 @@ namespace TransportesMR.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("TransportesMR.Models.Camion", b =>
                 {
                     b.Property<int>("IdCamion")
@@ -273,6 +274,86 @@ namespace TransportesMR.Migrations
                     b.HasIndex("IdModelo");
 
                     b.ToTable("Camion");
+=======
+            modelBuilder.Entity("TransportesMR.Models.CargaCombustible", b =>
+                {
+                    b.Property<int>("IdCargaCombustible")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CamionIdVehiculo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Combustible")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FacturaCarga")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaCargaCombustible")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("IdCamion")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Kilometraje")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("Litros")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int?>("LugarCarga")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecioLitros")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("IdCargaCombustible");
+
+                    b.HasIndex("CamionIdVehiculo");
+
+                    b.ToTable("CargaCombustible");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.CargaCombustibleRemolque", b =>
+                {
+                    b.Property<int>("IdCargaCombustibleRemolque")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Combustible")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FacturaCarga")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaCargaCombustible")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("IdRemolque")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Litros")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int?>("LugarCarga")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecioLitros")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("IdCargaCombustibleRemolque");
+
+                    b.HasIndex("IdRemolque");
+
+                    b.ToTable("CargaCombustibleRemolque");
+>>>>>>> Crea Combustibles
                 });
 
             modelBuilder.Entity("TransportesMR.Models.Empresa", b =>
@@ -614,6 +695,7 @@ namespace TransportesMR.Migrations
                         .IsRequired();
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("TransportesMR.Models.Camion", b =>
                 {
                     b.HasOne("TransportesMR.Models.ModeloVehiculo", "ModeloVehiculo")
@@ -623,6 +705,26 @@ namespace TransportesMR.Migrations
                         .IsRequired();
 
                     b.Navigation("ModeloVehiculo");
+=======
+            modelBuilder.Entity("TransportesMR.Models.CargaCombustible", b =>
+                {
+                    b.HasOne("TransportesMR.Models.Camion", "Camion")
+                        .WithMany()
+                        .HasForeignKey("CamionIdVehiculo");
+
+                    b.Navigation("Camion");
+                });
+
+            modelBuilder.Entity("TransportesMR.Models.CargaCombustibleRemolque", b =>
+                {
+                    b.HasOne("TransportesMR.Models.Remolque", "Remolque")
+                        .WithMany()
+                        .HasForeignKey("IdRemolque")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Remolque");
+>>>>>>> Crea Combustibles
                 });
 
             modelBuilder.Entity("TransportesMR.Models.ModeloRemolque", b =>

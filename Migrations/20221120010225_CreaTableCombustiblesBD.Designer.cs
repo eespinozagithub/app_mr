@@ -11,12 +11,8 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<< HEAD:Migrations/20221120032201_Inicio.Designer.cs
-    [Migration("20221120032201_Inicio")]
-=======
 <<<<<<< HEAD:Migrations/20221120023624_Inicio.Designer.cs
     [Migration("20221120023624_Inicio")]
->>>>>>> Crea Combustibles:Migrations/20221120023624_Inicio.Designer.cs
     partial class Inicio
 =======
     [Migration("20221120010225_CreaTableCombustiblesBD")]
@@ -239,9 +235,9 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("Anio")
+                    b.Property<DateTime?>("Año")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Chasis")
                         .IsRequired()

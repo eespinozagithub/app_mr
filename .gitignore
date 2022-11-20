@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/dotnetcore
 # Edit at https://www.toptal.com/developers/gitignore?templates=dotnetcore
 
@@ -11,6 +12,8 @@ obj/
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore
 
+=======
+>>>>>>> Crea Combustibles
 # Created by https://www.toptal.com/developers/gitignore/api/aspnetcore
 # Edit at https://www.toptal.com/developers/gitignore?templates=aspnetcore
 
@@ -558,6 +561,9 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Crea Combustibles
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
