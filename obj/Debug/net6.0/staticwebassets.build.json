@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BWIe7P6qGjppae3yc2/CqO1guu+C7D9E56pxR5Q9+qU=",
+  "Hash": "3ztL6XpvTnqFqtWBMzq5N3YI0lErY6zz5bOPEkx3LRo=",
   "Source": "TransportesMR",
   "BasePath": "_content/TransportesMR",
   "Mode": "Default",
@@ -2074,6 +2074,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\auth-one-bg.jpg"
     },
     {
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\auth-one-bg2.jpg",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/auth-one-bg2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\auth-one-bg2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\auth-one-bg3.jpg",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/auth-one-bg3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\auth-one-bg3.jpg"
+    },
+    {
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\bg-auth.jpg",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
@@ -2769,6 +2803,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\favicon.png",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/favicon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\favicon.png"
     },
     {
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\file.png",

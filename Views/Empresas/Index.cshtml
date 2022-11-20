@@ -5,9 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-
 <!-- Layout config Js -->
 <script src="~/assets/js/layout.js"></script>
 <!-- Bootstrap Css -->
@@ -18,6 +15,12 @@
 <link href="~/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 <!-- custom Css-->
 <link href="~/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+<!--datatable css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+<!--datatable responsive css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
 <!-- BARRA SUPERIOR -->
 <div class="row">
@@ -38,97 +41,70 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <h4 class="card-title mb-0">@ViewData["Title"]</h4>
-            </div><!-- end card header -->
+            <div class="card-header d-flex align-items-center">
+                <h5 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h5>
+                <div>
+                    <a asp-action="CrearEmpresa" class="btn btn-success add-btn">
+                        <i class="ri-add-line align-bottom me-1"></i> Crear Empresa
+                    </a>
+                </div>
+            </div>
 
             <div class="card-body">
-                <div id="customerList">
-                    <div class="row g-4 mb-3">
-                        <div class="col-sm-auto">
-                            <div>
-                                <a asp-action="CrearEmpresa" class="btn btn-success add-btn"><i class="ri-add-line align-bottom me-1"></i> Crear Empresa</a>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="d-flex justify-content-sm-end">
-                                <div class="search-box ms-2">
-                                    <input type="text" class="form-control search" placeholder="Buscar...">
-                                    <i class="ri-search-line search-icon"></i>
-                                </div>
-                            </div>
-                        </div>
+                @if (Model.Count() > 0)
+                {
+                    <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Rut</th>
+                                <th>Razon Social</th>
+                                <th>Giro</th>
+                                <th>Nombre Encargado</th>
+                                <th>Teléfono Encargado</th>
+                                <th>Email Encargado</th>
+                                <th data-ordering="false">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var empresa in Model)
+                            {
+                                <tr>
+                                    <td>@empresa.IdEmpresa</td>
+                                    <td>@empresa.Rut</td>
+                                    <td>@empresa.RazonSocial</td>
+                                    <td>@empresa.Giro</td>
+                                    <td>@empresa.NombresEncargado @empresa.ApellidosEncargado</td>
+                                    <td>@empresa.TelefonoEncargado</td>
+                                    <td>@empresa.EmailContacto</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarEmpresa"
+                                           asp-route-id="@empresa.IdEmpresa">
+                                                    <i class="ri-edit-2-line"></i> Modificar
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-secondary" role="alert" style="width:40%">
+                        <i class="ri-check-double-line me-3 align-middle fs-16"></i>
+                        <strong>Información</strong> - Sin Empresas ingresadas
                     </div>
-
-                    @if (Model.Count() > 0)
-                    {
-
-                        <div class="table-responsive table-card mt-3 mb-1">
-                            <table class="table align-middle table-nowrap" id="customerTable">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th class="sort">Id</th>
-                                        <th class="sort">Rut</th>
-                                        <th class="sort">Razon Social</th>
-                                        <th class="sort">Giro</th>
-                                        <th class="sort">Nombre Encargado</th>
-                                        <th class="sort">Teléfono Encargado</th>
-                                        <th class="sort">Email Encargado</th>
-                                        <th class="sort">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="list form-check-all">
-
-                                    @foreach (var empresa in Model)
-                                    {
-                                        <tr>
-                                            <td>@empresa.IdEmpresa</td>
-                                            <td>@empresa.Rut</td>
-                                            <td>@empresa.RazonSocial</td>
-                                            <td>@empresa.Giro</td>
-                                            <td>@empresa.NombresEncargado @empresa.ApellidosEncargado</td>
-                                            <td>@empresa.TelefonoEncargado</td>
-                                            <td>@empresa.EmailContacto</td>                                            
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarEmpresa" 
-                                                            asp-route-id="@empresa.IdEmpresa">
-                                                            <i class="ri-edit-2-line"></i> Modificar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="d-flex justify-content-end">
-                            <div class="pagination-wrap hstack gap-2">
-                                <a class="page-item pagination-prev disabled" href="#">
-                                    Antes
-                                </a>
-                                <ul class="pagination listjs-pagination mb-0"></ul>
-                                <a class="page-item pagination-next" href="#">
-                                    Siguiente
-                                </a>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <p>Sin empresas ingresadas</p>
-                    }
-                </div>
-            </div><!-- end card -->
+                }
+            </div>
         </div>
-        <!-- end col -->
     </div>
-    <!-- end col -->
 </div>
-<!-- end row -->
+
+
 <!-- JAVASCRIPT -->
 <script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="~/assets/libs/simplebar/simplebar.min.js"></script>
@@ -137,5 +113,27 @@
 <script src="~/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
 <script src="~/assets/js/plugins.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!--datatable js-->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="~/assets/js/pages/datatables.init.js"></script>
 <!-- App js -->
 <script src="~/assets/js/app.js"></script>
+
+<script type="text/javascript">
+    $('#example').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/a5734b29083/i18n/Spanish.json",
+        },
+    });
+</script>

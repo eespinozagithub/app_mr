@@ -27,8 +27,7 @@
         public string ApellidosEncargado { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Teléfono")]
-        [Display(Name = "Teléfono Encargado")]
-        [StringLength(40)]
+        [Display(Name = "Teléfono Encargado")]        
         public int? TelefonoEncargado { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Email")]
