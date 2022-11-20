@@ -12,5 +12,8 @@
 
         [Required]
         public bool Estado { get; set; }
+
+        public List<Vueltas>? CiudadCarga { get; set; }
+        public List<Vueltas>? CiudadDescarga { get; set; }
     }
 }

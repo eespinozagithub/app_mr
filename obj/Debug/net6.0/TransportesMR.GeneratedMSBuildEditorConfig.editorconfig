@@ -224,8 +224,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tYnVzdGlibGVzXE1vZGlmaWNhckNhcmdhQ29tYnVzdGlibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/araya/Desktop/app_mr/Views/DetalleVueltas/CrearVuelta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZ1ZWx0YXNcQ3JlYXJWdWVsdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/araya/Desktop/app_mr/Views/DetalleVueltas/ListadoVueltas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZ1ZWx0YXNcTGlzdGFkb1Z1ZWx0YXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/araya/Desktop/app_mr/Views/DetalleVueltas/ModificarVuelta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZ1ZWx0YXNcTW9kaWZpY2FyVnVlbHRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/Empresas/CrearEmpresa.cshtml]
