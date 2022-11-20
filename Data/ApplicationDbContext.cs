@@ -23,6 +23,8 @@ namespace TransportesMR.Data
         public DbSet<ModeloRemolque> ModeloRemolque { get; set; }
         public DbSet<CargaCombustible> CargaCombustible { get; set; }
         public DbSet<CargaCombustibleRemolque> CargaCombustibleRemolque { get; set; }
+        public DbSet<Ciudades> Ciudades { get; set; }
+        public DbSet<Vueltas> Vueltas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
