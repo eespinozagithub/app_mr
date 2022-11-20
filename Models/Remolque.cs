@@ -7,7 +7,7 @@
         public int IdRemolque { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el Número de Remolque")]
-        [Display(Name = "Número de Remolque")]
+        [Display(Name = "N° Remolque")]
         public int? NumeroRemolque { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la Patente")]
@@ -38,7 +38,6 @@
         [Required(ErrorMessage = "Debe ingresar el Modelo")]
         [Display(Name="Modelo Remolque")]
         public int? IdModelo { get; set; }
-
         public ModeloRemolque? ModeloRemolque { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using TransportesMR.Models;
 
 namespace TransportesMR.ViewModels
 {
-    public class MarcaModeloVM :Vehiculo
+    public class MarcaModeloVM
     {
         public ModeloVehiculo ModeloVehiculo { get; set; }
 

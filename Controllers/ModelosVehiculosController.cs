@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TransportesMR.Data;
+using TransportesMR.Models;
 using TransportesMR.ViewModels;
 
 
@@ -19,41 +20,34 @@ namespace TransportesMR.Controllers
         }
         public IActionResult ListadoModeloVehiculo()
         {
-            List<ModeloVehiculo> ListaModelosVehiculo = _context.ModeloVehiculo.Include(c => c.MarcaVehiculo).ToList();
+            List<ModeloVehiculo> ListaModelosVehiculo = _context.ModeloVehiculo.OrderByDescending(x => x.Estado).Include(c => c.MarcaVehiculo).ToList();
             return View(ListaModelosVehiculo);
         }
 
         [HttpGet]
-        public IActionResult CrearModelo()
+        public IActionResult CrearModeloVehiculo()
         {
-            MarcaModeloVM marcaModelo = new MarcaModeloVM();
-            marcaModelo.ListaMarca = _context.MarcaVehiculo.Select(i => new SelectListItem
-            {
-                Text = i.Marca,
-                Value = i.IdMarca.ToString()
-            });
-
-            return View(marcaModelo);
-
+            ViewBag.Marcas = lstMarcas;
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CrearModelo(ModeloVehiculo modeloVehiculo)
+        public IActionResult CrearModeloVehiculo(ModeloVehiculo modeloVehiculo)
         {
+            ViewBag.Marcas = lstMarcas;
 
             if (ModelState.IsValid)
             {
                 _context.ModeloVehiculo.Add(modeloVehiculo);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-
+                return RedirectToAction(nameof(ListadoModeloVehiculo));
             }
-            return View();
+            return View(modeloVehiculo);
         }
-        [HttpGet]
 
-        public IActionResult EditarModeloVehiculo(int? id)
+        [HttpGet]
+        public IActionResult ModificarModeloVehiculo(int? id)
         {
             ViewBag.Marcas = lstMarcas;
             if (id == null)
@@ -63,28 +57,19 @@ namespace TransportesMR.Controllers
 
             var modeloVehiculo = _context.ModeloVehiculo.FirstOrDefault(c => c.IdModelo == id);
             return View(modeloVehiculo);
-        }
+        }       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarModeloVehiculo(ModeloVehiculo modeloVeh)
+        public IActionResult ModificarModeloVehiculo(ModeloVehiculo modeloVehiculo)
         {
             ViewBag.Marcas = lstMarcas;
             if (ModelState.IsValid)
             {
-                _context.ModeloVehiculo.Update(modeloVeh);
+                _context.ModeloVehiculo.Update(modeloVehiculo);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListadoModeloVehiculo));
             }
-            return View(modeloVeh);
-        }
-
-        [HttpGet]
-        public IActionResult getBorrar(int? id)
-        {
-            var modeloVehiculo = _context.ModeloVehiculo.FirstOrDefault(c => c.IdModelo == id);
-            _context.ModeloVehiculo.Remove(modeloVehiculo);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return View(modeloVehiculo);
         }
     }
 }

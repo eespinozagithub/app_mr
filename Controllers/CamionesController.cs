@@ -66,7 +66,7 @@ namespace TransportesMR.Controllers
                 return View();
             }
 
-            var camiones = _context.Camiones.FirstOrDefault(c => c.IdVehiculo == id);
+            var camiones = _context.Camiones.FirstOrDefault(c => c.IdCamion == id);
             return View(camiones);
             
 

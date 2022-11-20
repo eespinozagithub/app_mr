@@ -1,6 +1,6 @@
-﻿@model IEnumerable<TransportesMR.Models.ModeloRemolque>
+﻿@model IEnumerable<TransportesMR.Models.ModeloVehiculo>
 @{
-    ViewData["Title"] = "Listado Modelos de Remolque";
+    ViewData["Title"] = "Listado Modelos de Vehículo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Modelos de Remolque</h4>
+            <h4 class="mb-sm-0">Modelos de Vehículo</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -31,7 +31,7 @@
                     <div class="row g-4 mb-3">
                         <div class="col-sm-auto">
                             <div>
-                                <a asp-action="CrearModeloRemolque" class="btn btn-success add-btn"><i class="ri-add-line align-bottom me-1"></i> Crear Modelo de Remolque</a>
+                                <a asp-action="CrearModeloVehiculo" class="btn btn-success add-btn"><i class="ri-add-line align-bottom me-1"></i> Crear Modelo de Camión</a>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -51,7 +51,7 @@
                                 <thead class="table-light">
                                     <tr>
 
-                                        <th class="sort">@Html.DisplayNameFor(a => a.MarcaRemolque.Marca)</th>
+                                        <th class="sort">@Html.DisplayNameFor(a => a.MarcaVehiculo.Marca)</th>
                                         <th class="sort">@Html.DisplayNameFor(a => a.Modelo)</th>
                                         <th class="sort">@Html.DisplayNameFor(a => a.Estado)</th>
                                         <th class="sort">Acciones</th>
@@ -59,12 +59,12 @@
                                 </thead>
                                 <tbody class="list form-check-all">
 
-                                    @foreach (var modeloRemolque in Model)
+                                    @foreach (var modeloVehiculo in Model)
                                     {
                                         <tr>
-                                            <td>@modeloRemolque.MarcaRemolque.Marca</td>
-                                            <td>@modeloRemolque.Modelo</td>
-                                            @if (@modeloRemolque.Estado == true)
+                                            <td>@modeloVehiculo.MarcaVehiculo.Marca</td>
+                                            <td>@modeloVehiculo.Modelo</td>
+                                            @if (@modeloVehiculo.Estado == true)
                                             {
                                                 <td>Activo</td>
                                             }
@@ -75,8 +75,8 @@
                                             <td>
                                                 <div class="row">
                                                     <div class="col-lg-4">
-                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarModeloRemolque"
-                                                   asp-route-id="@modeloRemolque.IdModelo">
+                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarModeloVehiculo"
+                                                   asp-route-id="@modeloVehiculo.IdModelo">
                                                             <i class="ri-edit-2-line"></i> Modificar
                                                         </a>
                                                     </div>
@@ -102,11 +102,13 @@
                     }
                     else
                     {
-                        <p>Sin Modelos de Remolque ingresadas</p>
+                        <p>Sin Modelos de Vehículo ingresadas</p>
                     }
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
+
+
 

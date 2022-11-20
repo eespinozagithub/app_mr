@@ -13,7 +13,7 @@ namespace TransportesMR.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        public DbSet<Vehiculo> Vehiculos { get; set; }
+        public DbSet<Camion> Camion{ get; set; }
         public DbSet<MarcaVehiculo> MarcaVehiculo { get; set; }
         public DbSet<ModeloVehiculo> ModeloVehiculo { get; set; }        
         public DbSet<Camion> Camiones { get; set; }        

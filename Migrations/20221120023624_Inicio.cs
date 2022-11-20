@@ -124,34 +124,12 @@ namespace TransportesMR.Migrations
                     IdMarca = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Marca = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MarcaVehiculo", x => x.IdMarca);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Remolque",
-                columns: table => new
-                {
-                    IdRemolque = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    NumeroRemolque = table.Column<int>(type: "int", nullable: false),
-                    Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Capacidad = table.Column<int>(type: "int", nullable: false),
-                    NumeroChasis = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Anio = table.Column<int>(type: "int", nullable: false),
-                    TipoRemolque = table.Column<int>(type: "int", nullable: false),
-                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    IdModelo = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Remolque", x => x.IdRemolque);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -355,6 +333,7 @@ namespace TransportesMR.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Modelo = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     IdMarca = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -370,11 +349,41 @@ namespace TransportesMR.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Vehiculos",
+                name: "Remolque",
                 columns: table => new
                 {
-                    IdVehiculo = table.Column<int>(type: "int", nullable: false)
+                    IdRemolque = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NumeroRemolque = table.Column<int>(type: "int", nullable: false),
+                    Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Capacidad = table.Column<int>(type: "int", nullable: false),
+                    NumeroChasis = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Anio = table.Column<int>(type: "int", nullable: false),
+                    TipoRemolque = table.Column<int>(type: "int", nullable: false),
+                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    IdModelo = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Remolque", x => x.IdRemolque);
+                    table.ForeignKey(
+                        name: "FK_Remolque_ModeloRemolque_IdModelo",
+                        column: x => x.IdModelo,
+                        principalTable: "ModeloRemolque",
+                        principalColumn: "IdModelo",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Camion",
+                columns: table => new
+                {
+                    IdCamion = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NumeroCamion = table.Column<int>(type: "int", nullable: false),
                     Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NumeroMotor = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
@@ -384,28 +393,20 @@ namespace TransportesMR.Migrations
                     Año = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdMarca = table.Column<int>(type: "int", nullable: true),
-                    IdModelo = table.Column<int>(type: "int", nullable: true),
                     FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Cilindrada = table.Column<float>(type: "float", nullable: false),
                     Estado = table.Column<int>(type: "int", nullable: false),
-                    Discriminator = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdCamion = table.Column<int>(type: "int", nullable: true),
-                    Cilindrada = table.Column<float>(type: "float", nullable: true)
+                    IdModelo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vehiculos", x => x.IdVehiculo);
+                    table.PrimaryKey("PK_Camion", x => x.IdCamion);
                     table.ForeignKey(
-                        name: "FK_Vehiculos_MarcaVehiculo_IdMarca",
-                        column: x => x.IdMarca,
-                        principalTable: "MarcaVehiculo",
-                        principalColumn: "IdMarca");
-                    table.ForeignKey(
-                        name: "FK_Vehiculos_ModeloVehiculo_IdModelo",
+                        name: "FK_Camion_ModeloVehiculo_IdModelo",
                         column: x => x.IdModelo,
                         principalTable: "ModeloVehiculo",
-                        principalColumn: "IdModelo");
+                        principalColumn: "IdModelo",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -447,6 +448,11 @@ namespace TransportesMR.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Camion_IdModelo",
+                table: "Camion",
+                column: "IdModelo");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ModeloRemolque_IdMarca",
                 table: "ModeloRemolque",
                 column: "IdMarca");
@@ -457,13 +463,8 @@ namespace TransportesMR.Migrations
                 column: "IdMarca");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vehiculos_IdMarca",
-                table: "Vehiculos",
-                column: "IdMarca");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehiculos_IdModelo",
-                table: "Vehiculos",
+                name: "IX_Remolque_IdModelo",
+                table: "Remolque",
                 column: "IdModelo");
         }
 
@@ -485,10 +486,10 @@ namespace TransportesMR.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Empresa");
+                name: "Camion");
 
             migrationBuilder.DropTable(
-                name: "ModeloRemolque");
+                name: "Empresa");
 
             migrationBuilder.DropTable(
                 name: "Remolque");
@@ -497,22 +498,22 @@ namespace TransportesMR.Migrations
                 name: "Trabajador");
 
             migrationBuilder.DropTable(
-                name: "Vehiculos");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "MarcaRemolque");
-
-            migrationBuilder.DropTable(
                 name: "ModeloVehiculo");
 
             migrationBuilder.DropTable(
+                name: "ModeloRemolque");
+
+            migrationBuilder.DropTable(
                 name: "MarcaVehiculo");
+
+            migrationBuilder.DropTable(
+                name: "MarcaRemolque");
         }
     }
 }

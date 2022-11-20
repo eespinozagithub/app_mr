@@ -16,13 +16,13 @@
 
   <ItemGroup>
     <None Include="Views\Camiones\CrearCamion.cshtml" />
-    <None Include="Views\Camiones\Index.cshtml" />
+    <None Include="Views\Camiones\ListadoCamion.cshtml" />
     <None Include="Views\MarcasVehiculos\CrearMarcaVehiculo.cshtml" />
     <None Include="Views\MarcasVehiculos\ModificarMarcaVehiculo.cshtml" />
     <None Include="Views\MarcasVehiculos\ListadoMarcaVehiculo.cshtml" />
     <None Include="Views\ModelosVehiculos\CrearModeloVehiculo.cshtml" />
     <None Include="Views\ModelosVehiculos\ModificarModeloVehiculo.cshtml" />
-    <None Include="Views\ModelosVehiculos\ListarModeloVehiculo.cshtml" />
+    <None Include="Views\ModelosVehiculos\ListadoModeloVehiculo.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

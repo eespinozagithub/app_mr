@@ -180,12 +180,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcQ3JlYXJDYW1pb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/Camiones/EditarCamion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcRWRpdGFyQ2FtaW9uLmNzaHRtbA==
+[C:/Users/araya/Desktop/app_mr/Views/Camiones/ListadoCamion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcTGlzdGFkb0NhbWlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/Camiones/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcSW5kZXguY3NodG1s
+[C:/Users/araya/Desktop/app_mr/Views/Camiones/ModificarCamion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtaW9uZXNcTW9kaWZpY2FyQ2FtaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/Empresas/CrearEmpresa.cshtml]
@@ -248,8 +248,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xDcmVhck1vZGVsb1ZlaGljdWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/ListarModeloVehiculo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xMaXN0YXJNb2RlbG9WZWhpY3Vsby5jc2h0bWw=
+[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/ListadoModeloVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xMaXN0YWRvTW9kZWxvVmVoaWN1bG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/ModificarModeloVehiculo.cshtml]

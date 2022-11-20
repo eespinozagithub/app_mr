@@ -39,7 +39,7 @@
 
                     <form method="post" asp-action="EditarCamion">
                         <!--Importante para editar-->
-                        <input type="hidden" asp-for="IdVehiculo" />
+                        <input type="hidden" asp-for="IdCamion" />
 
                         <div class="row g-3">
                             <!--FILA 1-->
@@ -102,11 +102,11 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdMarca" class="form-select" id="cmbMarcas">
+                                  @*  <select asp-for="IdMarca" class="form-select" id="cmbMarcas">
                                     </select>
                                     <option value="IdMarca" selected></option>
                                     <label asp-for="IdMarca"></label>
-                                    <span asp-validation-for="IdMarca"></span>
+                                    <span asp-validation-for="IdMarca"></span>*@
                                 </div>
                             </div>
                             <div class="col-lg-4">

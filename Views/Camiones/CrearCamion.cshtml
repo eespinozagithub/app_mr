@@ -99,10 +99,10 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    @Html.DropDownListFor(u => u.Camion.IdMarca, Model.ListaMarca,"--Lista de marcas--",
+                                    @Html.DropDownListFor(u => u.Camion.IdCamion, Model.ListaMarca,"--Lista de marcas--",
                         new {id = "cmbMarcas",@class = "form-control" })
-                         <label asp-for="Camion.MarcaVehiculo.Marca"></label>
-                        <span asp-validation-for="Camion.IdMarca" class="text-danger"></span>
+                         @*<label asp-for="Camion.MarcaVehiculo.Marca"></label>
+                        <span asp-validation-for="Camion.IdMarca" class="text-danger"></span>*@
                                 </div>
                             </div>
                             <div class="col-lg-4">

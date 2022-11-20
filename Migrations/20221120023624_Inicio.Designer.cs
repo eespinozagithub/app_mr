@@ -11,7 +11,7 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221119192339_Inicio")]
+    [Migration("20221120023624_Inicio")]
     partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -223,6 +223,60 @@ namespace TransportesMR.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TransportesMR.Models.Camion", b =>
+                {
+                    b.Property<int>("IdCamion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Año")
+                        .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Chasis")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<float>("Cilindrada")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int?>("Estado")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("IdModelo")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumeroCamion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NumeroMotor")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Patente")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.HasKey("IdCamion");
+
+                    b.HasIndex("IdModelo");
+
+                    b.ToTable("Camion");
+                });
+
             modelBuilder.Entity("TransportesMR.Models.Empresa", b =>
                 {
                     b.Property<int>("IdEmpresa")
@@ -296,6 +350,9 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Marca")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -335,6 +392,9 @@ namespace TransportesMR.Migrations
                     b.Property<int>("IdModelo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("IdMarca")
                         .HasColumnType("int");
@@ -391,6 +451,8 @@ namespace TransportesMR.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("IdRemolque");
+
+                    b.HasIndex("IdModelo");
 
                     b.ToTable("Remolque");
                 });
@@ -488,64 +550,6 @@ namespace TransportesMR.Migrations
                     b.ToTable("Trabajador");
                 });
 
-            modelBuilder.Entity("TransportesMR.Models.Vehiculo", b =>
-                {
-                    b.Property<int>("IdVehiculo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Año")
-                        .IsRequired()
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Chasis")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("Estado")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FechaRegistro")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int?>("IdMarca")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdModelo")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NumeroMotor")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Patente")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.HasKey("IdVehiculo");
-
-                    b.HasIndex("IdMarca");
-
-                    b.HasIndex("IdModelo");
-
-                    b.ToTable("Vehiculos");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Vehiculo");
-                });
-
             modelBuilder.Entity("TransportesMR.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -559,19 +563,6 @@ namespace TransportesMR.Migrations
                         .HasColumnType("longtext");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
-                });
-
-            modelBuilder.Entity("TransportesMR.Models.Camion", b =>
-                {
-                    b.HasBaseType("TransportesMR.Models.Vehiculo");
-
-                    b.Property<float>("Cilindrada")
-                        .HasColumnType("float");
-
-                    b.Property<int>("IdCamion")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("Camion");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -625,6 +616,17 @@ namespace TransportesMR.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TransportesMR.Models.Camion", b =>
+                {
+                    b.HasOne("TransportesMR.Models.ModeloVehiculo", "ModeloVehiculo")
+                        .WithMany()
+                        .HasForeignKey("IdModelo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ModeloVehiculo");
+                });
+
             modelBuilder.Entity("TransportesMR.Models.ModeloRemolque", b =>
                 {
                     b.HasOne("TransportesMR.Models.MarcaRemolque", "MarcaRemolque")
@@ -647,19 +649,15 @@ namespace TransportesMR.Migrations
                     b.Navigation("MarcaVehiculo");
                 });
 
-            modelBuilder.Entity("TransportesMR.Models.Vehiculo", b =>
+            modelBuilder.Entity("TransportesMR.Models.Remolque", b =>
                 {
-                    b.HasOne("TransportesMR.Models.MarcaVehiculo", "MarcaVehiculo")
+                    b.HasOne("TransportesMR.Models.ModeloRemolque", "ModeloRemolque")
                         .WithMany()
-                        .HasForeignKey("IdMarca");
+                        .HasForeignKey("IdModelo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("TransportesMR.Models.ModeloVehiculo", "ModeloVehiculo")
-                        .WithMany()
-                        .HasForeignKey("IdModelo");
-
-                    b.Navigation("MarcaVehiculo");
-
-                    b.Navigation("ModeloVehiculo");
+                    b.Navigation("ModeloRemolque");
                 });
 #pragma warning restore 612, 618
         }
