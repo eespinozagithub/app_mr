@@ -27,12 +27,12 @@ namespace TransportesMR.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CrearCargaCombustibleRemolque(CargaCombustible cargaCombustible)
+        public IActionResult CrearCargaCombustibleRemolque(CargaCombustibleRemolque cargaCombustible)
         {
             ViewBag.Combustible = _context.Remolque.ToList();
             if (ModelState.IsValid)
             {
-                _context.CargaCombustible.Add(cargaCombustible);
+                _context.CargaCombustibleRemolque.Add(cargaCombustible);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
@@ -48,26 +48,26 @@ namespace TransportesMR.Controllers
                 return View();
             }
 
-            var modeloRemolque = _context.CargaCombustible.FirstOrDefault(c => c.IdCargaCombustible == id);
-            return View(modeloRemolque);
+            var cargaCombustibleRemolque = _context.CargaCombustibleRemolque.FirstOrDefault(c => c.IdCargaCombustibleRemolque == id);
+            return View(cargaCombustibleRemolque);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ModificarCargaCombustibleRemolque(CargaCombustible cargaCombustible)
+        public IActionResult ModificarCargaCombustibleRemolque(CargaCombustibleRemolque cargaCombustibleRemolque)
         {
             ViewBag.Marcas = _context.Remolque.ToList();
             if (ModelState.IsValid)
             {
-                _context.CargaCombustible.Update(cargaCombustible);
+                _context.CargaCombustibleRemolque.Update(cargaCombustibleRemolque);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cargaCombustible);
+            return View(cargaCombustibleRemolque);
         }
         public IActionResult BorrarCargaCombustibleRemolque(int? id)
         {
-            var IdCarga = _context.CargaCombustible.FirstOrDefault(c => c.IdCargaCombustible == id);
-            _context.CargaCombustible.Remove(IdCarga);
+            var IdCarga = _context.CargaCombustibleRemolque.FirstOrDefault(c => c.IdCargaCombustibleRemolque == id);
+            _context.CargaCombustibleRemolque.Remove(IdCarga);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

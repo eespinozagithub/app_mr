@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.csproj.AssemblyReference.cache
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.AssemblyInfoInputs.cache
@@ -283,6 +284,8 @@ C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.pdb
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.genruntimeconfig.cache
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\ref\TransportesMR.dll
 =======
+=======
+>>>>>>> Combustible
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\bin\Debug\net6.0\appsettings.json
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\bin\Debug\net6.0\TransportesMR.staticwebassets.runtime.json
@@ -558,4 +561,3 @@ C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\obj\Debug\n
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\obj\Debug\net6.0\TransportesMR.pdb
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\obj\Debug\net6.0\TransportesMR.genruntimeconfig.cache
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\app_mr\obj\Debug\net6.0\ref\TransportesMR.dll
->>>>>>> Crea Combustibles

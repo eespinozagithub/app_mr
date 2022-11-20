@@ -1,8 +1,11 @@
 {
   "Version": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Hash": "BWIe7P6qGjppae3yc2/CqO1guu+C7D9E56pxR5Q9+qU=",
 =======
+=======
+>>>>>>> Combustible
 <<<<<<< HEAD
   "Hash": "eEh41+SUNmdsFPH1Q4mkfW3tiV5MpUcmexf8GiwL64A=",
 =======
@@ -12,7 +15,13 @@
   "Hash": "4ahyORUTasHxNvqvo285+UDaH9gsd7nfykv2uqU/56o=",
 >>>>>>> Crea Combustibles
 >>>>>>> Crea Combustibles
+<<<<<<< HEAD
 >>>>>>> Crea Combustibles
+=======
+=======
+  "Hash": "fXa9T4DT671vMQbe9yXjm0nHt/T08CTJ2fh91dUnRR0=",
+>>>>>>> Combustible
+>>>>>>> Combustible
   "Source": "TransportesMR",
   "BasePath": "_content/TransportesMR",
   "Mode": "Default",
@@ -17360,28 +17369,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\app.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\js\\jquery.min.js",
-      "SourceId": "TransportesMR",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
-      "BasePath": "_content/TransportesMR",
-      "RelativePath": "assets/js/jquery.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\jquery.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\js\\layout.js",
-=======
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\js\\jquery.min.js",
->>>>>>> Crea Combustibles
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
@@ -75029,6 +75017,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camionesAgregar.js",
 =======
 <<<<<<< HEAD
@@ -75038,11 +75027,12 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
 =======
+=======
+>>>>>>> Combustible
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\camiones.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
->>>>>>> Crea Combustibles
       "BasePath": "_content/TransportesMR",
       "RelativePath": "js/camionesAgregar.js",
       "AssetKind": "All",
@@ -75057,6 +75047,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camionesModificar.js",
 =======
 <<<<<<< HEAD
@@ -75066,11 +75057,12 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
 =======
+=======
+>>>>>>> Combustible
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\editarcamiones.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
->>>>>>> Crea Combustibles
       "BasePath": "_content/TransportesMR",
       "RelativePath": "js/camionesModificar.js",
       "AssetKind": "All",
@@ -75084,11 +75076,10 @@
       "OriginalItemSpec": "wwwroot\\js\\camionesModificar.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\remolquesAgregar.js",
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\remolquesAgregar.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
       "BasePath": "_content/TransportesMR",
       "RelativePath": "js/remolquesAgregar.js",
       "AssetKind": "All",
@@ -75102,10 +75093,10 @@
       "OriginalItemSpec": "wwwroot\\js\\remolquesAgregar.js"
     },
     {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\remolquesModificar.js",
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\remolquesModificar.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
       "BasePath": "_content/TransportesMR",
       "RelativePath": "js/remolquesModificar.js",
       "AssetKind": "All",
@@ -75119,10 +75110,7 @@
       "OriginalItemSpec": "wwwroot\\js\\remolquesModificar.js"
     },
     {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\site.js",
-=======
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\site.js",
->>>>>>> Crea Combustibles
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",

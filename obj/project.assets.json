@@ -10317,31 +10317,13 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\araya\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
     "C:\\Users\\Administrador\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
->>>>>>> Crea Combustibles
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\araya\\Desktop\\app_mr\\TransportesMR.csproj",
-      "projectName": "TransportesMR",
-      "projectPath": "C:\\Users\\araya\\Desktop\\app_mr\\TransportesMR.csproj",
-      "packagesPath": "C:\\Users\\araya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\araya\\Desktop\\app_mr\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
-      "configFilePaths": [
-        "C:\\Users\\araya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
       "projectUniqueName": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\TransportesMR.csproj",
       "projectName": "TransportesMR",
       "projectPath": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\TransportesMR.csproj",
@@ -10354,7 +10336,6 @@
       ],
       "configFilePaths": [
         "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> Crea Combustibles
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -10430,7 +10411,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

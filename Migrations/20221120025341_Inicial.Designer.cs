@@ -11,13 +11,8 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.Designer.cs
-    [Migration("20221120023624_Inicio")]
-    partial class Inicio
-=======
-    [Migration("20221120010225_CreaTableCombustiblesBD")]
-    partial class CreaTableCombustiblesBD
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.Designer.cs
+    [Migration("20221120025341_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -228,7 +223,6 @@ namespace TransportesMR.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.Designer.cs
             modelBuilder.Entity("TransportesMR.Models.Camion", b =>
                 {
                     b.Property<int>("IdCamion")
@@ -281,14 +275,15 @@ namespace TransportesMR.Migrations
                     b.HasIndex("IdModelo");
 
                     b.ToTable("Camion");
-=======
+                });
+
             modelBuilder.Entity("TransportesMR.Models.CargaCombustible", b =>
                 {
                     b.Property<int>("IdCargaCombustible")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("CamionIdVehiculo")
+                    b.Property<int?>("CamionIdCamion")
                         .HasColumnType("int");
 
                     b.Property<int?>("Combustible")
@@ -320,7 +315,7 @@ namespace TransportesMR.Migrations
 
                     b.HasKey("IdCargaCombustible");
 
-                    b.HasIndex("CamionIdVehiculo");
+                    b.HasIndex("CamionIdCamion");
 
                     b.ToTable("CargaCombustible");
                 });
@@ -360,7 +355,6 @@ namespace TransportesMR.Migrations
                     b.HasIndex("IdRemolque");
 
                     b.ToTable("CargaCombustibleRemolque");
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.Designer.cs
                 });
 
             modelBuilder.Entity("TransportesMR.Models.Empresa", b =>
@@ -702,7 +696,6 @@ namespace TransportesMR.Migrations
                         .IsRequired();
                 });
 
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.Designer.cs
             modelBuilder.Entity("TransportesMR.Models.Camion", b =>
                 {
                     b.HasOne("TransportesMR.Models.ModeloVehiculo", "ModeloVehiculo")
@@ -712,12 +705,13 @@ namespace TransportesMR.Migrations
                         .IsRequired();
 
                     b.Navigation("ModeloVehiculo");
-=======
+                });
+
             modelBuilder.Entity("TransportesMR.Models.CargaCombustible", b =>
                 {
                     b.HasOne("TransportesMR.Models.Camion", "Camion")
                         .WithMany()
-                        .HasForeignKey("CamionIdVehiculo");
+                        .HasForeignKey("CamionIdCamion");
 
                     b.Navigation("Camion");
                 });
@@ -731,7 +725,6 @@ namespace TransportesMR.Migrations
                         .IsRequired();
 
                     b.Navigation("Remolque");
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.Designer.cs
                 });
 
             modelBuilder.Entity("TransportesMR.Models.ModeloRemolque", b =>
