@@ -390,11 +390,11 @@ namespace TransportesMR.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Chasis = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Año = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Anio = table.Column<int>(type: "int", nullable: false),
                     Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Cilindrada = table.Column<float>(type: "float", nullable: false),
+                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Estado = table.Column<int>(type: "int", nullable: false),
                     IdModelo = table.Column<int>(type: "int", nullable: false)
                 },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HSjga9md6FiYqjj8jHpnQrEK1AbjuxLz9hG3mFSspQo=",
+  "Hash": "eEh41+SUNmdsFPH1Q4mkfW3tiV5MpUcmexf8GiwL64A=",
   "Source": "TransportesMR",
   "BasePath": "_content/TransportesMR",
   "Mode": "Default",
@@ -74953,12 +74953,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camiones.js",
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camionesAgregar.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
       "BasePath": "_content/TransportesMR",
-      "RelativePath": "js/camiones.js",
+      "RelativePath": "js/camionesAgregar.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -74967,15 +74967,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\camiones.js"
+      "OriginalItemSpec": "wwwroot\\js\\camionesAgregar.js"
     },
     {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\editarcamiones.js",
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camionesModificar.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
       "BasePath": "_content/TransportesMR",
-      "RelativePath": "js/editarcamiones.js",
+      "RelativePath": "js/camionesModificar.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -74984,7 +74984,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\editarcamiones.js"
+      "OriginalItemSpec": "wwwroot\\js\\camionesModificar.js"
     },
     {
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\remolquesAgregar.js",

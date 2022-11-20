@@ -227,9 +227,9 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("Año")
+                    b.Property<int?>("Anio")
                         .IsRequired()
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Chasis")
                         .IsRequired()

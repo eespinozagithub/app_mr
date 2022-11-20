@@ -10,29 +10,89 @@ namespace TransportesMR.Controllers
     public class CamionesController : Controller
     {
         public readonly ApplicationDbContext _context;
+        private List<MarcaVehiculo> lstMarcas;
 
         public CamionesController(ApplicationDbContext context)
         {
             _context = context;
+            lstMarcas = _context.MarcaVehiculo.Where(x => x.Estado == true).ToList();
         }
-        public IActionResult Index()
+
+        public IActionResult ListadoCamion()
         {
-            List<Camion> ListaCamiones = _context.Camiones.Include(c=> c.ModeloVehiculo).ThenInclude(x => x.MarcaVehiculo).Where(c=> c.Estado == 1).ToList();
+            List<Camion> ListaCamiones = _context.Camion.OrderByDescending(x => x.Estado).Include(x => x.ModeloVehiculo).ThenInclude(x => x.MarcaVehiculo).ToList();
             return View(ListaCamiones);
         }
 
         [HttpGet]
         public IActionResult CrearCamion()
         {
-            CamionMarcaVM Camiones = new CamionMarcaVM();
-            Camiones.ListaMarca = _context.MarcaVehiculo.Select(i => new SelectListItem
+            ViewBag.Marcas = lstMarcas;
+            return View();
+        }        
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CrearCamion(Camion camion)
+        {
+            ViewBag.Marcas = lstMarcas;
+            if (ModelState.IsValid)
             {
-                Text = i.Marca,
-                Value = i.IdMarca.ToString()
-            });
+                _context.Camion.Add(camion);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(ListadoCamion));
 
-            return View(Camiones);
+            }
+            return View(camion);
+        }
 
+        [HttpGet]
+        public IActionResult ModificarCamion(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var camion = _context.Camion.Find(id);
+            if (camion == null)
+            {
+                return NotFound();
+            }
+
+            var idMarcaSel = _context.ModeloVehiculo.FirstOrDefault(c => c.IdModelo == camion.IdModelo).IdMarca;
+            ViewBag.Marcas = lstMarcas;
+            ViewBag.Modelos = _context.ModeloVehiculo.ToList().Where(p => p.IdMarca == idMarcaSel);
+            ViewBag.idMarcaSeleccionada = idMarcaSel;
+
+            return View(camion);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ModificarCamion(Camion camion)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Update(camion);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(ListadoCamion));
+            }
+
+            ViewBag.Marcas = lstMarcas;
+            if (camion.IdModelo != null)
+            {
+                var idMarcaSel = _context.ModeloVehiculo.FirstOrDefault(c => c.IdModelo == camion.IdModelo).IdMarca;
+                ViewBag.Modelos = _context.ModeloVehiculo.ToList().Where(p => p.IdMarca == idMarcaSel);
+                ViewBag.idMarcaSeleccionada = idMarcaSel;
+            }
+            else
+            {
+                ViewBag.Modelos = _context.ModeloVehiculo.ToList().Where(p => p.IdMarca == 0);
+                ViewBag.idMarcaSeleccionada = null;
+            }
+
+            return View(camion);
         }
 
         [HttpPost]
@@ -42,56 +102,11 @@ namespace TransportesMR.Controllers
             return Json(new SelectList(modelos, "IdModelo", "Modelo"));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult CrearCamion(Camion camion)
-        {
-            camion.Estado = 1;
-            if (ModelState.IsValid)
-            {
-
-                _context.Camiones.Add(camion);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-
-            }
-            return View();
-        }
-        [HttpGet]
-
-        public IActionResult EditarCamion(int? id)
-        {
-            if (id == null)
-            {
-                return View();
-            }
-
-            var camiones = _context.Camiones.FirstOrDefault(c => c.IdCamion == id);
-            return View(camiones);
-            
-
-
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EditarCamion(Camion camion)
-        {
-            //camion.Estado = true;
-            if (ModelState.IsValid)
-            {
-                _context.Camiones.UpdateRange(camion);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(camion);
-        }
-        [HttpPost]
-        public JsonResult TraeMarcas()
-        {
-            var marcas = _context.MarcaVehiculo.ToList();
-            return Json(new SelectList(marcas, "IdMarca", "Marca"));
-        }
-             
+        //[HttpPost]
+        //public JsonResult TraeMarcas()
+        //{
+        //    var marcas = _context.MarcaVehiculo.ToList();
+        //    return Json(new SelectList(marcas, "IdMarca", "Marca"));
+        //}
     }
-    
 }

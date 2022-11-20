@@ -11,7 +11,7 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221120023624_Inicio")]
+    [Migration("20221120032201_Inicio")]
     partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -229,9 +229,9 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("Año")
+                    b.Property<int?>("Anio")
                         .IsRequired()
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Chasis")
                         .IsRequired()

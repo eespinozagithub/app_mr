@@ -10,7 +10,7 @@ namespace TransportesMR.Models
 
         [Required(ErrorMessage = "Debe ingresar el Número de Camión")]
         [Display(Name = "N° Camion")]
-        public int NumeroCamion { get; set; }
+        public int? NumeroCamion { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la patente")]
         [Display(Name = "Patente")]
@@ -25,19 +25,19 @@ namespace TransportesMR.Models
         [MaxLength(100)]
         public string Chasis { get; set; }
 
-        [Required(ErrorMessage = "Debe ingresar el año")]
+        [Required(ErrorMessage = "Debe ingresar el Año")]
         [Display(Name = "Año")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyy}", ApplyFormatInEditMode = false)]
-        [DataType(DataType.Date, ErrorMessage = "Formato de fecha inválido")]
-        public DateTime? Año { get; set; }
+        [Range(1980, 2050)]
+        public int? Anio { get; set; }
 
         [MaxLength(100)]
         [Required(ErrorMessage = "Debe ingresar Color")]
         [Display(Name = "Color")]
-        public string Color { get; set; }        
+        public string Color { get; set; }                
         
+        public float? Cilindrada { get; set; }
+
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
-        public float Cilindrada { get; set; }
 
         [Required]
         public int? Estado { get; set; }               

@@ -65,16 +65,13 @@
                             <table class="table align-middle table-nowrap" id="customerTable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="sort">N° Camión</th>
-                                        <th class="sort">Patente</th>
+                                        <th class="sort">@Html.DisplayNameFor(a => a.IdCamion)</th>
                                         <th class="sort">Marca</th>
                                         <th class="sort">Modelo</th>
-                                        <th class="sort">Color</th>
-                                        <th class="sort">N° Motor</th>
-                                        <th class="sort">N° Chasis</th>
-                                        <th class="sort">Cilindrada</th>
-                                        <th class="sort">Año</th>
-                                        <th class="sort">Estado</th>
+                                        <th class="sort">@Html.DisplayNameFor(a => a.NumeroCamion)</th>
+                                        <th class="sort">@Html.DisplayNameFor(a => a.Patente)</th>
+                                        <th class="sort">@Html.DisplayNameFor(a => a.Estado)</th>
+                                        <th class="sort">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list form-check-all">
@@ -83,19 +80,10 @@
                                     {
                                         <tr>
                                             <td>@camion.IdCamion</td>
+                                            <td>@camion.ModeloVehiculo.MarcaVehiculo.Marca</td>
+                                            <td>@camion.ModeloVehiculo.Modelo</td>
+                                            <td>@camion.NumeroCamion</td>
                                             <td>@camion.Patente</td>
-                                            @*<td>@camion.MarcaVehiculo.Marca</td>
-                                            <td>@camion.ModeloVehiculo.Modelo</td>*@
-                                            <td>@camion.Color</td>
-                                            <td>@camion.NumeroMotor</td>
-                                            <td>@camion.Chasis</td>
-                                            <td>@camion.Cilindrada</td>
-                                            <td>
-                                                @if (@camion.Año != null)
-                                                {
-                                                    @camion.Año.Value.ToString("dd/MM/yyyy")
-                                                }
-                                            </td>
                                             @if (camion.Estado == 1)
                                             {
                                                 <td>Activo</td>
@@ -108,7 +96,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         
-                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="EditarCamion" asp-route-id="@camion.IdCamion">
+                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarCamion" asp-route-id="@camion.IdCamion">
                                                             <i class="ri-edit-2-line"></i> Modificar
                                                         </a>
                                                     </div>                                                    
@@ -137,13 +125,10 @@
                         <p>Sin camiones ingresados</p>
                     }
                 </div>
-            </div><!-- end card -->
+            </div>
         </div>
-        <!-- end col -->
     </div>
-    <!-- end col -->
 </div>
-
 
 <!-- JAVASCRIPT -->
 <script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -155,79 +140,3 @@
 
 <!-- App js -->
 <script src="~/assets/js/app.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<div class="row">
-    <div class="col-4">
-        <h3>Lista de Camiones</h3>
-    </div>
-
-    <div class="col-3">
-        <a asp-action="CrearCamion" class="btn btn-primary form-control">Crear Camion</a>
-    </div>
-</div>
-
-<div>
-    @if (Model.Count() > 0)
-    {
-        <table class="table table-striped border">
-            <tr>
-            
-                <th>@Html.DisplayNameFor(a => a.Patente)</th>
-                <th>@Html.DisplayNameFor(a => a.IdCamion)</th>
-                <th>@Html.DisplayNameFor(a => a.MarcaVehiculo) </th>
-                <th>@Html.DisplayNameFor(a => a.ModeloVehiculo) </th>
-                <th>@Html.DisplayNameFor(a => a.Año) </th>
-                <th>@Html.DisplayNameFor(a => a.Chasis) </th>
-                <th>@Html.DisplayNameFor(a => a.Color) </th>
-                <th>@Html.DisplayNameFor(a => a.Cilindrada) </th>
-            </tr>
-
-            @foreach (var camion in Model)
-            {
-                <tr>
-                    <td>@camion.Patente</td>
-                    <td>@camion.IdCamion</td>
-                    <td>@camion.MarcaVehiculo.Marca</td>
-                    <td>@camion.ModeloVehiculo.Modelo</td>
-                    <td>@camion.Año</td>
-                    <td>@camion.Chasis</td>
-                    <td>@camion.Color</td>
-                    <td>@camion.Cilindrada</td>
-                    <td>
-                        <a class="btn btn-primary text-white" asp-action="EditarCamion" asp-route-id="@camion.IdVehiculo" >Editar</a>
-                        <a class="btn btn-danger text-white" asp-action="getBorrar" asp-route-id="@camion.IdVehiculo">Borrar</a>
-
-                    </td>
-
-                </tr>
-            }
-
-        </table>
-    }
-    else
-    {
-        <p>No hay camiones</p>
-    }
-
-</div>*@
-
-@*@section Scripts{
-    <partial name="_ValidationScriptsPartial" />
-
-    <script src="~/js/editarcamiones.js"></script>
-
-    }
-*@

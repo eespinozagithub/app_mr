@@ -1,10 +1,8 @@
 ﻿@model TransportesMR.Models.Camion
-
 @{
-    ViewData["Title"] = "Crear Camion";
+    ViewData["Title"] = "Modificar Camión";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <style>
     .field-validation-error {
         color: #FF0102;
@@ -15,17 +13,18 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Camiones</h4>
-
+            <h4 class="mb-sm-0">Camión</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a asp-action="Index">Editar camiones</a></li>
+                    <li class="breadcrumb-item"><a asp-action="ListadoCamion">Listado de Camión</a></li>
                     <li class="breadcrumb-item active">@ViewData["Title"]</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -35,96 +34,87 @@
             <div class="card-body">
 
                 <div class="live-preview">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <form method="post" asp-action="ModificarCamion">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <form method="post" asp-action="EditarCamion">
-                        <!--Importante para editar-->
+                        <!--Envair ID-->
                         <input type="hidden" asp-for="IdCamion" />
 
                         <div class="row g-3">
                             <!--FILA 1-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="IdCamion" class="form-control" />
-                                    <label asp-for="IdCamion"></label>
-                                    <span asp-validation-for="IdCamion"></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <input asp-for="Patente" class="form-control" >
-                                    <label asp-for="Patente"></label>
-                                    <span asp-validation-for="Patente"></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <input asp-for="NumeroMotor" class="form-control" >
-                                    <label asp-for="NumeroMotor"></label>
-                                    <span asp-validation-for="NumeroMotor"></span>
-                                </div>
-                            </div>
-
-                            <!--FILA 2-->
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <input asp-for="Chasis" class="form-control"/>
-                                    <label asp-for="Chasis"></label>
-                                    <span asp-validation-for="Chasis"></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <input asp-for="Cilindrada" class="form-control" >
-                                    <label asp-for="Cilindrada"></label>
-                                    <span asp-validation-for="Cilindrada"></span>
+                                    <select id="idMarca" asp-items="@(new SelectList(ViewBag.Marcas,"IdMarca","Marca", ViewBag.idMarcaSeleccionada))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label>Marca Remolque</label>
                                 </div>
                             </div>
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="Año" class="form-control" />
-                                    <label asp-for="Año"></label>
-                                    <span asp-validation-for="Año"></span>
-                                </div>
-                            </div>
-                            <!--FILA 3-->
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <select asp-for="Estado" class="form-select">
-                                        <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
+                                    <select asp-for="IdModelo" id="cmbModelos" asp-items="@(new SelectList(ViewBag.Modelos,"IdModelo","Modelo"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
                                     </select>
-                                    <label asp-for="Estado"></label>
-                                    <span asp-validation-for="Estado"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                  @*  <select asp-for="IdMarca" class="form-select" id="cmbMarcas">
-                                    </select>
-                                    <option value="IdMarca" selected></option>
-                                    <label asp-for="IdMarca"></label>
-                                    <span asp-validation-for="IdMarca"></span>*@
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <select asp-for="IdModelo" class="form-select" id="cmbModelos">
-                                    </select>
-                                    <option value="IdModelo" selected></option>
                                     <label asp-for="IdModelo"></label>
                                     <span asp-validation-for="IdModelo"></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="Color" class="form-control" />
+                                    <input asp-for="NumeroCamion" class="form-control" placeholder="Ingrese el Número de Camión" />
+                                    <label asp-for="NumeroCamion"></label>
+                                    <span asp-validation-for="NumeroCamion"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 2-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Patente" class="form-control" placeholder="Ingrese la Patente">
+                                    <label asp-for="Patente"></label>
+                                    <span asp-validation-for="Patente"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="NumeroMotor" class="form-control" placeholder="Ingrese el Número de Motor">
+                                    <label asp-for="NumeroMotor"></label>
+                                    <span asp-validation-for="NumeroMotor"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Chasis" class="form-control" placeholder="Ingrese el Número de Chasis" />
+                                    <label asp-for="Chasis"></label>
+                                    <span asp-validation-for="Chasis"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 3-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Anio" class="form-control" placeholder="Ingrese el Año" />
+                                    <label asp-for="Anio"></label>
+                                    <span asp-validation-for="Anio"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Color" class="form-control" placeholder="Ingrese el Color" />
                                     <label asp-for="Color"></label>
                                     <span asp-validation-for="Color"></span>
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Cilindrada" class="form-control" placeholder="Ingrese Cilindrada">
+                                    <label asp-for="Cilindrada"></label>
+                                    <span asp-validation-for="Cilindrada"></span>
+                                </div>
+                            </div>
+
+                            <!--FILA 4-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
                                     <select asp-for="Estado" class="form-select">
@@ -135,10 +125,9 @@
                                     <span asp-validation-for="Estado"></span>
                                 </div>
                             </div>
-                            
-                            <div class="col-lg-4">
+                            <div class="col-lg-8">
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Editar Camion</button>
+                                    <button type="submit" class="btn btn-primary">Modificar Camión</button>
                                 </div>
                             </div>
                         </div>
@@ -150,33 +139,6 @@
 </div>
 
 @section Scripts{
-    @*  <partial name="_ValidationScriptsPartial" />*@
-
-    <script src="~/js/editarcamiones.js"></script>
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/camionesModificar.js"></script>
+}
