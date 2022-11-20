@@ -2,6 +2,7 @@
   "Version": 1,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Hash": "BWIe7P6qGjppae3yc2/CqO1guu+C7D9E56pxR5Q9+qU=",
 =======
 =======
@@ -22,6 +23,9 @@
   "Hash": "fXa9T4DT671vMQbe9yXjm0nHt/T08CTJ2fh91dUnRR0=",
 >>>>>>> Combustible
 >>>>>>> Combustible
+=======
+  "Hash": "i41Q0gNabU7At1WHS8dBBFfUZbEZOpB00f3ZYsdGYIQ=",
+>>>>>>> combustible
   "Source": "TransportesMR",
   "BasePath": "_content/TransportesMR",
   "Mode": "Default",
@@ -75016,20 +75020,7 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camionesAgregar.js",
-=======
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camiones.js",
->>>>>>> Crea Combustibles
-      "SourceId": "TransportesMR",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
-=======
-=======
->>>>>>> Combustible
-      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\camiones.js",
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\camionesAgregar.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
@@ -75046,20 +75037,7 @@
       "OriginalItemSpec": "wwwroot\\js\\camionesAgregar.js"
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\camionesModificar.js",
-=======
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\js\\editarcamiones.js",
->>>>>>> Crea Combustibles
-      "SourceId": "TransportesMR",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
-=======
-=======
->>>>>>> Combustible
-      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\editarcamiones.js",
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\js\\camionesModificar.js",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",

@@ -236,7 +236,7 @@ namespace TransportesMR.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<float>("Cilindrada")
+                    b.Property<float?>("Cilindrada")
                         .HasColumnType("float");
 
                     b.Property<string>("Color")
@@ -255,7 +255,8 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("NumeroCamion")
+                    b.Property<int?>("NumeroCamion")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("NumeroMotor")

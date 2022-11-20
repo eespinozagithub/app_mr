@@ -6,11 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TransportesMR.Migrations
 {
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-    public partial class Inicio : Migration
-=======
-    public partial class CreaTableCombustiblesBD : Migration
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -353,16 +349,11 @@ namespace TransportesMR.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
                 name: "Remolque",
-=======
-                name: "CargaCombustibleRemolque",
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
                 columns: table => new
                 {
-                    IdCargaCombustibleRemolque = table.Column<int>(type: "int", nullable: false)
+                    IdRemolque = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
                     NumeroRemolque = table.Column<int>(type: "int", nullable: false),
                     Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -382,7 +373,49 @@ namespace TransportesMR.Migrations
                         column: x => x.IdModelo,
                         principalTable: "ModeloRemolque",
                         principalColumn: "IdModelo",
-=======
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Camion",
+                columns: table => new
+                {
+                    IdCamion = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NumeroCamion = table.Column<int>(type: "int", nullable: false),
+                    Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    NumeroMotor = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Chasis = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Anio = table.Column<int>(type: "int", nullable: false),
+                    Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Cilindrada = table.Column<float>(type: "float", nullable: true),
+                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Estado = table.Column<int>(type: "int", nullable: false),
+                    IdModelo = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Camion", x => x.IdCamion);
+                    table.ForeignKey(
+                        name: "FK_Camion_ModeloVehiculo_IdModelo",
+                        column: x => x.IdModelo,
+                        principalTable: "ModeloVehiculo",
+                        principalColumn: "IdModelo",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "CargaCombustibleRemolque",
+                columns: table => new
+                {
+                    IdCargaCombustibleRemolque = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     IdRemolque = table.Column<int>(type: "int", nullable: false),
                     Combustible = table.Column<int>(type: "int", nullable: false),
                     FechaCargaCombustible = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -399,72 +432,7 @@ namespace TransportesMR.Migrations
                         column: x => x.IdRemolque,
                         principalTable: "Remolque",
                         principalColumn: "IdRemolque",
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
                         onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-                name: "Camion",
-=======
-                name: "Vehiculos",
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
-                columns: table => new
-                {
-                    IdCamion = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    NumeroCamion = table.Column<int>(type: "int", nullable: false),
-                    Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    NumeroMotor = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Chasis = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Anio = table.Column<int>(type: "int", nullable: false),
-                    Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-<<<<<<< HEAD:Migrations/20221120032201_Inicio.cs
-=======
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-=======
-                    IdMarca = table.Column<int>(type: "int", nullable: true),
-                    IdModelo = table.Column<int>(type: "int", nullable: true),
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
-                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
->>>>>>> Crea Combustibles:Migrations/20221120023624_Inicio.cs
-                    Cilindrada = table.Column<float>(type: "float", nullable: false),
-                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Estado = table.Column<int>(type: "int", nullable: false),
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-                    IdModelo = table.Column<int>(type: "int", nullable: false)
-=======
-                    Discriminator = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdCamion = table.Column<int>(type: "int", nullable: true),
-                    Cilindrada = table.Column<float>(type: "float", nullable: true)
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Camion", x => x.IdCamion);
-                    table.ForeignKey(
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-                        name: "FK_Camion_ModeloVehiculo_IdModelo",
-                        column: x => x.IdModelo,
-                        principalTable: "ModeloVehiculo",
-                        principalColumn: "IdModelo",
-                        onDelete: ReferentialAction.Cascade);
-=======
-                        name: "FK_Vehiculos_MarcaVehiculo_IdMarca",
-                        column: x => x.IdMarca,
-                        principalTable: "MarcaVehiculo",
-                        principalColumn: "IdMarca");
-                    table.ForeignKey(
-                        name: "FK_Vehiculos_ModeloVehiculo_IdModelo",
-                        column: x => x.IdModelo,
-                        principalTable: "ModeloVehiculo",
-                        principalColumn: "IdModelo");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -475,7 +443,7 @@ namespace TransportesMR.Migrations
                     IdCargaCombustible = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     IdCamion = table.Column<int>(type: "int", nullable: false),
-                    CamionIdVehiculo = table.Column<int>(type: "int", nullable: true),
+                    CamionIdCamion = table.Column<int>(type: "int", nullable: true),
                     Combustible = table.Column<int>(type: "int", nullable: false),
                     FechaCargaCombustible = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Litros = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
@@ -488,11 +456,10 @@ namespace TransportesMR.Migrations
                 {
                     table.PrimaryKey("PK_CargaCombustible", x => x.IdCargaCombustible);
                     table.ForeignKey(
-                        name: "FK_CargaCombustible_Vehiculos_CamionIdVehiculo",
-                        column: x => x.CamionIdVehiculo,
-                        principalTable: "Vehiculos",
-                        principalColumn: "IdVehiculo");
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
+                        name: "FK_CargaCombustible_Camion_CamionIdCamion",
+                        column: x => x.CamionIdCamion,
+                        principalTable: "Camion",
+                        principalColumn: "IdCamion");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -534,20 +501,19 @@ namespace TransportesMR.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
                 name: "IX_Camion_IdModelo",
                 table: "Camion",
                 column: "IdModelo");
-=======
-                name: "IX_CargaCombustible_CamionIdVehiculo",
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CargaCombustible_CamionIdCamion",
                 table: "CargaCombustible",
-                column: "CamionIdVehiculo");
+                column: "CamionIdCamion");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CargaCombustibleRemolque_IdRemolque",
                 table: "CargaCombustibleRemolque",
                 column: "IdRemolque");
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
 
             migrationBuilder.CreateIndex(
                 name: "IX_ModeloRemolque_IdMarca",
@@ -583,22 +549,13 @@ namespace TransportesMR.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-                name: "Camion");
-
-            migrationBuilder.DropTable(
-=======
                 name: "CargaCombustible");
 
             migrationBuilder.DropTable(
                 name: "CargaCombustibleRemolque");
 
             migrationBuilder.DropTable(
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
                 name: "Empresa");
-
-            migrationBuilder.DropTable(
-                name: "ModeloRemolque");
 
             migrationBuilder.DropTable(
                 name: "Trabajador");
@@ -610,17 +567,13 @@ namespace TransportesMR.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-<<<<<<< HEAD:Migrations/20221120023624_Inicio.cs
-                name: "ModeloVehiculo");
-=======
-                name: "Vehiculos");
+                name: "Camion");
 
             migrationBuilder.DropTable(
                 name: "Remolque");
 
             migrationBuilder.DropTable(
-                name: "MarcaRemolque");
->>>>>>> Crea Combustibles:Migrations/20221120010225_CreaTableCombustiblesBD.cs
+                name: "ModeloVehiculo");
 
             migrationBuilder.DropTable(
                 name: "ModeloRemolque");

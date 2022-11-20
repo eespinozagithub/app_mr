@@ -11,7 +11,7 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221120025341_Inicial")]
+    [Migration("20221120043220_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -229,16 +229,16 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("Año")
+                    b.Property<int?>("Anio")
                         .IsRequired()
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Chasis")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<float>("Cilindrada")
+                    b.Property<float?>("Cilindrada")
                         .HasColumnType("float");
 
                     b.Property<string>("Color")
@@ -257,7 +257,8 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("NumeroCamion")
+                    b.Property<int?>("NumeroCamion")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("NumeroMotor")

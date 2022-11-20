@@ -23,7 +23,7 @@ namespace TransportesMR.Controllers
         }
         public IActionResult CrearCargaCombustible()
         {
-            ViewBag.Combustible = _context.Camiones.ToList();
+            ViewBag.Combustible = _context.Camion.ToList();
             return View();
         }
 
@@ -31,7 +31,7 @@ namespace TransportesMR.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CrearCargaCombustible(CargaCombustible cargaCombustible)
         {
-            ViewBag.Combustible = _context.Camiones.ToList();
+            ViewBag.Combustible = _context.Camion.ToList();
             if (ModelState.IsValid)
             {
                 _context.CargaCombustible.Add(cargaCombustible);
@@ -44,7 +44,7 @@ namespace TransportesMR.Controllers
         [HttpGet]
         public IActionResult ModificarCargaCombustible(int? id)
         {
-            ViewBag.Combustible = _context.Camiones.ToList();
+            ViewBag.Combustible = _context.Camion.ToList();
             if (id == null)
             {
                 return View();
