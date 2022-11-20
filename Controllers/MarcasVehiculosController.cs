@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TransportesMR.Data;
+using TransportesMR.Models;
 
 namespace TransportesMR.Controllers
 {
@@ -12,64 +13,64 @@ namespace TransportesMR.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult ListadoMarcaVehiculo()
         {
-            List<MarcaVehiculo> ListaMarcaVehiculo = _context.MarcaVehiculo.ToList();
+            List<MarcaVehiculo> ListaMarcaVehiculo = _context.MarcaVehiculo.OrderByDescending(x => x.Estado).ToList();
             return View(ListaMarcaVehiculo);
         }
 
         [HttpGet]
-        public IActionResult Crear()
+        public IActionResult CrearMarcaVehiculo()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult setCrear(MarcaVehiculo marcaVehiculo)
+        public async Task<IActionResult> CrearMarcaVehiculo(MarcaVehiculo marcaVehiculo)
         {
             if (ModelState.IsValid)
             {
                 _context.MarcaVehiculo.Add(marcaVehiculo);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(ListadoMarcaVehiculo));
 
             }
-            return View();
+            return View(marcaVehiculo);
         }
-        [HttpGet]
 
-        public IActionResult Editar(int? id)
+
+        [HttpGet]
+        public IActionResult ModificarMarcaVehiculo(int? id)
         {
             if (id == null)
             {
-                return View();
+                return NotFound();
             }
 
-            var marcaVehiculo = _context.MarcaVehiculo.FirstOrDefault(c => c.IdMarca == id);
+            var marcaVehiculo = _context.MarcaVehiculo.Find(id);
+            if (marcaVehiculo == null)
+            {
+                return NotFound();
+            }
+
             return View(marcaVehiculo);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult setEditar(MarcaVehiculo marcaVeh)
+        public async Task<IActionResult> ModificarMarcaVehiculo(MarcaVehiculo marcaVehiculo)
         {
             if (ModelState.IsValid)
             {
-                _context.MarcaVehiculo.Update(marcaVeh);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(marcaVeh);
-        }
+                _context.Update(marcaVehiculo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(ListadoMarcaVehiculo));
 
-        [HttpGet]
-        public IActionResult getBorrar(int? id)
-        {
-            var marcaVehiculo = _context.MarcaVehiculo.FirstOrDefault(c => c.IdMarca == id);
-            _context.MarcaVehiculo.Remove(marcaVehiculo);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+
+            }
+            return View(marcaVehiculo);
         }
+        
     }
 }

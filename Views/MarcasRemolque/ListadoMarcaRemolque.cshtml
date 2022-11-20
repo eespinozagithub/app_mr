@@ -53,6 +53,7 @@
 
                                         <th class="sort">@Html.DisplayNameFor(a => a.IdMarca)</th>
                                         <th class="sort">@Html.DisplayNameFor(a => a.Marca)</th>
+                                        <th class="sort">@Html.DisplayNameFor(a => a.Estado)</th>
                                         <th class="sort">Acciones</th>
                                     </tr>
                                 </thead>
@@ -63,6 +64,14 @@
                                         <tr>
                                             <td>@marcaRemolque.IdMarca</td>
                                             <td>@marcaRemolque.Marca</td>
+                                            @if (@marcaRemolque.Estado == true)
+                                            {
+                                                <td>Activo</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Deshabilitado</td>
+                                            }
                                             <td>
                                                 <div class="row">
                                                     <div class="col-lg-4">
@@ -96,11 +105,9 @@
                         <p>Sin Marcas de Remolque ingresadas</p>
                     }
                 </div>
-            </div><!-- end card -->
-        </div>
-        <!-- end col -->
+            </div>
+        </div>        
     </div>
-    <!-- end col -->
 </div>
-<!-- end row -->
+
 

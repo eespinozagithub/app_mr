@@ -3,6 +3,7 @@
     public class MarcaRemolque
     {
         [Key]
+        [Display(Name = "ID")]
         public int IdMarca { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar la marca")]

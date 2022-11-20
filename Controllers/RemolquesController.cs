@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TransportesMR.Data;
 
 namespace TransportesMR.Controllers
@@ -6,21 +7,24 @@ namespace TransportesMR.Controllers
     public class RemolquesController : Controller
     {
         public readonly ApplicationDbContext _context;
+        private List<MarcaRemolque> lstMarcas;
 
         public RemolquesController(ApplicationDbContext context)
         {
             _context = context;
+            lstMarcas = _context.MarcaRemolque.Where(x => x.Estado == true).ToList();
         }
 
         public IActionResult ListadoRemolque()
         {
-            List<Remolque> listaRemolque = _context.Remolque.OrderByDescending(x => x.IdRemolque).ToList();
+            List<Remolque> listaRemolque = _context.Remolque.OrderByDescending(x => x.Estado).Include(x => x.ModeloRemolque).ThenInclude(x => x.MarcaRemolque).ToList();
             return View(listaRemolque);
         }
 
         [HttpGet]
         public IActionResult CrearRemolque()
         {
+            ViewBag.Marcas = lstMarcas;
             return View();
         }
 
@@ -28,6 +32,7 @@ namespace TransportesMR.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CrearRemolque(Remolque remolque)
         {
+            ViewBag.Marcas = lstMarcas;
             if (ModelState.IsValid)
             {
                 _context.Remolque.Add(remolque);
@@ -40,7 +45,7 @@ namespace TransportesMR.Controllers
 
         [HttpGet]
         public IActionResult ModificarRemolque(int? id)
-        {
+        {            
             if (id == null)
             {
                 return NotFound();
@@ -51,6 +56,11 @@ namespace TransportesMR.Controllers
             {
                 return NotFound();
             }
+
+            var idMarcaSel = _context.ModeloRemolque.FirstOrDefault(c => c.IdModelo == remolque.IdModelo).IdMarca;
+            ViewBag.Marcas = lstMarcas;
+            ViewBag.Modelos = _context.ModeloRemolque.ToList().Where(p => p.IdMarca == idMarcaSel);
+            ViewBag.idMarcaSeleccionada = idMarcaSel;
 
             return View(remolque);
         }
@@ -64,9 +74,29 @@ namespace TransportesMR.Controllers
                 _context.Update(remolque);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(ListadoRemolque));
-
             }
+
+            ViewBag.Marcas = lstMarcas;            
+            if( remolque.IdModelo != null)
+            {
+                var idMarcaSel = _context.ModeloRemolque.FirstOrDefault(c => c.IdModelo == remolque.IdModelo).IdMarca;
+                ViewBag.Modelos = _context.ModeloRemolque.ToList().Where(p => p.IdMarca == idMarcaSel);
+                ViewBag.idMarcaSeleccionada = idMarcaSel;
+            }
+            else
+            {
+                ViewBag.Modelos = _context.ModeloRemolque.ToList().Where(p => p.IdMarca == 0);
+                ViewBag.idMarcaSeleccionada = null;
+            }
+
             return View(remolque);
+        }
+
+        [HttpPost]
+        public JsonResult getModelos(int IdMarca)
+        {
+            var modelos = _context.ModeloRemolque.ToList().Where(p => p.IdMarca == IdMarca);
+            return Json(new SelectList(modelos, "IdModelo", "Modelo"));
         }
     }
 }

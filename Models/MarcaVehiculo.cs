@@ -1,17 +1,16 @@
-﻿
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace TransportesMR.Models
+﻿namespace TransportesMR.Models
 {
     public class MarcaVehiculo
     {
         [Key]
+        [Display(Name = "ID")]
         public int IdMarca { get; set; }
 
-        [Required(ErrorMessage = "{0} es requerido")]
+        [Required(ErrorMessage = "Debe ingresar la marca")]
         [MaxLength(100)]
         public string Marca { get; set; }
 
-        //public IEnumerable<SelectListItem> ListaMarca { get; set; }
+        [Required]
+        public bool Estado { get; set; }
     }
 }

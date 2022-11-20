@@ -1,6 +1,6 @@
-﻿@model TransportesMR.Models.MarcaRemolque
+﻿@model TransportesMR.Models.MarcaVehiculo
 @{
-    ViewData["Title"] = "Crear Marca de Remolque";
+    ViewData["Title"] = "Crear Marca de Camión";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,11 +14,11 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Marcas de Remolque</h4>
+            <h4 class="mb-sm-0">Marcas de Camión</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a asp-action="ListadoMarcaRemolque">Listado de Marcas de Remolque</a></li>
+                    <li class="breadcrumb-item"><a asp-action="ListadoMarcaRemolque">Listado de Marcas de Camión</a></li>
                     <li class="breadcrumb-item active">@ViewData["Title"]</li>
                 </ol>
             </div>
@@ -37,7 +37,7 @@
                 <div class="live-preview">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <form method="post" asp-action="CrearMarcaRemolque">
+                    <form method="post" asp-action="CrearMarcaVehiculo">
 
                         <div class="row g-3">
                             <!--FILA 1-->
@@ -47,7 +47,7 @@
                                     <label asp-for="Marca"></label>
                                     <span asp-validation-for="Marca"></span>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="col-lg-3">
                                 <div class="form-floating">
                                     <select asp-for="Estado" class="form-select">
@@ -61,7 +61,7 @@
                             <div class="col-lg-1"></div>
                             <div class="col-lg-3">
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Crear Marca de Remolque</button>
+                                    <button type="submit" class="btn btn-primary">Crear Marca de Camión</button>
                                 </div>
                             </div>
                         </div>
@@ -71,10 +71,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
 

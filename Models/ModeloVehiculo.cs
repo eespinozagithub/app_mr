@@ -1,26 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace TransportesMR.Models
+﻿namespace TransportesMR.Models
 {
     public class ModeloVehiculo
     {
         [Key]
-        [Required]
+        [Display(Name = "ID")]
         public int IdModelo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Debe ingresar el modelo")]
         [MaxLength(100)]
         public string Modelo { get; set; }
 
-        [ForeignKey("MarcaVehiculo")]
         [Required]
+        public bool Estado { get; set; }
+
+        [ForeignKey("MarcaVehiculo")]
+        [Display(Name = "Marca Remolque")]
+        [Required(ErrorMessage = "Debe seleccionar el modelo")]
         public int IdMarca { get; set; }
         public MarcaVehiculo? MarcaVehiculo { get; set; }
-
-      
-
-
-
     }
 }
 

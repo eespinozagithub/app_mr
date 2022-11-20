@@ -1,4 +1,16 @@
-<<<<<<< HEAD
+# Created by https://www.toptal.com/developers/gitignore/api/dotnetcore
+# Edit at https://www.toptal.com/developers/gitignore?templates=dotnetcore
+
+### DotnetCore ###
+# .NET Core build folders
+bin/
+obj/
+# Common node modules locations
+/node_modules
+/wwwroot/node_modules
+
+# End of https://www.toptal.com/developers/gitignore/api/dotnetcore
+
 # Created by https://www.toptal.com/developers/gitignore/api/aspnetcore
 # Edit at https://www.toptal.com/developers/gitignore?templates=aspnetcore
 
@@ -421,6 +433,7 @@ DocProject/Help/html
 # Click-Once directory
 publish/
 
+
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
@@ -546,5 +559,5 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/
 
->>>>>>> 6cacbd3d8fdf823e81293e634dc28692214f2ca3
+
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore

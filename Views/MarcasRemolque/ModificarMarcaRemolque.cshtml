@@ -51,6 +51,16 @@
                                     <span asp-validation-for="Marca"></span>
                                 </div>
                             </div>
+                            <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-for="Estado" class="form-select">
+                                        <option value="true">Activo</option>
+                                        <option value="false">Deshabilitado</option>
+                                    </select>
+                                    <label asp-for="Estado"></label>
+                                    <span asp-validation-for="Estado"></span>
+                                 </div>
+                            </div>
                             <div class="col-lg-1"></div>
                             <div class="col-lg-3">
                                 <div class="text-end">

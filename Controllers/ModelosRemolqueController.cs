@@ -9,22 +9,24 @@ namespace TransportesMR.Controllers
     public class ModelosRemolqueController : Controller
     {
         public readonly ApplicationDbContext _context;
+        private List<MarcaRemolque> lstMarcas;
 
         public ModelosRemolqueController(ApplicationDbContext context)
         {            
             _context = context;
+            lstMarcas = _context.MarcaRemolque.Where(x => x.Estado == true).ToList();
         }
 
         public IActionResult ListadoModeloRemolque()
         {
-            List<ModeloRemolque> listaModeloRemolque = _context.ModeloRemolque.OrderByDescending(x => x.IdModelo).Include(c => c.MarcaRemolque).ToList();            
+            List<ModeloRemolque> listaModeloRemolque = _context.ModeloRemolque.OrderByDescending(x => x.Estado).Include(c => c.MarcaRemolque).ToList();            
             return View(listaModeloRemolque);
         }
 
         [HttpGet]
         public IActionResult CrearModeloRemolque()
         {
-            ViewBag.Marcas = _context.MarcaRemolque.ToList();
+            ViewBag.Marcas = lstMarcas;
             return View();
         }
 
@@ -32,7 +34,7 @@ namespace TransportesMR.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CrearModeloRemolque(ModeloRemolque modeloRemolque)
         {
-            ViewBag.Marcas = _context.MarcaRemolque.ToList();
+            ViewBag.Marcas = lstMarcas;
 
             if (ModelState.IsValid)
             {                
@@ -47,7 +49,7 @@ namespace TransportesMR.Controllers
 
         public IActionResult ModificarModeloRemolque(int? id)
         {
-            ViewBag.Marcas = _context.MarcaRemolque.ToList();
+            ViewBag.Marcas = lstMarcas;
             if (id == null)
             {
                 return View();
@@ -61,7 +63,7 @@ namespace TransportesMR.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ModificarModeloRemolque(ModeloRemolque modeloRemolque)
         {
-            ViewBag.Marcas = _context.MarcaRemolque.ToList();
+            ViewBag.Marcas = lstMarcas;
             if (ModelState.IsValid)
             {
                 _context.ModeloRemolque.Update(modeloRemolque);

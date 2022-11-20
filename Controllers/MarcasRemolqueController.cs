@@ -14,7 +14,7 @@ namespace TransportesMR.Controllers
 
         public IActionResult ListadoMarcaRemolque()
         {
-            List<MarcaRemolque> listaMarcaRemolque= _context.MarcaRemolque.OrderByDescending(x => x.IdMarca).ToList();
+            List<MarcaRemolque> listaMarcaRemolque= _context.MarcaRemolque.OrderByDescending(x => x.Estado).ToList();
             return View(listaMarcaRemolque);
         }
 

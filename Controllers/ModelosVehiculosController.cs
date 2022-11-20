@@ -15,14 +15,13 @@ namespace TransportesMR.Controllers
         public ModelosVehiculosController(ApplicationDbContext context)
         {
             _context = context;
-            lstMarcas = _context.MarcaVehiculo.ToList();
+            lstMarcas = _context.MarcaVehiculo.Where(x => x.Estado == true).ToList();
         }
-        public IActionResult Index()
+        public IActionResult ListadoModeloVehiculo()
         {
             List<ModeloVehiculo> ListaModelosVehiculo = _context.ModeloVehiculo.Include(c => c.MarcaVehiculo).ToList();
             return View(ListaModelosVehiculo);
         }
-
 
         [HttpGet]
         public IActionResult CrearModelo()

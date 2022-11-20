@@ -35,12 +35,30 @@
             <div class="card-body">
 
                 <div class="live-preview">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                     <form method="post" asp-action="CrearRemolque">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row g-3">
                             <!--FILA 1-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select id="idMarca"  asp-items="@(new SelectList(ViewBag.Marcas,"IdMarca","Marca"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label>Marca Remolque</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="IdModelo" id="cmbModelos" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label asp-for="IdModelo"></label>
+                                    <span asp-validation-for="IdModelo"></span>                                    
+                                </div>
+                            </div>
+
                             <div class="col-lg-4">
                                 <div class="form-floating">
                                     <input asp-for="NumeroRemolque" class="form-control" placeholder="Ingrese el Número" />
@@ -48,6 +66,8 @@
                                     <span asp-validation-for="NumeroRemolque"></span>
                                 </div>
                             </div>
+
+                            <!--FILA 2-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
                                     <input asp-for="Patente" class="form-control" placeholder="Ingrese la Patente">
@@ -62,23 +82,15 @@
                                     <span asp-validation-for="Capacidad"></span>
                                 </div>
                             </div>
-
-                            <!--FILA 2-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
                                     <input asp-for="NumeroChasis" class="form-control" placeholder="Ingrese el Numero de Chasis" />
                                     <label asp-for="NumeroChasis"></label>
                                     <span asp-validation-for="NumeroChasis"></span>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-floating">
-                                    <input asp-for="Modelo" class="form-control" placeholder="Ingrese el modelo">
-                                    <label asp-for="Modelo"></label>
-                                    <span asp-validation-for="Modelo"></span>
-                                </div>
-                            </div>
+                            </div>                          
 
+                            <!--FILA 3-->
                             <div class="col-lg-2">
                                 <div class="form-floating">
                                     <input asp-for="Anio" class="form-control" placeholder="Ingrese el Año">
@@ -86,12 +98,10 @@
                                     <span asp-validation-for="Anio"></span>
                                 </div>
                             </div>
-
-                            <!--FILA 3-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
                                     <select asp-for="TipoRemolque" class="form-select">
-                                        <option value="1">[Seleccione]</option>
+                                        <option value="" Selected>[Seleccione]</option>
                                         <option value="1">Slider</option>
                                         <option value="2">Plana</option>
                                         <option value="3">Termo</option>
@@ -101,18 +111,19 @@
                                     <span asp-validation-for="TipoRemolque"></span>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-floating">
                                     <select asp-for="Estado" class="form-select">
                                         <option value="true">Activo</option>
-                                        <option value="false">Desactivo</option>
+                                        <option value="false">Deshabilitado</option>
                                     </select>
                                     <label asp-for="Estado"></label>
                                     <span asp-validation-for="Estado"></span>
                                 </div>
                             </div>
                             
-                            <div class="col-lg-4">
+                            <!--FILA 4-->
+                            <div class="col-lg-3">
                                 <div class="text-end">
                                     <button type="submit" class="btn btn-primary">Crear Remolque</button>
                                 </div>
@@ -125,7 +136,10 @@
     </div>
 </div>
 
-
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/remolquesAgregar.js"></script>
+}
 
 
 

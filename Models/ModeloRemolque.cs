@@ -3,7 +3,7 @@
     public class ModeloRemolque
     {
         [Key]
-        [Required]
+        [Display(Name = "ID")]
         public int IdModelo { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el modelo")]
@@ -18,8 +18,6 @@
         [Required(ErrorMessage = "Debe seleccionar el modelo")]        
         public int IdMarca { get; set; }
 
-        //[Display(Name = "Marca Remolque")]
-        public MarcaRemolque? MarcaRemolque { get; set; }
-       
+        public MarcaRemolque? MarcaRemolque { get; set; }       
     }
 }
