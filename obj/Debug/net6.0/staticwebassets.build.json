@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eEh41+SUNmdsFPH1Q4mkfW3tiV5MpUcmexf8GiwL64A=",
+  "Hash": "BWIe7P6qGjppae3yc2/CqO1guu+C7D9E56pxR5Q9+qU=",
   "Source": "TransportesMR",
   "BasePath": "_content/TransportesMR",
   "Mode": "Default",
@@ -7803,6 +7803,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo-light.png"
     },
     {
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\logo-light2.png",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/logo-light2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\logo-light2.png"
+    },
+    {
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\logo-sm.png",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
@@ -7835,6 +7852,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo-sm-1.png"
+    },
+    {
+      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\logo-sm2.png",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/logo-sm2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\logo-sm2.png"
     },
     {
       "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\mac-img.png",
