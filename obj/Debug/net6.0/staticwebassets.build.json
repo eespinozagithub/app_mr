@@ -1,31 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "Hash": "BWIe7P6qGjppae3yc2/CqO1guu+C7D9E56pxR5Q9+qU=",
-=======
-=======
->>>>>>> Combustible
-<<<<<<< HEAD
-  "Hash": "eEh41+SUNmdsFPH1Q4mkfW3tiV5MpUcmexf8GiwL64A=",
-=======
-<<<<<<< HEAD
-  "Hash": "HSjga9md6FiYqjj8jHpnQrEK1AbjuxLz9hG3mFSspQo=",
-=======
-  "Hash": "4ahyORUTasHxNvqvo285+UDaH9gsd7nfykv2uqU/56o=",
->>>>>>> Crea Combustibles
->>>>>>> Crea Combustibles
-<<<<<<< HEAD
->>>>>>> Crea Combustibles
-=======
-=======
-  "Hash": "fXa9T4DT671vMQbe9yXjm0nHt/T08CTJ2fh91dUnRR0=",
->>>>>>> Combustible
->>>>>>> Combustible
-=======
-  "Hash": "i41Q0gNabU7At1WHS8dBBFfUZbEZOpB00f3ZYsdGYIQ=",
->>>>>>> combustible
+  "Hash": "dKePFOwVyUGKMnzBtwVHVCnELFgtZa7ZObD1/eYRewg=",
   "Source": "TransportesMR",
   "BasePath": "_content/TransportesMR",
   "Mode": "Default",
@@ -2099,6 +2074,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\auth-one-bg.jpg"
     },
     {
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\auth-one-bg2.jpg",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/auth-one-bg2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\auth-one-bg2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\auth-one-bg3.jpg",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/auth-one-bg3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\auth-one-bg3.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\bg-auth.jpg",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
@@ -2794,6 +2803,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\favicon.png",
+      "SourceId": "TransportesMR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
+      "BasePath": "_content/TransportesMR",
+      "RelativePath": "assets/images/favicon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\favicon.png"
     },
     {
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\file.png",
@@ -7828,11 +7854,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo-light.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\logo-light2.png",
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\logo-light2.png",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
       "BasePath": "_content/TransportesMR",
       "RelativePath": "assets/images/logo-light2.png",
       "AssetKind": "All",
@@ -7846,10 +7871,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo-light2.png"
     },
     {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\logo-sm.png",
-=======
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\logo-sm.png",
->>>>>>> Crea Combustibles
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
@@ -7883,11 +7905,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo-sm-1.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\logo-sm2.png",
+      "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\logo-sm2.png",
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
       "BasePath": "_content/TransportesMR",
       "RelativePath": "assets/images/logo-sm2.png",
       "AssetKind": "All",
@@ -7901,10 +7922,7 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\logo-sm2.png"
     },
     {
-      "Identity": "C:\\Users\\araya\\Desktop\\app_mr\\wwwroot\\assets\\images\\mac-img.png",
-=======
       "Identity": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\assets\\images\\mac-img.png",
->>>>>>> Crea Combustibles
       "SourceId": "TransportesMR",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\wwwroot\\",
