@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TransportesMR.Migrations
 {
-    public partial class Inicio : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -393,7 +393,7 @@ namespace TransportesMR.Migrations
                     Anio = table.Column<int>(type: "int", nullable: false),
                     Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Cilindrada = table.Column<float>(type: "float", nullable: false),
+                    Cilindrada = table.Column<float>(type: "float", nullable: true),
                     FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Estado = table.Column<int>(type: "int", nullable: false),
                     IdModelo = table.Column<int>(type: "int", nullable: false)
@@ -407,6 +407,59 @@ namespace TransportesMR.Migrations
                         principalTable: "ModeloVehiculo",
                         principalColumn: "IdModelo",
                         onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "CargaCombustibleRemolque",
+                columns: table => new
+                {
+                    IdCargaCombustibleRemolque = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    IdRemolque = table.Column<int>(type: "int", nullable: false),
+                    Combustible = table.Column<int>(type: "int", nullable: false),
+                    FechaCargaCombustible = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Litros = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    LugarCarga = table.Column<int>(type: "int", nullable: false),
+                    FacturaCarga = table.Column<int>(type: "int", nullable: true),
+                    PrecioLitros = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CargaCombustibleRemolque", x => x.IdCargaCombustibleRemolque);
+                    table.ForeignKey(
+                        name: "FK_CargaCombustibleRemolque_Remolque_IdRemolque",
+                        column: x => x.IdRemolque,
+                        principalTable: "Remolque",
+                        principalColumn: "IdRemolque",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "CargaCombustible",
+                columns: table => new
+                {
+                    IdCargaCombustible = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    IdCamion = table.Column<int>(type: "int", nullable: false),
+                    CamionIdCamion = table.Column<int>(type: "int", nullable: true),
+                    Combustible = table.Column<int>(type: "int", nullable: false),
+                    FechaCargaCombustible = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Litros = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Kilometraje = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    LugarCarga = table.Column<int>(type: "int", nullable: false),
+                    FacturaCarga = table.Column<int>(type: "int", nullable: true),
+                    PrecioLitros = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CargaCombustible", x => x.IdCargaCombustible);
+                    table.ForeignKey(
+                        name: "FK_CargaCombustible_Camion_CamionIdCamion",
+                        column: x => x.CamionIdCamion,
+                        principalTable: "Camion",
+                        principalColumn: "IdCamion");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -453,6 +506,16 @@ namespace TransportesMR.Migrations
                 column: "IdModelo");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CargaCombustible_CamionIdCamion",
+                table: "CargaCombustible",
+                column: "CamionIdCamion");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CargaCombustibleRemolque_IdRemolque",
+                table: "CargaCombustibleRemolque",
+                column: "IdRemolque");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ModeloRemolque_IdMarca",
                 table: "ModeloRemolque",
                 column: "IdMarca");
@@ -486,13 +549,13 @@ namespace TransportesMR.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Camion");
+                name: "CargaCombustible");
+
+            migrationBuilder.DropTable(
+                name: "CargaCombustibleRemolque");
 
             migrationBuilder.DropTable(
                 name: "Empresa");
-
-            migrationBuilder.DropTable(
-                name: "Remolque");
 
             migrationBuilder.DropTable(
                 name: "Trabajador");
@@ -502,6 +565,12 @@ namespace TransportesMR.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Camion");
+
+            migrationBuilder.DropTable(
+                name: "Remolque");
 
             migrationBuilder.DropTable(
                 name: "ModeloVehiculo");

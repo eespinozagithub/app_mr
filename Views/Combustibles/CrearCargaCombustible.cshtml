@@ -1,0 +1,131 @@
+﻿@model TransportesMR.Models.CargaCombustible
+@{
+    ViewData["Title"] = "Carga de Combustible Camiones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: #FF0102;
+    }
+</style>
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Carga de Combustible</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-action="Index">Listado de Carga de Combustible</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+
+                <div class="live-preview">
+
+                    <form method="post" asp-action="CrearCargaCombustible">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row g-3">
+                            <!--FILA 1-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="IdCamion" class="form-select" asp-items="@(new SelectList(ViewBag.Combustible,"IdCamion","IdCamion")) ">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label asp-for="IdCamion"></label>
+                                    <span asp-validation-for="IdCamion"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="Combustible" class="form-select">
+                                        <option value="" selected>Seleccione...</option>
+                                        <option value="1">Petroleo</option>
+                                        <option value="2">Adblue</option>
+                                    </select>
+                                    <label asp-for="Combustible"></label>
+                                    <span asp-validation-for="Combustible"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="FechaCargaCombustible" class="form-control" placeholder="Ingrese la Fecha de carga" />
+                                    <label asp-for="FechaCargaCombustible"></label>
+                                    <span asp-validation-for="FechaCargaCombustible"></span>
+                                </div>
+                            </div>
+                            <!--FILA 2-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Kilometraje" class="form-control" placeholder="Ingrese Kilometros" />
+                                    <label asp-for="Kilometraje"></label>
+                                    <span asp-validation-for="Kilometraje"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="Litros" class="form-control" placeholder="Ingrese Litros" />
+                                    <label asp-for="Litros"></label>
+                                    <span asp-validation-for="Litros"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="LugarCarga" class="form-select">
+                                        <option value="" selected>Seleccione...</option>
+                                        <option value="1">Empresa</option>
+                                        <option value="2">Ruta</option>
+                                    </select>
+                                    <label asp-for="Combustible"></label>
+                                    <span asp-validation-for="Combustible"></span>
+                                </div>
+                            </div>
+                            <!--FILA 2-->
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="FacturaCarga" class="form-control" placeholder="Factura" />
+                                    <label asp-for="FacturaCarga"></label>
+                                    <span asp-validation-for="FacturaCarga"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <input asp-for="PrecioLitros" class="form-control" placeholder="Ingrese Precio Litros" />
+                                    <label asp-for="PrecioLitros"></label>
+                                    <span asp-validation-for="PrecioLitros"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

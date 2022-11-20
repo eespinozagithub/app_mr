@@ -1,0 +1,183 @@
+﻿@model IEnumerable<TransportesMR.Models.CargaCombustibleRemolque>
+@{
+    ViewData["Title"] = "Lista de Cargas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string FormatearTotal(decimal total)
+    {
+        return Math.Abs(total).ToString("N");
+    }
+
+}
+
+<link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Layout config Js -->
+<script src="~/assets/js/layout.js"></script>
+<!-- Bootstrap Css -->
+<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- Icons Css -->
+<link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+<!-- App Css-->
+<link href="~/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+<!-- custom Css-->
+<link href="~/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Carga Combustible Remolques</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    @*<li class="breadcrumb-item"><a href="javascript: void(0);">Inicio</a></li>*@
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">@ViewData["Title"]</h4>
+
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <div id="customerList">
+                    <div class="row g-4 mb-3">
+                        <div class="col-sm-auto">
+                            <div>
+                                <a asp-action="CrearCargaCombustibleRemolque" class="btn btn-success add-btn"><i class="ri-add-line align-bottom me-1"></i> Ingresar Carga</a>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="search-box ms-2">
+                                    <input type="text" class="form-control search" placeholder="Buscar...">
+                                    <i class="ri-search-line search-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Model.Count() > 0)
+                    {
+
+                        <div class="table-responsive table-card mt-3 mb-1">
+                            <table class="table align-middle table-nowrap" id="customerTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="sort">Camion</th>
+                                        @*<th class="sort">Patente</th>*@
+                                        <th class="sort">Combustible</th>
+                                        <th class="sort">Fecha Carga</th>
+                                        <th class="sort">Litros</th>
+                                        <th class="sort">Lugar Carga</th>
+                                        <th class="sort">Factura</th>
+                                        <th class="sort">Precio x Litro</th>
+                                        <th class="sort">Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="list form-check-all">
+
+                                    @foreach (var combustible in Model)
+                                    {
+                                        <tr>
+                                            <td>@combustible.IdRemolque</td>
+                                            @*<td>@combustible.Camion.Patente</td>*@
+                                            <td>
+                                                @if (@combustible.Combustible == 1)
+                                                {
+                                                    @combustible.Combustible.Value.ToString("Petroleo")
+                                                }
+                                                else if (@combustible.Combustible == 2)
+                                                {
+                                                    @combustible.Combustible.Value.ToString("Adblue")
+                                                }
+
+                                            </td>
+
+                                            <td>
+                                                @if (@combustible.FechaCargaCombustible != null)
+                                                {
+                                                    @combustible.FechaCargaCombustible.Value.ToString("dd/MM/yyyy")
+                                                }
+                                            </td>
+                                            <td>@FormatearTotal(combustible.Litros)</td>
+                                            <td>
+                                                @if (@combustible.LugarCarga == 1)
+                                                {
+                                                    @combustible.LugarCarga.Value.ToString("Empresa")
+                                                }
+                                                else if (@combustible.LugarCarga == 2)
+                                                {
+                                                    @combustible.LugarCarga.Value.ToString("Ruta")
+                                                }
+
+                                            </td>
+                                            <td>@combustible.FacturaCarga</td>
+                                            <td>$ @combustible.PrecioLitros</td>
+                                            <td>$ @FormatearTotal((combustible.PrecioLitros * combustible.Litros))</td>
+
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+
+                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarCargaCombustibleRemolque" asp-route-id="@combustible.IdCargaCombustibleRemolque">
+                                                            <i class="ri-edit-2-line"></i> Modificar
+                                                        </a>
+                                                        <a class="btn btn-sm btn-danger edit-item-btn" asp-action="BorrarCargaCombustibleRemolque" asp-route-id="@combustible.IdCargaCombustibleRemolque" onclick="return confirm('¿Esta seguro de eliminar la carga?');">
+                                                            <i class="ri-edit-2-line"></i> Eliminar
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <div class="pagination-wrap hstack gap-2">
+                                <a class="page-item pagination-prev disabled" href="#">
+                                    Antes
+                                </a>
+                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                <a class="page-item pagination-next" href="#">
+                                    Siguiente
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Sin cargas ingresadas</p>
+                    }
+                </div>
+            </div><!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end col -->
+</div>
+
+
+
+
+<!-- JAVASCRIPT -->
+<script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="~/assets/libs/node-waves/waves.min.js"></script>
+<script src="~/assets/libs/feather-icons/feather.min.js"></script>
+<script src="~/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+<script src="~/assets/js/plugins.js"></script>
+
+<!-- App js -->
+<script src="~/assets/js/app.js"></script>
