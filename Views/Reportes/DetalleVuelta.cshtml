@@ -37,7 +37,7 @@
                                 <div class="form-floating">
                                     <select asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","NumeroCamion"))" class="form-select">
                                         <option value="">[Seleccione]</option>
-                                        <option value="0">Todos</option>
+                                        <option value="0">Todos...</option>
                                     </select>
                                     <label>Camiones</label>
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="form-floating">
                                     <select asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","Nombre"))" class="form-select">
                                         <option value="">[Seleccione]</option>
-                                        <option value="0">Todos</option>
+                                        <option value="0">Todos...</option>
                                     </select>
                                     <label>Conductor</label>
                                 </div>
@@ -55,7 +55,7 @@
                                 <div class="form-floating">
                                     <select asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","Rut"))" class="form-select">
                                         <option value="">[Seleccione]</option>
-                                        <option value="0">Todos</option>
+                                        <option value="0">Todos...</option>
                                     </select>
                                     <label>Empresa</label>
                                 </div>
@@ -63,7 +63,7 @@
                             
                             <div class="col-lg-3">
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                                    <button type="submit" class="btn btn-success">Exportar a Excel</button>
                                 </div>
                             </div>
                         </div>

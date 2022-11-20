@@ -50,9 +50,13 @@ namespace TransportesMR.Controllers
                 dtExportar.Rows.Add(result.IdCamion);
             }
 
+            return ExportarExcel(nombreArchivo, dtExportar);
+        }
+        private FileResult ExportarExcel(string nombreArchivo, System.Data.DataTable dtDatos)
+        {
             using (XLWorkbook wb = new XLWorkbook())
             {
-                wb.Worksheets.Add(dtExportar);
+                wb.Worksheets.Add(dtDatos);
 
                 using (MemoryStream stream = new MemoryStream())
                 {
@@ -77,5 +81,7 @@ namespace TransportesMR.Controllers
         {
             return View();
         }
+
+
     }
 }
