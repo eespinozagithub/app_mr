@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TransportesMR.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,31 +79,18 @@ namespace TransportesMR.Migrations
                 {
                     IdEmpresa = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
                     Rut = table.Column<string>(type: "varchar(40)", maxLength: 40, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RazonSocial = table.Column<string>(type: "varchar(40)", maxLength: 40, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Giro = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-========
-                    Rut = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    RazonSocial = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Giro = table.Column<string>(type: "longtext", nullable: false)
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NombresEncargado = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ApellidosEncargado = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
                     TelefonoEncargado = table.Column<int>(type: "int", maxLength: 40, nullable: false),
                     EmailContacto = table.Column<string>(type: "varchar(80)", maxLength: 80, nullable: false)
-========
-                    TelefonoEncargado = table.Column<int>(type: "int", nullable: false),
-                    EmailContacto = table.Column<string>(type: "longtext", nullable: false)
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Direccion = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
@@ -115,14 +102,14 @@ namespace TransportesMR.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
                 name: "MarcaRemolque",
                 columns: table => new
                 {
                     IdMarca = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Marca = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -131,8 +118,6 @@ namespace TransportesMR.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-========
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
                 name: "MarcaVehiculo",
                 columns: table => new
                 {
@@ -159,10 +144,10 @@ namespace TransportesMR.Migrations
                     Capacidad = table.Column<int>(type: "int", nullable: false),
                     NumeroChasis = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Modelo = table.Column<int>(type: "int", nullable: false),
-                    Anio = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Anio = table.Column<int>(type: "int", nullable: false),
                     TipoRemolque = table.Column<int>(type: "int", nullable: false),
-                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    IdModelo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -347,6 +332,7 @@ namespace TransportesMR.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Modelo = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     IdMarca = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -384,38 +370,6 @@ namespace TransportesMR.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
-========
-                name: "Remolques",
-                columns: table => new
-                {
-                    IdRemolque = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Patente = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CapacidadRemolque = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Año = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    NumeroRemolque = table.Column<int>(type: "int", nullable: false),
-                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    IdTipoRemolque = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Remolques", x => x.IdRemolque);
-                    table.ForeignKey(
-                        name: "FK_Remolques_TipoRemolques_IdTipoRemolque",
-                        column: x => x.IdTipoRemolque,
-                        principalTable: "TipoRemolques",
-                        principalColumn: "IdTipoRemolque",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
                 name: "Vehiculos",
                 columns: table => new
                 {
@@ -430,14 +384,6 @@ namespace TransportesMR.Migrations
                     Año = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Color = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
-                    Estado = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    IdMarca = table.Column<int>(type: "int", nullable: false),
-                    Discriminator = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdCamion = table.Column<int>(type: "int", nullable: true),
-                    Cilindrada = table.Column<int>(type: "int", nullable: true)
-========
                     IdMarca = table.Column<int>(type: "int", nullable: true),
                     IdModelo = table.Column<int>(type: "int", nullable: true),
                     FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -446,7 +392,6 @@ namespace TransportesMR.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     IdCamion = table.Column<int>(type: "int", nullable: true),
                     Cilindrada = table.Column<float>(type: "float", nullable: true)
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
                 },
                 constraints: table =>
                 {
@@ -455,17 +400,12 @@ namespace TransportesMR.Migrations
                         name: "FK_Vehiculos_MarcaVehiculo_IdMarca",
                         column: x => x.IdMarca,
                         principalTable: "MarcaVehiculo",
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
-                        principalColumn: "IdMarca",
-                        onDelete: ReferentialAction.Cascade);
-========
                         principalColumn: "IdMarca");
                     table.ForeignKey(
                         name: "FK_Vehiculos_ModeloVehiculo_IdModelo",
                         column: x => x.IdModelo,
                         principalTable: "ModeloVehiculo",
                         principalColumn: "IdModelo");
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -546,15 +486,9 @@ namespace TransportesMR.Migrations
 
             migrationBuilder.DropTable(
                 name: "Empresa");
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.cs
 
             migrationBuilder.DropTable(
                 name: "ModeloRemolque");
-
-            migrationBuilder.DropTable(
-                name: "ModeloVehiculo");
-========
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.cs
 
             migrationBuilder.DropTable(
                 name: "Remolque");

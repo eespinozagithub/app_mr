@@ -11,12 +11,8 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.Designer.cs
-    [Migration("20221118013826_Inicial")]
-========
-    [Migration("20221118235613_Inicial")]
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.Designer.cs
-    partial class Inicial
+    [Migration("20221119192339_Inicio")]
+    partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -267,10 +263,7 @@ namespace TransportesMR.Migrations
 
                     b.Property<int?>("TelefonoEncargado")
                         .IsRequired()
-<<<<<<<< HEAD:Migrations/20221118013826_Inicial.Designer.cs
                         .HasMaxLength(40)
-========
->>>>>>>> 393ab75140b309cb28451ff4a1b2c75abe48fb95:Migrations/20221118235613_Inicial.Designer.cs
                         .HasColumnType("int");
 
                     b.HasKey("IdEmpresa");
@@ -283,6 +276,9 @@ namespace TransportesMR.Migrations
                     b.Property<int>("IdMarca")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Marca")
                         .IsRequired()
@@ -315,6 +311,9 @@ namespace TransportesMR.Migrations
                     b.Property<int>("IdModelo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("IdMarca")
                         .HasColumnType("int");
@@ -358,16 +357,19 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Anio")
-                        .HasColumnType("datetime(6)");
+                    b.Property<int?>("Anio")
+                        .IsRequired()
+                        .HasColumnType("int");
 
-                    b.Property<int>("Capacidad")
+                    b.Property<int?>("Capacidad")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("Modelo")
+                    b.Property<int?>("IdModelo")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("NumeroChasis")
@@ -375,7 +377,8 @@ namespace TransportesMR.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("varchar(60)");
 
-                    b.Property<int>("NumeroRemolque")
+                    b.Property<int?>("NumeroRemolque")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Patente")
@@ -383,7 +386,8 @@ namespace TransportesMR.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<int>("TipoRemolque")
+                    b.Property<int?>("TipoRemolque")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("IdRemolque");

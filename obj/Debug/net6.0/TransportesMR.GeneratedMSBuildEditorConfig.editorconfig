@@ -220,16 +220,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzUmVtb2xxdWVcTW9kaWZpY2FyTWFyY2FSZW1vbHF1ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/MarcasVehiculos/Crear.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXENyZWFyLmNzaHRtbA==
+[C:/Users/araya/Desktop/app_mr/Views/MarcasVehiculos/CrearMarcaVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXENyZWFyTWFyY2FWZWhpY3Vsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/MarcasVehiculos/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXEVkaXRhci5jc2h0bWw=
+[C:/Users/araya/Desktop/app_mr/Views/MarcasVehiculos/ListadoMarcaVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXExpc3RhZG9NYXJjYVZlaGljdWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/MarcasVehiculos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXEluZGV4LmNzaHRtbA==
+[C:/Users/araya/Desktop/app_mr/Views/MarcasVehiculos/ModificarMarcaVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXE1vZGlmaWNhck1hcmNhVmVoaWN1bG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/ModelosRemolque/CrearModeloRemolque.cshtml]
@@ -244,16 +244,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1JlbW9scXVlXE1vZGlmaWNhck1vZGVsb1JlbW9scXVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/CrearModelo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xDcmVhck1vZGVsby5jc2h0bWw=
+[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/CrearModeloVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xDcmVhck1vZGVsb1ZlaGljdWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/EditarModeloVehiculo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xFZGl0YXJNb2RlbG9WZWhpY3Vsby5jc2h0bWw=
+[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/ListarModeloVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xMaXN0YXJNb2RlbG9WZWhpY3Vsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xJbmRleC5jc2h0bWw=
+[C:/Users/araya/Desktop/app_mr/Views/ModelosVehiculos/ModificarModeloVehiculo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxvc1ZlaGljdWxvc1xNb2RpZmljYXJNb2RlbG9WZWhpY3Vsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/araya/Desktop/app_mr/Views/Remolques/CrearRemolque.cshtml]
