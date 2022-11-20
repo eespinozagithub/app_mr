@@ -39,5 +39,10 @@
         [Required(ErrorMessage = "Debe ingresar la Dirección")]
         [Display(Name = "Dirección")]
         public string Direccion { get; set; }
+
+        public List<Vueltas>?EmpresaResponsable { get; set; }
+        public List<Vueltas>?EmpresaCarga { get; set; }
+        public List<Vueltas>?EmpresaDescarga{ get; set; }
+
     }
 }

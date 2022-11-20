@@ -1,0 +1,223 @@
+﻿@model TransportesMR.Models.Vueltas
+@{
+    ViewData["Title"] = "Ingresar Vueltas Conductor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: #FF0102;
+    }
+</style>
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Ingresar Vueltas</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-action="ListadoVueltas">Listado de vueltas ingresadas</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+
+                <div class="live-preview">
+
+                    <form method="post" asp-action="CrearVuelta">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row g-3">
+                            <!--FILA 1-->
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="FechaSalida" class="form-control" placeholder="Ingrese la Fecha de salida" />
+                                        <label asp-for="FechaSalida"></label>
+                                        <span asp-validation-for="FechaSalida"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="FechaLlegada" class="form-control" placeholder="Ingrese la Fecha de llegada" />
+                                        <label asp-for="FechaLlegada"></label>
+                                        <span asp-validation-for="FechaLlegada"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <select asp-for="IdCamion" class="form-select" asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","IdCamion")) ">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <label asp-for="IdCamion"></label>
+                                        <span asp-validation-for="IdCamion"></span>
+                                    </div>
+                                </div>
+                            <!--FILA 2-->
+                                 <div class="col-lg-4">
+                                     <div class="form-floating">
+                                        <select asp-for="IdRemolque" class="form-select" asp-items="@(new SelectList(ViewBag.Remolque,"IdRemolque","IdRemolque")) ">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <label asp-for="IdRemolque"></label>
+                                        <span asp-validation-for="IdRemolque"></span>
+                                    </div>
+                                </div>
+
+                                 <div class="col-lg-4">
+                                     <div class="form-floating">
+                                         <select asp-for="Sentido" class="form-select">
+                                             <option value="" selected>Seleccione...</option>
+                                             <option value="1">Ida</option>
+                                             <option value="2">Retorno</option>
+                                         </select>
+                                         <label asp-for="Sentido"></label>
+                                         <span asp-validation-for="Sentido"></span>
+                                     </div>
+                                 </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="Factura1" class="form-control" placeholder="Factura" />
+                                        <label asp-for="Factura1"></label>
+                                        <span asp-validation-for="Factura1"></span>
+                                    </div>
+                                </div>
+                            <!--FILA 3-->
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="Factura2" class="form-control" placeholder="Factura" />
+                                        <label asp-for="Factura2"></label>
+                                        <span asp-validation-for="Factura2"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="Factura3" class="form-control" placeholder="Factura" />
+                                        <label asp-for="Factura3"></label>
+                                        <span asp-validation-for="Factura3"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <select asp-for="IdEmpresaResponsable" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label asp-for="IdCamion"></label>
+                                    <span asp-validation-for="IdCamion"></span>
+                                 </div>
+                                 </div>
+                            <!--FILA 4-->
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <select asp-for="IdEmpresaCarga" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <label asp-for="IdEmpresaCarga"></label>
+                                        <span asp-validation-for="IdEmpresaCarga"></span>
+                                     </div>
+                                 </div>
+                                <div class="col-lg-4">
+                                     <div class="form-floating">
+                                    <select asp-for="IdEmpresaDescarga" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label asp-for="IdEmpresaDescarga"></label>
+                                    <span asp-validation-for="IdEmpresaDescarga"></span>
+                                    </div>
+                                 </div>
+
+                            
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <select asp-for="IdCiudadCarga" class="form-select" asp-items="@(new SelectList(ViewBag.Ciudad,"IdCiudad","Ciudad")) ">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <label asp-for="IdCiudadCarga"></label>
+                                        <span asp-validation-for="IdCiudadCarga"></span>
+                                    </div>
+                                </div>
+                            <!--FILA 5-->
+                                 <div class="col-lg-4">
+                                     <div class="form-floating">
+                                         <select asp-for="IdCiudadDescarga" class="form-select" asp-items="@(new SelectList(ViewBag.Ciudad,"IdCiudad","Ciudad")) ">
+                                             <option value="">[Seleccione]</option>
+                                         </select>
+                                         <label asp-for="IdCiudadDescarga"></label>
+                                         <span asp-validation-for="IdCiudadDescarga"></span>
+                                     </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" />
+                                        <label asp-for="ValorViaje"></label>
+                                        <span asp-validation-for="ValorViaje"></span>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" />
+                                        <label asp-for="ValorViaje"></label>
+                                        <span asp-validation-for="ValorViaje"></span>
+                                    </div>
+                                </div>
+                            <!--FILA 6-->
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="ViaticoTransferido" class="form-control" placeholder="Ingrese Viatico Transferido" />
+                                        <label asp-for="ViaticoTransferido"></label>
+                                        <span asp-validation-for="ViaticoTransferido"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="ViaticoGastado" class="form-control" placeholder="Ingrese Viatico Gastado" />
+                                        <label asp-for="ViaticoGastado"></label>
+                                        <span asp-validation-for="ViaticoGastado"></span>
+                                    </div>
+                                </div>
+                            
+                                 <div class="col-lg-4">
+                                    <div class="form-floating">
+                                        <input asp-for="Observacion" class="form-control" placeholder="Observación" />
+                                        <label asp-for="Observacion"></label>
+                                        <span asp-validation-for="Observacion"></span>
+                                    </div>
+                                </div>
+                               
+                        <!--FILA 7-->
+
+                                 <div class="col-lg-12">
+                            
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

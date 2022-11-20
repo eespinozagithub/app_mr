@@ -31,6 +31,7 @@
         //[Required(ErrorMessage = "Debe seleccionar un Sentido")]
         //public int Sentido { get; set; }
 
+<<<<<<< HEAD
         //[ForeignKey("Trabajador")]
         //[Display(Name = "Conductor 1")]
         //[Required(ErrorMessage = "Debe seleccionar un conductor")]
@@ -44,6 +45,15 @@
 
         //[Display(Name = "Factura")]
         //public int? Factura1 { get; set; }
+=======
+        [ForeignKey("Trabajador")]
+        [Display(Name = "Conductor")]
+        [Required(ErrorMessage = "Debe seleccionar un conductor")]
+        public int IdTrabajador { get; set; }
+       
+        [Display(Name = "Factura")]
+        public int? Factura1 { get; set; }
+>>>>>>> Avances detalle de vueltas
 
         //[Display(Name = "Factura")]
         //public int? Factura2 { get; set; }
@@ -52,6 +62,7 @@
         //public int? Factura3 { get; set; }
 
         //[ForeignKey("Empresa")]
+<<<<<<< HEAD
         //[Display(Name = "Empresa Responsable")]
         //[Required(ErrorMessage = "Debe seleccionar una empresa")]
         //public int IdEmpresaResponsable { get; set; }
@@ -79,6 +90,35 @@
         //public int? IdRegionDescarga { get; set; }
 
         //public Ciudades? Ciudades { get; set; }
+=======
+        [Display(Name = "Empresa Responsable")]
+        [Required(ErrorMessage = "Debe seleccionar una empresa")]
+        public int? IdEmpresaResponsable { get; set; }
+        public Empresa? EmpresaResponsable { get; set; }
+
+        //[ForeignKey("Empresa")]
+        [Display(Name = "Empresa Carga")]
+        [Required(ErrorMessage = "Debe seleccionar una empresa")]
+        public int? IdEmpresaCarga { get; set; }
+        public Empresa? EmpresaCarga { get; set; }
+
+        //[ForeignKey("Empresa")]
+        [Display(Name = "Empresa Descarga")]
+        [Required(ErrorMessage = "Debe seleccionar una empresa")]
+        public int? IdEmpresaDescarga { get; set; }
+        public Empresa? EmpresaDescarga{ get; set; }
+
+        [Required(ErrorMessage = "Debe ingresar region de carga")]
+        [Display(Name = "Ciudad Carga")]
+        public int? IdCiudadCarga { get; set; }
+        public Ciudades? CiudadCarga { get; set; }
+
+
+        [Required(ErrorMessage = "Debe ingresar region de descarga")]
+        [Display(Name = "Ciudad Carga")]
+        public int? IdCiudadDescarga { get; set; }
+        public Ciudades? CiudadDescarga { get; set; }
+>>>>>>> Avances detalle de vueltas
 
         //[Required(ErrorMessage = "Debe ingresar el valor del viaje")]
         //[Display(Name = "Valor Viaje")]

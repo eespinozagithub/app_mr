@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<TransportesMR.Models.Vueltas>
 @{
-    ViewData["Title"] = "Lista de Cargas";
+    ViewData["Title"] = "Lista de Vueltas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     string FormatearTotal(decimal total)
@@ -71,14 +71,16 @@
                             <table class="table align-middle table-nowrap" id="customerTable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="sort">Fecha Salida</th>
-                                        <th class="sort">Fecha Llegada</th>
-                                        <th class="sort">Camion</th>
-                                        <th class="sort">Remolque</th>
+                                        <th class="sort">Salida</th>
+                                        <th class="sort">Llegada</th>
+                                        <th class="sort">Camión</th>
+                                        @*<th class="sort">Remolque</th>*@
                                         <th class="sort">Conductor </th>
-                                        <th class="sort">Conductor Apoyo</th>
-                                        <th class="sort">Factura</th>
+                                        <th class="sort">Factura 1</th>
+                                        @*<th class="sort">Factura 2</th>*@
+                                        @*<th class="sort">Factura 3</th>*@
                                         <th class="sort">Sentido</th>
+                                        <th class="sort">Emp. Resp.</th>
                                         <th class="sort">Lugar Carga</th>
                                         <th class="sort">Lugar Descarga</th>
                                         <th class="sort">Región Carga</th>
@@ -88,7 +90,7 @@
                                         <th class="sort">Viatico Transf.</th>
                                         <th class="sort">Gasto Viatico</th>
                                         <th class="sort">Total</th>
-                                        <th class="sort">Observación</th>
+                                        @*<th class="sort">Observación</th>*@
                                     </tr>
                                 </thead>
                                 <tbody class="list form-check-all">
@@ -96,34 +98,49 @@
                                     @foreach (var vueltas in Model)
                                     {
                                         <tr>
+<<<<<<< HEAD
                                             <td>@vueltas.FechaSalida</td>
                                             @*<td>@vueltas.FechaLlegada</td>
+=======
+                                            <td>
+                                            @if (@vueltas.FechaSalida != null)
+                                                {
+                                                @vueltas.FechaSalida.Value.ToString("dd/MM/yyyy")
+                                                }
+                                            </td>
+                                            <td>
+                                            @if (@vueltas.FechaLlegada != null)
+                                            {
+                                                @vueltas.FechaLlegada.Value.ToString("dd/MM/yyyy")
+                                            }
+                                            </td>
+>>>>>>> Avances detalle de vueltas
                                             <td>@vueltas.IdCamion</td>
+                                            @*<td>@vueltas.IdRemolque</td>*@
                                             <td>@vueltas.IdTrabajador</td>
-                                            <td>@vueltas.IdTrabajadorApoyo</td>
                                             <td>@vueltas.Factura1</td>
-                                            <td>@vueltas.Factura2</td>
-                                            <td>@vueltas.Factura3</td>
+                                            @*<td>@vueltas.Factura2</td>*@
+                                            @*<td>@vueltas.Factura3</td>*@
                                             <td>@vueltas.Sentido</td>
                                             <td>@vueltas.IdEmpresaResponsable</td>
                                             <td>@vueltas.IdEmpresaCarga</td>
                                             <td>@vueltas.IdEmpresaDescarga</td>
-                                            <td>@vueltas.IdRegionCarga</td>
-                                            <td>@vueltas.IdRegionDescarga</td>
+                                            <td>@vueltas.IdCiudadCarga</td>
+                                            <td>@vueltas.IdCiudadDescarga</td>
                                             <td>@vueltas.ValorViaje</td>
                                             <td>@vueltas.PorcentajeConductor</td>
                                             <td>@vueltas.ViaticoTransferido</td>
                                             <td>@vueltas.ViaticoGastado</td>
                                             <td>$ @FormatearTotal((vueltas.ViaticoTransferido - vueltas.ViaticoGastado))</td>
-                                            <td>@vueltas.Observacion</td>
+                                            @*<td>@vueltas.Observacion</td>*@
                                             <td>
                                                 <div class="row">
                                                     <div class="col-lg-4">
 
-                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarCargaCombustible" asp-route-id="@vueltas.IdVueltas">
+                                                        <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarVuelta" asp-route-id="@vueltas.IdVueltas">
                                                             <i class="ri-edit-2-line"></i> Modificar
                                                         </a>
-                                                        <a class="btn btn-sm btn-danger edit-item-btn" asp-action="BorrarCargaCombustible" asp-route-id="@vueltas.IdVueltas" onclick="return confirm('¿Esta seguro de eliminar la vuelta?');">
+                                                        <a class="btn btn-sm btn-danger edit-item-btn" asp-action="BorrarVuelta" asp-route-id="@vueltas.IdVueltas" onclick="return confirm('¿Esta seguro de eliminar la vuelta?');">
                                                             <i class="ri-edit-2-line"></i> Eliminar
                                                         </a>
 
@@ -150,7 +167,7 @@
                     }
                     else
                     {
-                        <p>Sin cargas ingresadas</p>
+                        <p>Sin vueltas ingresadas</p>
                     }
                 </div>
             </div><!-- end card -->

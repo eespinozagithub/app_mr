@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TransportesMR.Data;
 
@@ -10,9 +11,10 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221120183933_CreaTablaVueltas")]
+    partial class CreaTablaVueltas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -653,9 +655,7 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-<<<<<<< HEAD
-=======
-                    b.Property<int?>("CiudadDescargaIdCiudad")
+                    b.Property<int?>("CiudadesIdCiudad")
                         .HasColumnType("int");
 
                     b.Property<int?>("Factura1")
@@ -671,26 +671,11 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("datetime(6)");
 
->>>>>>> Avances detalle de vueltas
                     b.Property<DateTime?>("FechaSalida")
                         .IsRequired()
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("IdCamion")
-                        .HasColumnType("int");
-
-<<<<<<< HEAD
-                    b.HasKey("IdVueltas");
-
-                    b.HasIndex("IdCamion");
-
-=======
-                    b.Property<int?>("IdCiudadCarga")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdCiudadDescarga")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("IdEmpresaCarga")
@@ -702,6 +687,14 @@ namespace TransportesMR.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("IdEmpresaResponsable")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdRegionCarga")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdRegionDescarga")
                         .IsRequired()
                         .HasColumnType("int");
 
@@ -733,21 +726,18 @@ namespace TransportesMR.Migrations
 
                     b.HasKey("IdVueltas");
 
-                    b.HasIndex("CiudadDescargaIdCiudad");
+                    b.HasIndex("CiudadesIdCiudad");
 
                     b.HasIndex("IdCamion");
 
-                    b.HasIndex("IdCiudadCarga");
-
-                    b.HasIndex("IdCiudadDescarga");
-
                     b.HasIndex("IdEmpresaCarga");
+
+                    b.HasIndex("IdEmpresaDescarga");
 
                     b.HasIndex("IdEmpresaResponsable");
 
                     b.HasIndex("IdRemolque");
 
->>>>>>> Avances detalle de vueltas
                     b.ToTable("Vueltas");
                 });
 
@@ -883,35 +873,24 @@ namespace TransportesMR.Migrations
 
             modelBuilder.Entity("TransportesMR.Models.Vueltas", b =>
                 {
-<<<<<<< HEAD
-=======
-                    b.HasOne("TransportesMR.Models.Ciudades", "CiudadDescarga")
-                        .WithMany("CiudadDescarga")
-                        .HasForeignKey("CiudadDescargaIdCiudad");
+                    b.HasOne("TransportesMR.Models.Ciudades", "Ciudades")
+                        .WithMany()
+                        .HasForeignKey("CiudadesIdCiudad");
 
->>>>>>> Avances detalle de vueltas
                     b.HasOne("TransportesMR.Models.Camion", "Camion")
                         .WithMany()
                         .HasForeignKey("IdCamion")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-<<<<<<< HEAD
-                    b.Navigation("Camion");
-=======
-                    b.HasOne("TransportesMR.Models.Ciudades", "CiudadCarga")
-                        .WithMany("CiudadCarga")
-                        .HasForeignKey("IdCiudadCarga")
+                    b.HasOne("TransportesMR.Models.Empresa", "EmpresaCarga")
+                        .WithMany("EmpresaCarga")
+                        .HasForeignKey("IdEmpresaCarga")
                         .IsRequired();
 
                     b.HasOne("TransportesMR.Models.Empresa", "EmpresaDescarga")
                         .WithMany("EmpresaDescarga")
-                        .HasForeignKey("IdCiudadDescarga")
-                        .IsRequired();
-
-                    b.HasOne("TransportesMR.Models.Empresa", "EmpresaCarga")
-                        .WithMany("EmpresaCarga")
-                        .HasForeignKey("IdEmpresaCarga")
+                        .HasForeignKey("IdEmpresaDescarga")
                         .IsRequired();
 
                     b.HasOne("TransportesMR.Models.Empresa", "EmpresaResponsable")
@@ -927,9 +906,7 @@ namespace TransportesMR.Migrations
 
                     b.Navigation("Camion");
 
-                    b.Navigation("CiudadCarga");
-
-                    b.Navigation("CiudadDescarga");
+                    b.Navigation("Ciudades");
 
                     b.Navigation("EmpresaCarga");
 
@@ -940,13 +917,6 @@ namespace TransportesMR.Migrations
                     b.Navigation("Remolque");
                 });
 
-            modelBuilder.Entity("TransportesMR.Models.Ciudades", b =>
-                {
-                    b.Navigation("CiudadCarga");
-
-                    b.Navigation("CiudadDescarga");
-                });
-
             modelBuilder.Entity("TransportesMR.Models.Empresa", b =>
                 {
                     b.Navigation("EmpresaCarga");
@@ -954,7 +924,6 @@ namespace TransportesMR.Migrations
                     b.Navigation("EmpresaDescarga");
 
                     b.Navigation("EmpresaResponsable");
->>>>>>> Avances detalle de vueltas
                 });
 #pragma warning restore 612, 618
         }

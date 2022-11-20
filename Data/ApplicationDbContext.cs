@@ -29,9 +29,35 @@ namespace TransportesMR.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
+            builder.Entity<Vueltas>()
+                 .HasOne(x => x.EmpresaResponsable)
+                 .WithMany(x => x.EmpresaResponsable)
+                 .HasForeignKey(x => x.IdEmpresaResponsable)
+                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.Entity<Vueltas>()
+                 .HasOne(x => x.EmpresaCarga)
+                 .WithMany(x => x.EmpresaCarga)
+                 .HasForeignKey(x => x.IdEmpresaCarga)
+                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.Entity<Vueltas>()
+                 .HasOne(x => x.EmpresaDescarga)
+                 .WithMany(x => x.EmpresaDescarga)
+                 .HasForeignKey(x => x.IdEmpresaDescarga)
+                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.Entity<Vueltas>()
+                .HasOne(x => x.CiudadCarga)
+                .WithMany(x => x.CiudadCarga)
+                .HasForeignKey(x => x.IdCiudadCarga)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.Entity<Vueltas>()
+                .HasOne(x => x.EmpresaDescarga)
+                .WithMany(x => x.EmpresaDescarga)
+                .HasForeignKey(x => x.IdCiudadDescarga)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

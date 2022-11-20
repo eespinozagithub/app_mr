@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TransportesMR.Data;
 
@@ -10,9 +11,10 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221120193048_CreaTablaCiudad")]
+    partial class CreaTablaCiudad
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -653,8 +655,6 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-<<<<<<< HEAD
-=======
                     b.Property<int?>("CiudadDescargaIdCiudad")
                         .HasColumnType("int");
 
@@ -671,7 +671,6 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("datetime(6)");
 
->>>>>>> Avances detalle de vueltas
                     b.Property<DateTime?>("FechaSalida")
                         .IsRequired()
                         .HasColumnType("datetime(6)");
@@ -679,12 +678,6 @@ namespace TransportesMR.Migrations
                     b.Property<int>("IdCamion")
                         .HasColumnType("int");
 
-<<<<<<< HEAD
-                    b.HasKey("IdVueltas");
-
-                    b.HasIndex("IdCamion");
-
-=======
                     b.Property<int?>("IdCiudadCarga")
                         .IsRequired()
                         .HasColumnType("int");
@@ -747,7 +740,6 @@ namespace TransportesMR.Migrations
 
                     b.HasIndex("IdRemolque");
 
->>>>>>> Avances detalle de vueltas
                     b.ToTable("Vueltas");
                 });
 
@@ -883,22 +875,16 @@ namespace TransportesMR.Migrations
 
             modelBuilder.Entity("TransportesMR.Models.Vueltas", b =>
                 {
-<<<<<<< HEAD
-=======
                     b.HasOne("TransportesMR.Models.Ciudades", "CiudadDescarga")
                         .WithMany("CiudadDescarga")
                         .HasForeignKey("CiudadDescargaIdCiudad");
 
->>>>>>> Avances detalle de vueltas
                     b.HasOne("TransportesMR.Models.Camion", "Camion")
                         .WithMany()
                         .HasForeignKey("IdCamion")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-<<<<<<< HEAD
-                    b.Navigation("Camion");
-=======
                     b.HasOne("TransportesMR.Models.Ciudades", "CiudadCarga")
                         .WithMany("CiudadCarga")
                         .HasForeignKey("IdCiudadCarga")
@@ -954,7 +940,6 @@ namespace TransportesMR.Migrations
                     b.Navigation("EmpresaDescarga");
 
                     b.Navigation("EmpresaResponsable");
->>>>>>> Avances detalle de vueltas
                 });
 #pragma warning restore 612, 618
         }
