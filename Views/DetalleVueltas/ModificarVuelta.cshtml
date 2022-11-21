@@ -122,6 +122,15 @@
                                     <span asp-validation-for="IdCamion"></span>
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="form-floating">
+                                    <select asp-for="IdTrabajador" class="form-select" asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","IdTrabajador")) ">
+                                        <option value="">[Seleccione]</option>
+                                    </select>
+                                    <label asp-for="IdTrabajador"></label>
+                                    <span asp-validation-for="IdTrabajador"></span>
+                                </div>
+                            </div>
                             <!--FILA 4-->
                             <div class="col-lg-4">
                                 <div class="form-floating">

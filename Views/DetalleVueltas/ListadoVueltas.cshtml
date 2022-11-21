@@ -80,17 +80,14 @@
                                         @*<th class="sort">Factura 2</th>*@
                                         @*<th class="sort">Factura 3</th>*@
                                         <th class="sort">Sentido</th>
-                                        <th class="sort">Emp. Resp.</th>
                                         <th class="sort">Lugar Carga</th>
-                                        <th class="sort">Lugar Descarga</th>
-                                        <th class="sort">Región Carga</th>
-                                        <th class="sort">Región Descarga</th>
+                                        @*<th class="sort">Lugar Descarga</th>*@
                                         <th class="sort">Valor Viaje</th>
                                         <th class="sort">% Viaje</th>
                                         <th class="sort">Viatico Transf.</th>
                                         <th class="sort">Gasto Viatico</th>
                                         <th class="sort">Total</th>
-                                        @*<th class="sort">Observación</th>*@
+                                        <th class="sort">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list form-check-all">
@@ -99,8 +96,11 @@
                                     {
                                         <tr>
 
+<<<<<<< HEAD
                                             <td>@vueltas.FechaSalida</td>
                                             @*<td>@vueltas.FechaLlegada</td>
+=======
+>>>>>>> Detalle vueltas
 
                                             <td>
                                             @if (@vueltas.FechaSalida != null)
@@ -122,11 +122,8 @@
                                             @*<td>@vueltas.Factura2</td>*@
                                             @*<td>@vueltas.Factura3</td>*@
                                             <td>@vueltas.Sentido</td>
-                                            <td>@vueltas.IdEmpresaResponsable</td>
-                                            <td>@vueltas.IdEmpresaCarga</td>
-                                            <td>@vueltas.IdEmpresaDescarga</td>
-                                            <td>@vueltas.IdCiudadCarga</td>
-                                            <td>@vueltas.IdCiudadDescarga</td>
+                                            <td>@vueltas.EmpresaCarga.RazonSocial</td>
+                                            @*<td>@vueltas.EmpresaDescarga.RazonSocial</td>*@
                                             <td>@vueltas.ValorViaje</td>
                                             <td>@vueltas.PorcentajeConductor</td>
                                             <td>@vueltas.ViaticoTransferido</td>

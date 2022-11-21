@@ -65,6 +65,15 @@
                                         <span asp-validation-for="IdCamion"></span>
                                     </div>
                                 </div>
+                                <div class="col-lg-4">
+                                     <div class="form-floating">
+                                    <select asp-for="IdTrabajador" class="form-select" asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","IdTrabajador")) ">
+                                            <option value="">[Seleccione]</option>
+                                        </select>
+                                        <label asp-for="IdTrabajador"></label>
+                                        <span asp-validation-for="IdTrabajador"></span>
+                                    </div>
+                                </div>
                             <!--FILA 2-->
                                  <div class="col-lg-4">
                                      <div class="form-floating">
@@ -115,8 +124,8 @@
                                         <select asp-for="IdEmpresaResponsable" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
                                         <option value="">[Seleccione]</option>
                                     </select>
-                                    <label asp-for="IdCamion"></label>
-                                    <span asp-validation-for="IdCamion"></span>
+                                    <label asp-for="EmpresaResponsable"></label>
+                                    <span asp-validation-for="EmpresaResponsable"></span>
                                  </div>
                                  </div>
                             <!--FILA 4-->
@@ -162,7 +171,7 @@
 
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" />
+                                        <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" id="ValorViaje" />
                                         <label asp-for="ValorViaje"></label>
                                         <span asp-validation-for="ValorViaje"></span>
                                     </div>
@@ -170,9 +179,9 @@
                             
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" />
-                                        <label asp-for="ValorViaje"></label>
-                                        <span asp-validation-for="ValorViaje"></span>
+                                        <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" id="gananciaCdt"/>
+                                        <label asp-for="PorcentajeConductor"></label>
+                                        <span asp-validation-for="PorcentajeConductor"></span>
                                     </div>
                                 </div>
                             <!--FILA 6-->
@@ -216,8 +225,9 @@
 </div>
 
 
-
-
-
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/DetalleVueltas.js"></script>
+}
 
 

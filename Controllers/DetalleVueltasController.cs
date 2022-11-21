@@ -13,7 +13,7 @@ namespace TransportesMR.Controllers
         }
         public IActionResult ListadoVueltas()
         {
-            List<Vueltas> ListaVueltas = _context.Vueltas.Include(c => c.Camion).ToList();
+            List<Vueltas> ListaVueltas = _context.Vueltas.Include(c => c.EmpresaCarga).ThenInclude(x => x.EmpresaDescarga).ThenInclude(y => y.CiudadCarga).ThenInclude(t=> t.CiudadDescarga).ThenInclude(o => o.Trabajador).ToList();
             return View(ListaVueltas);
         }
         public IActionResult CrearVuelta()
