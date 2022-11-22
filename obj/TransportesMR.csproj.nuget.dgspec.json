@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\TransportesMR.csproj": {}
+    "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\Etapa Final\\TransportesMR.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\TransportesMR.csproj": {
+    "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\Etapa Final\\TransportesMR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\TransportesMR.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\Etapa Final\\TransportesMR.csproj",
         "projectName": "TransportesMR",
-        "projectPath": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\TransportesMR.csproj",
+        "projectPath": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\Etapa Final\\TransportesMR.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\app_mr\\obj\\",
+        "outputPath": "C:\\Users\\Administrador\\Documents\\Transportes MR\\AppMR\\Oficial\\Etapa Final\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

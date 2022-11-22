@@ -95,13 +95,6 @@
                                     @foreach (var vueltas in Model)
                                     {
                                         <tr>
-
-<<<<<<< HEAD
-                                            <td>@vueltas.FechaSalida</td>
-                                            @*<td>@vueltas.FechaLlegada</td>
-=======
->>>>>>> Detalle vueltas
-
                                             <td>
                                             @if (@vueltas.FechaSalida != null)
                                                 {
@@ -134,11 +127,14 @@
                                                 <div class="row">
                                                     <div class="col-lg-4">
 
+                                                        <a class="btn btn-sm btn-success edit-item-btn" asp-action="VerDetalle" asp-route-id="@vueltas.IdVueltas">
+                                                            <i class="ri-menu-2-line"></i> Detalle
+                                                        </a>
                                                         <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarVuelta" asp-route-id="@vueltas.IdVueltas">
                                                             <i class="ri-edit-2-line"></i> Modificar
                                                         </a>
-                                                        <a class="btn btn-sm btn-danger edit-item-btn" asp-action="BorrarVuelta" asp-route-id="@vueltas.IdVueltas" onclick="return confirm('¿Esta seguro de eliminar la vuelta?');">
-                                                            <i class="ri-edit-2-line"></i> Eliminar
+                                                        <a class="btn btn-sm btn-danger " asp-action="BorrarVuelta" asp-route-id="@vueltas.IdVueltas" onclick="return confirm('¿Esta seguro de eliminar la vuelta?');">
+                                                            <i class="ri-delete-bin-5-line"></i> Eliminar
                                                         </a>
 
                                                     </div>

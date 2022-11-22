@@ -738,6 +738,8 @@ namespace TransportesMR.Migrations
 
                     b.HasIndex("IdRemolque");
 
+                    b.HasIndex("IdTrabajador");
+
                     b.ToTable("Vueltas");
                 });
 
@@ -909,6 +911,12 @@ namespace TransportesMR.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TransportesMR.Models.Trabajador", "Trabajador")
+                        .WithMany()
+                        .HasForeignKey("IdTrabajador")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Camion");
 
                     b.Navigation("CiudadCarga");
@@ -922,6 +930,8 @@ namespace TransportesMR.Migrations
                     b.Navigation("EmpresaResponsable");
 
                     b.Navigation("Remolque");
+
+                    b.Navigation("Trabajador");
                 });
 
             modelBuilder.Entity("TransportesMR.Models.Ciudades", b =>

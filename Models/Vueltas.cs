@@ -88,15 +88,15 @@
         public decimal? ValorViaje { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el porcentaje de conductor")]
-        [Display(Name = "Ganancia Cdt.")]
+        [Display(Name = "Ganancia Conductor.")]
         public decimal? PorcentajeConductor { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar viatico")]
-        [Display(Name = "Viatico Transferido")]
+        [Display(Name = "Monto Transferido")]
         public decimal ViaticoTransferido { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar viatico gastado")]
-        [Display(Name = "Viatico Gastado")]
+        [Display(Name = "Monto Gastado")]
         public decimal ViaticoGastado { get; set; }
         [Display(Name = "Observaciones")]
         public string? Observacion { get; set; }

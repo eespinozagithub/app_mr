@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TransportesMR.Migrations
 {
-    public partial class Inicio : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -547,6 +547,12 @@ namespace TransportesMR.Migrations
                         principalTable: "Remolque",
                         principalColumn: "IdRemolque",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Vueltas_Trabajador_IdTrabajador",
+                        column: x => x.IdTrabajador,
+                        principalTable: "Trabajador",
+                        principalColumn: "IdTrabajador",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -651,6 +657,11 @@ namespace TransportesMR.Migrations
                 name: "IX_Vueltas_IdRemolque",
                 table: "Vueltas",
                 column: "IdRemolque");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vueltas_IdTrabajador",
+                table: "Vueltas",
+                column: "IdTrabajador");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -677,9 +688,6 @@ namespace TransportesMR.Migrations
                 name: "CargaCombustibleRemolque");
 
             migrationBuilder.DropTable(
-                name: "Trabajador");
-
-            migrationBuilder.DropTable(
                 name: "Vueltas");
 
             migrationBuilder.DropTable(
@@ -699,6 +707,9 @@ namespace TransportesMR.Migrations
 
             migrationBuilder.DropTable(
                 name: "Remolque");
+
+            migrationBuilder.DropTable(
+                name: "Trabajador");
 
             migrationBuilder.DropTable(
                 name: "ModeloVehiculo");

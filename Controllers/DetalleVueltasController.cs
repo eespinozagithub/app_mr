@@ -59,6 +59,21 @@ namespace TransportesMR.Controllers
             var vuelta = _context.Vueltas.FirstOrDefault(c => c.IdVueltas == id);
             return View(vuelta);
         }
+        public IActionResult VerDetalle(int? id)
+        {
+            ViewBag.Camion = _context.Camion.ToList();
+            ViewBag.Remolque = _context.Remolque.ToList();
+            ViewBag.Trabajador = _context.Trabajador.ToList();
+            ViewBag.Empresa = _context.Empresa.ToList();
+            ViewBag.Ciudad = _context.Ciudades.ToList();
+            if (id == null)
+            {
+                return View();
+            }
+
+            var vuelta = _context.Vueltas.FirstOrDefault(c => c.IdVueltas == id);
+            return View(vuelta);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <select asp-for="IdCamion" class="form-select" asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","IdCamion")) ">
+                                    <select asp-for="IdCamion" class="form-select" asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","NumeroCamion")) ">
                                             <option value="">[Seleccione]</option>
                                         </select>
                                         <label asp-for="IdCamion"></label>
@@ -77,7 +77,7 @@
                             <!--FILA 2-->
                                  <div class="col-lg-4">
                                      <div class="form-floating">
-                                        <select asp-for="IdRemolque" class="form-select" asp-items="@(new SelectList(ViewBag.Remolque,"IdRemolque","IdRemolque")) ">
+                                    <select asp-for="IdRemolque" class="form-select" asp-items="@(new SelectList(ViewBag.Remolque,"IdRemolque","NumeroRemolque")) ">
                                             <option value="">[Seleccione]</option>
                                         </select>
                                         <label asp-for="IdRemolque"></label>
@@ -171,7 +171,7 @@
 
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" id="ValorViaje" />
+                                    <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" id="ValorViaje" autocomplete="off" />
                                         <label asp-for="ValorViaje"></label>
                                         <span asp-validation-for="ValorViaje"></span>
                                     </div>
@@ -179,7 +179,7 @@
                             
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" id="gananciaCdt"/>
+                                    <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" id="gananciaCdt" autocomplete="off" />
                                         <label asp-for="PorcentajeConductor"></label>
                                         <span asp-validation-for="PorcentajeConductor"></span>
                                     </div>
@@ -187,14 +187,14 @@
                             <!--FILA 6-->
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="ViaticoTransferido" class="form-control" placeholder="Ingrese Viatico Transferido" />
+                                    <input asp-for="ViaticoTransferido" class="form-control" placeholder="Ingrese Viatico Transferido" autocomplete="off" />
                                         <label asp-for="ViaticoTransferido"></label>
                                         <span asp-validation-for="ViaticoTransferido"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="ViaticoGastado" class="form-control" placeholder="Ingrese Viatico Gastado" />
+                                    <input asp-for="ViaticoGastado" class="form-control" placeholder="Ingrese Viatico Gastado" autocomplete="off" />
                                         <label asp-for="ViaticoGastado"></label>
                                         <span asp-validation-for="ViaticoGastado"></span>
                                     </div>
@@ -202,7 +202,7 @@
                             
                                  <div class="col-lg-4">
                                     <div class="form-floating">
-                                        <input asp-for="Observacion" class="form-control" placeholder="Observación" />
+                                    <input asp-for="Observacion" class="form-control" placeholder="Observación" autocomplete="off" />
                                         <label asp-for="Observacion"></label>
                                         <span asp-validation-for="Observacion"></span>
                                     </div>

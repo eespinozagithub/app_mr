@@ -14,11 +14,11 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Modificar Vueltas</h4>
+            <h4 class="mb-sm-0">Detalle de Vuelta</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a asp-action="ModificarVuelta">Modificar Vuelta</a></li>
+                    <li class="breadcrumb-item"><a asp-action="ListadoVueltas">Detalle Vuelta</a></li>
                     <li class="breadcrumb-item active">@ViewData["Title"]</li>
                 </ol>
             </div>
@@ -47,21 +47,21 @@
                             <!--FILA 1-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="FechaSalida" class="form-control" placeholder="Ingrese la Fecha de salida" />
+                                    <input asp-for="FechaSalida" class="form-control" placeholder="Ingrese la Fecha de salida" disabled />
                                     <label asp-for="FechaSalida"></label>
                                     <span asp-validation-for="FechaSalida"></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="FechaLlegada" class="form-control" placeholder="Ingrese la Fecha de llegada" />
+                                    <input asp-for="FechaLlegada" class="form-control" placeholder="Ingrese la Fecha de llegada" disabled />
                                     <label asp-for="FechaLlegada"></label>
                                     <span asp-validation-for="FechaLlegada"></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdCamion" class="form-select" asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","IdCamion")) ">
+                                    <select asp-for="IdCamion" readonly class="form-select" asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","IdCamion")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdCamion"></label>
@@ -71,7 +71,7 @@
                             <!--FILA 2-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdRemolque" class="form-select" asp-items="@(new SelectList(ViewBag.Remolque,"IdRemolque","IdRemolque")) ">
+                                    <select asp-for="IdRemolque" class="form-select" asp-items="@(new SelectList(ViewBag.Remolque,"IdRemolque","IdRemolque")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdRemolque"></label>
@@ -81,7 +81,7 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="Sentido" class="form-select">
+                                    <select asp-for="Sentido" class="form-select" disabled>
                                         <option value="" selected>Seleccione...</option>
                                         <option value="1">Ida</option>
                                         <option value="2">Retorno</option>
@@ -93,7 +93,7 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="Factura1" class="form-control" placeholder="Factura" />
+                                    <input asp-for="Factura1" class="form-control" placeholder="Factura" disabled />
                                     <label asp-for="Factura1"></label>
                                     <span asp-validation-for="Factura1"></span>
                                 </div>
@@ -101,21 +101,21 @@
                             <!--FILA 3-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="Factura2" class="form-control" placeholder="Factura" />
+                                    <input asp-for="Factura2" class="form-control" placeholder="Factura" disabled />
                                     <label asp-for="Factura2"></label>
                                     <span asp-validation-for="Factura2"></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="Factura3" class="form-control" placeholder="Factura" />
+                                    <input asp-for="Factura3" class="form-control" placeholder="Factura" disabled />
                                     <label asp-for="Factura3"></label>
                                     <span asp-validation-for="Factura3"></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdEmpresaResponsable" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
+                                    <select asp-for="IdEmpresaResponsable" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdCamion"></label>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdTrabajador" class="form-select" asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","IdTrabajador")) ">
+                                    <select asp-for="IdTrabajador" class="form-select" asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","IdTrabajador")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdTrabajador"></label>
@@ -134,7 +134,7 @@
                             <!--FILA 4-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdEmpresaCarga" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
+                                    <select asp-for="IdEmpresaCarga" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdEmpresaCarga"></label>
@@ -143,7 +143,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdEmpresaDescarga" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) ">
+                                    <select asp-for="IdEmpresaDescarga" class="form-select" asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","RazonSocial")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdEmpresaDescarga"></label>
@@ -154,7 +154,7 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdCiudadCarga" class="form-select" asp-items="@(new SelectList(ViewBag.Ciudad,"IdCiudad","Ciudad")) ">
+                                    <select asp-for="IdCiudadCarga" class="form-select" asp-items="@(new SelectList(ViewBag.Ciudad,"IdCiudad","Ciudad")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdCiudadCarga"></label>
@@ -164,7 +164,7 @@
                             <!--FILA 5-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <select asp-for="IdCiudadDescarga" class="form-select" asp-items="@(new SelectList(ViewBag.Ciudad,"IdCiudad","Ciudad")) ">
+                                    <select asp-for="IdCiudadDescarga" class="form-select" asp-items="@(new SelectList(ViewBag.Ciudad,"IdCiudad","Ciudad")) " disabled>
                                         <option value="">[Seleccione]</option>
                                     </select>
                                     <label asp-for="IdCiudadDescarga"></label>
@@ -174,7 +174,7 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" autocomplete="off" />
+                                    <input asp-for="ValorViaje" class="form-control" placeholder="Ingrese Valor del Viaje" disabled />
                                     <label asp-for="ValorViaje"></label>
                                     <span asp-validation-for="ValorViaje"></span>
                                 </div>
@@ -182,7 +182,7 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" autocomplete="off" />
+                                    <input asp-for="PorcentajeConductor" class="form-control" placeholder="Ingrese Ganancia Conductor" disabled />
                                     <label asp-for="ValorViaje"></label>
                                     <span asp-validation-for="ValorViaje"></span>
                                 </div>
@@ -190,14 +190,14 @@
                             <!--FILA 6-->
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="ViaticoTransferido" class="form-control" placeholder="Ingrese Viatico Transferido" autocomplete="off" />
+                                    <input asp-for="ViaticoTransferido" class="form-control" placeholder="Ingrese Viatico Transferido" disabled />
                                     <label asp-for="ViaticoTransferido"></label>
                                     <span asp-validation-for="ViaticoTransferido"></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="ViaticoGastado" class="form-control" placeholder="Ingrese Viatico Gastado" autocomplete="off" />
+                                    <input asp-for="ViaticoGastado" class="form-control" placeholder="Ingrese Viatico Gastado" disabled />
                                     <label asp-for="ViaticoGastado"></label>
                                     <span asp-validation-for="ViaticoGastado"></span>
                                 </div>
@@ -205,7 +205,7 @@
 
                             <div class="col-lg-4">
                                 <div class="form-floating">
-                                    <input asp-for="Observacion" class="form-control" placeholder="Observación" autocomplete="off" />
+                                    <input asp-for="Observacion" class="form-control" placeholder="Observación" disabled />
                                     <label asp-for="Observacion"></label>
                                     <span asp-validation-for="Observacion"></span>
                                 </div>
@@ -216,7 +216,7 @@
                             <div class="col-lg-12">
 
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="button" class="btn btn-primary" onClick="history.go(-1);">Cerrar</button>
                                 </div>
                             </div>
                         </div>
