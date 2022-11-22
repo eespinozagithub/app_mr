@@ -653,9 +653,6 @@ namespace TransportesMR.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("CiudadDescargaIdCiudad")
-                        .HasColumnType("int");
-
                     b.Property<int?>("Factura1")
                         .HasColumnType("int");
 
@@ -724,8 +721,6 @@ namespace TransportesMR.Migrations
 
                     b.HasKey("IdVueltas");
 
-                    b.HasIndex("CiudadDescargaIdCiudad");
-
                     b.HasIndex("IdCamion");
 
                     b.HasIndex("IdCiudadCarga");
@@ -733,6 +728,8 @@ namespace TransportesMR.Migrations
                     b.HasIndex("IdCiudadDescarga");
 
                     b.HasIndex("IdEmpresaCarga");
+
+                    b.HasIndex("IdEmpresaDescarga");
 
                     b.HasIndex("IdEmpresaResponsable");
 
@@ -875,10 +872,6 @@ namespace TransportesMR.Migrations
 
             modelBuilder.Entity("TransportesMR.Models.Vueltas", b =>
                 {
-                    b.HasOne("TransportesMR.Models.Ciudades", "CiudadDescarga")
-                        .WithMany("CiudadDescarga")
-                        .HasForeignKey("CiudadDescargaIdCiudad");
-
                     b.HasOne("TransportesMR.Models.Camion", "Camion")
                         .WithMany()
                         .HasForeignKey("IdCamion")
@@ -890,14 +883,19 @@ namespace TransportesMR.Migrations
                         .HasForeignKey("IdCiudadCarga")
                         .IsRequired();
 
-                    b.HasOne("TransportesMR.Models.Empresa", "EmpresaDescarga")
-                        .WithMany("EmpresaDescarga")
+                    b.HasOne("TransportesMR.Models.Ciudades", "CiudadDescarga")
+                        .WithMany("CiudadDescarga")
                         .HasForeignKey("IdCiudadDescarga")
                         .IsRequired();
 
                     b.HasOne("TransportesMR.Models.Empresa", "EmpresaCarga")
                         .WithMany("EmpresaCarga")
                         .HasForeignKey("IdEmpresaCarga")
+                        .IsRequired();
+
+                    b.HasOne("TransportesMR.Models.Empresa", "EmpresaDescarga")
+                        .WithMany("EmpresaDescarga")
+                        .HasForeignKey("IdEmpresaDescarga")
                         .IsRequired();
 
                     b.HasOne("TransportesMR.Models.Empresa", "EmpresaResponsable")

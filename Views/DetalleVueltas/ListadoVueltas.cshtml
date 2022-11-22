@@ -109,20 +109,26 @@
                                             </td>
 
                                             <td>@vueltas.IdCamion</td>
-                                            @*<td>@vueltas.IdRemolque</td>*@
                                             <td>@vueltas.IdTrabajador</td>
                                             <td>@vueltas.Factura1</td>
-                                            @*<td>@vueltas.Factura2</td>*@
-                                            @*<td>@vueltas.Factura3</td>*@
                                             <td>@vueltas.Sentido</td>
                                             <td>@vueltas.EmpresaCarga.RazonSocial</td>
-                                            @*<td>@vueltas.EmpresaDescarga.RazonSocial</td>*@
                                             <td>@vueltas.ValorViaje</td>
                                             <td>@vueltas.PorcentajeConductor</td>
                                             <td>@vueltas.ViaticoTransferido</td>
                                             <td>@vueltas.ViaticoGastado</td>
-                                            <td>$ @FormatearTotal((vueltas.ViaticoTransferido - vueltas.ViaticoGastado))</td>
-                                            @*<td>@vueltas.Observacion</td>*@
+                                            @if (@vueltas.ViaticoTransferido > @vueltas.ViaticoGastado)
+                                            {
+                                                <td>$ @FormatearTotal((vueltas.ViaticoTransferido - vueltas.ViaticoGastado))</td>
+                                            }
+                                            else if (@vueltas.ViaticoTransferido < @vueltas.ViaticoGastado)
+                                            {
+                                                <td>$ -@FormatearTotal((vueltas.ViaticoTransferido - vueltas.ViaticoGastado))</td>
+                                            }
+                                            else
+                                            {
+                                                <td>$ @FormatearTotal((vueltas.ViaticoTransferido - vueltas.ViaticoGastado))</td>
+                                            }
                                             <td>
                                                 <div class="row">
                                                     <div class="col-lg-4">

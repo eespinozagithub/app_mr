@@ -54,8 +54,8 @@ namespace TransportesMR.Data
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
             builder.Entity<Vueltas>()
-                .HasOne(x => x.EmpresaDescarga)
-                .WithMany(x => x.EmpresaDescarga)
+                .HasOne(x => x.CiudadDescarga)
+                .WithMany(x => x.CiudadDescarga)
                 .HasForeignKey(x => x.IdCiudadDescarga)
                 .OnDelete(DeleteBehavior.ClientSetNull);
         }

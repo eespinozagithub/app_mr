@@ -499,7 +499,6 @@ namespace TransportesMR.Migrations
                     IdEmpresaDescarga = table.Column<int>(type: "int", nullable: false),
                     IdCiudadCarga = table.Column<int>(type: "int", nullable: false),
                     IdCiudadDescarga = table.Column<int>(type: "int", nullable: false),
-                    CiudadDescargaIdCiudad = table.Column<int>(type: "int", nullable: true),
                     ValorViaje = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     PorcentajeConductor = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     ViaticoTransferido = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
@@ -517,23 +516,23 @@ namespace TransportesMR.Migrations
                         principalColumn: "IdCamion",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Vueltas_Ciudades_CiudadDescargaIdCiudad",
-                        column: x => x.CiudadDescargaIdCiudad,
-                        principalTable: "Ciudades",
-                        principalColumn: "IdCiudad");
-                    table.ForeignKey(
                         name: "FK_Vueltas_Ciudades_IdCiudadCarga",
                         column: x => x.IdCiudadCarga,
                         principalTable: "Ciudades",
                         principalColumn: "IdCiudad");
                     table.ForeignKey(
-                        name: "FK_Vueltas_Empresa_IdCiudadDescarga",
+                        name: "FK_Vueltas_Ciudades_IdCiudadDescarga",
                         column: x => x.IdCiudadDescarga,
-                        principalTable: "Empresa",
-                        principalColumn: "IdEmpresa");
+                        principalTable: "Ciudades",
+                        principalColumn: "IdCiudad");
                     table.ForeignKey(
                         name: "FK_Vueltas_Empresa_IdEmpresaCarga",
                         column: x => x.IdEmpresaCarga,
+                        principalTable: "Empresa",
+                        principalColumn: "IdEmpresa");
+                    table.ForeignKey(
+                        name: "FK_Vueltas_Empresa_IdEmpresaDescarga",
+                        column: x => x.IdEmpresaDescarga,
                         principalTable: "Empresa",
                         principalColumn: "IdEmpresa");
                     table.ForeignKey(
@@ -624,11 +623,6 @@ namespace TransportesMR.Migrations
                 column: "IdModelo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vueltas_CiudadDescargaIdCiudad",
-                table: "Vueltas",
-                column: "CiudadDescargaIdCiudad");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Vueltas_IdCamion",
                 table: "Vueltas",
                 column: "IdCamion");
@@ -647,6 +641,11 @@ namespace TransportesMR.Migrations
                 name: "IX_Vueltas_IdEmpresaCarga",
                 table: "Vueltas",
                 column: "IdEmpresaCarga");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vueltas_IdEmpresaDescarga",
+                table: "Vueltas",
+                column: "IdEmpresaDescarga");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vueltas_IdEmpresaResponsable",
