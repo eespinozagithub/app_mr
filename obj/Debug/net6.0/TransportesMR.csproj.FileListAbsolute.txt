@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\Etapa Final\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\Etapa Final\bin\Debug\net6.0\appsettings.json
 C:\Users\Administrador\Documents\Transportes MR\AppMR\Oficial\Etapa Final\bin\Debug\net6.0\TransportesMR.staticwebassets.runtime.json
@@ -567,3 +568,5 @@ C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\refint\TransportesMR.dll
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.pdb
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\TransportesMR.genruntimeconfig.cache
 C:\Users\araya\Desktop\app_mr\obj\Debug\net6.0\ref\TransportesMR.dll
+=======
+>>>>>>> Repara Menu y modo oscuro

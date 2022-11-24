@@ -4,6 +4,10 @@
     @Html.Partial("~/Views/Shared/_title_meta.cshtml")
     @RenderSection("styles", required: false)
     @Html.Partial("~/Views/Shared/_head_css.cshtml")
+
+@*    @@include("partials/title-meta.html", {"title": "Form layout"})
+
+    @@include("partials/head-css.html")*@
 </head>
 <body>
     <!-- Begin page -->
@@ -33,5 +37,7 @@
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/jquery.min.js"></script>
     @RenderSection("scripts", required: false)
+    <!-- App js -->
+    <script src="~/assets/js/app.js"></script>
 </body>
 </html>
