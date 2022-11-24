@@ -37,7 +37,7 @@
             <div class="card-header d-flex align-items-center">
                 <h5 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h5>
                 <div>
-                    <a asp-action="CrearMarcaRemolque" class="btn btn-success add-btn">
+                    <a asp-action="CrearVuelta" class="btn btn-success add-btn">
                         <i class="ri-add-line align-bottom me-1"></i> Ingresar Vuelta
                     </a>
                 </div>
@@ -50,10 +50,10 @@
                         <thead>
                             <tr>
                                 <th>Salida</th>
-                                <th>Llegada</th>
+                                @*<th>Llegada</th>*@
                                 <th>Camión</th>
                                 <th>Conductor </th>
-                                <th>Factura 1</th>
+                                <th>Factura</th>
                                 <th>Sentido</th>
                                 <th>Lugar Carga</th>                                
                                 <th>Valor Viaje</th>
@@ -74,17 +74,28 @@
                                             @vueltas.FechaSalida.Value.ToString("dd/MM/yyyy")
                                         }
                                     </td>
-                                    <td>
+                                  @*  <td>
                                         @if (@vueltas.FechaLlegada != null)
                                         {
                                             @vueltas.FechaLlegada.Value.ToString("dd/MM/yyyy")
                                         }
-                                    </td>
+                                    </td>*@
 
                                     <td>@vueltas.IdCamion</td>
                                     <td>@vueltas.IdTrabajador</td>
                                     <td>@vueltas.Factura1</td>
-                                    <td>@vueltas.Sentido</td>
+
+                                    @*<td>@vueltas.Sentido</td>*@
+
+                                    @if(vueltas.Sentido == 1)
+                                    {
+                                        <td> Ida</td>
+                                    }
+                                    else
+                                    {
+                                        <td> Regreso</td>
+                                    }
+
                                     <td>@vueltas.EmpresaCarga.RazonSocial</td>
                                     <td>@vueltas.ValorViaje</td>
                                     <td>@vueltas.PorcentajeConductor</td>
@@ -106,15 +117,11 @@
                                         <div class="row">
                                             <div class="col-lg-4">
 
-                                                <a class="btn btn-sm btn-success edit-item-btn" asp-action="VerDetalle" asp-route-id="@vueltas.IdVueltas">
-                                                    <i class="ri-menu-2-line"></i> Detalle
-                                                </a>
-                                                <a class="btn btn-sm btn-primary edit-item-btn" asp-action="ModificarVuelta" asp-route-id="@vueltas.IdVueltas">
-                                                    <i class="ri-edit-2-line"></i> Modificar
-                                                </a>
-                                                <a class="btn btn-sm btn-danger " asp-action="BorrarVuelta" asp-route-id="@vueltas.IdVueltas" onclick="return confirm('¿Esta seguro de eliminar la vuelta?');">
-                                                    <i class="ri-delete-bin-5-line"></i> Eliminar
-                                                </a>
+                                                <a class="btn btn-success btn-icon waves-effect waves-light" title="Ver Detalle" asp-action="VerDetalle" asp-route-id="@vueltas.IdVueltas"><i class="ri-menu-2-line"></i></a>
+
+                                                <a class="btn btn-primary btn-icon waves-effect waves-light" title="Editar" asp-action="ModificarVuelta" asp-route-id="@vueltas.IdVueltas"><i class="ri-edit-2-line"></i><span title="Editar"></span></a>
+
+                                                <a type="button" class="btn btn-danger btn-icon waves-effect waves-light" title="Eliminar" asp-action="BorrarVuelta" asp-route-id="@vueltas.IdVueltas" onclick="return confirm('¿Esta seguro de eliminar la vuelta?');"><i class="ri-delete-bin-5-line"></i></a>
 
                                             </div>
                                         </div>
@@ -138,12 +145,12 @@
 
 
 <!-- JAVASCRIPT -->
-<script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+@*<script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+@*<script src="~/assets/libs/simplebar/simplebar.min.js"></script>
 <script src="~/assets/libs/node-waves/waves.min.js"></script>
 <script src="~/assets/libs/feather-icons/feather.min.js"></script>
 <script src="~/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-<script src="~/assets/js/plugins.js"></script>
+<script src="~/assets/js/plugins.js"></script>*@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
