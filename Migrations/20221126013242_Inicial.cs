@@ -504,7 +504,8 @@ namespace TransportesMR.Migrations
                     ViaticoTransferido = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     ViaticoGastado = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     Observacion = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {

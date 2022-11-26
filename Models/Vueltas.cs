@@ -101,6 +101,8 @@
         [Display(Name = "Observaciones")]
         public string? Observacion { get; set; }
 
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
+
     }
 
 }

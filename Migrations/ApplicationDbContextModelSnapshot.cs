@@ -666,6 +666,9 @@ namespace TransportesMR.Migrations
                         .IsRequired()
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime?>("FechaSalida")
                         .IsRequired()
                         .HasColumnType("datetime(6)");

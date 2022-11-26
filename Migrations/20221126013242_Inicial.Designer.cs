@@ -11,7 +11,7 @@ using TransportesMR.Data;
 namespace TransportesMR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221122223445_Inicial")]
+    [Migration("20221126013242_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -666,6 +666,9 @@ namespace TransportesMR.Migrations
 
                     b.Property<DateTime?>("FechaLlegada")
                         .IsRequired()
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("FechaSalida")
