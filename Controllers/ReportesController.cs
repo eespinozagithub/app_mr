@@ -76,9 +76,15 @@ namespace TransportesMR.Controllers
 
             return ExportarExcel(nombreArchivo, dtExportar);
         }
+        private List<DetalleVuelta> GetDetalleVuelta(int year, int month, int idCamion) // muestra info en pantalla
+        {
+            return _context.DetalleVueltas
+                .FromSqlInterpolated($"call `GetDetalleVueltas`({year},{month},{idCamion})")
+                .ToList();
+        }
 
         [HttpPost]
-        public FileResult DetalleVueltaExcel(DetalleVueltaFilters filters)
+        public FileResult DetalleVueltaExcel(DetalleVueltaFilters filters) //exporta excel reporte detalle vueltas
         {
             //FILTRO CON DATOS
             var fecha = DateTime.Today;
@@ -105,12 +111,7 @@ namespace TransportesMR.Controllers
             return ExportarExcel(nombreArchivo, dtExportar);
         }
 
-        private List<DetalleVuelta> GetDetalleVuelta(int year, int month, int idCamion)
-        {
-            return _context.DetalleVueltas
-                .FromSqlInterpolated($"call `GetDetalleVueltas`({year},{month},{idCamion})")
-                .ToList();
-        }
+
 
         private FileResult ExportarExcel(string nombreArchivo, System.Data.DataTable dtDatos)
         {

@@ -26,11 +26,11 @@ namespace TransportesMR.Data
         public DbSet<CargaCombustibleRemolque> CargaCombustibleRemolque { get; set; }
         public DbSet<Ciudades> Ciudades { get; set; }
         public DbSet<Vueltas> Vueltas { get; set; }
-        public virtual DbSet<DetalleVuelta> DetalleVueltas { get; set; }
+        public virtual DbSet<DetalleVuelta> DetalleVueltas { get; set; } //agregar por cada reporte
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(builder); // agregar por cada reporte
             builder.Entity<DetalleVuelta>()
                 .HasNoKey();
 
