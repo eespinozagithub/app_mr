@@ -1,4 +1,4 @@
-﻿
+﻿@model TransportesMR.ViewReports.DetalleVueltaFilters
 @{
     ViewData["Title"] = "Reporte Detalle de Vuelta";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,14 +28,14 @@
             <div class="card-body">
 
                 <div class="live-preview">
-                    <form method="post" asp-action="DetalleVueltaExcel">
+                    <form method="post" asp-action="DetalleCamionesExcel">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row g-3">
                             <!--FILA 1-->
                             <div class="col-lg-3">
                                 <div class="form-floating">
-                                    <select asp-items="@(new SelectList(ViewBag.Camion,"IdCamion","NumeroCamion"))" class="form-select">
+                                    <select asp-items="@(new SelectList(ViewBag.Camiones,"IdCamion","NumeroCamion"))" class="form-select">
                                         <option value="">[Seleccione]</option>
                                         <option value="0">Todos...</option>
                                     </select>
@@ -64,6 +64,61 @@
                             <div class="col-lg-3">
                                 <div class="text-end">
                                     <button type="submit" class="btn btn-success">Exportar a Excel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+
+                <div class="live-preview">
+                    <form method="post" asp-action="DetalleVueltaExcel">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row g-3">
+                            <!--FILA 1-->
+                            <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-for="YearDV" asp-items="@(new SelectList(ViewBag.Years,"id","value"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="0">Todos...</option>
+                                    </select>
+                                    <label asp-for="YearDV">Año</label>
+                                    <span asp-validation-for="YearDV"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-for="MonthDV" asp-items="@(new SelectList(ViewBag.Meses,"id","value"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="0">Todos...</option>
+                                    </select>
+                                    <label asp-for="MonthDV">Mes</label>
+                                    <span asp-validation-for="MonthDV"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-for="IdCamionDV" asp-items="@(new SelectList(ViewBag.Camiones,"IdCamion","NumeroCamion"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="0">Todos...</option>
+                                    </select>
+                                    <label asp-for="IdCamionDV">Camión</label>
+                                    <span asp-validation-for="IdCamionDV"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-success">Mostrar Datos</button>
                                 </div>
                             </div>
                         </div>

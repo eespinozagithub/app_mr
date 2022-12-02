@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TransportesMR.ViewModels;
+using TransportesMR.ViewReports;
 
 namespace TransportesMR.Data
 {
@@ -25,10 +26,14 @@ namespace TransportesMR.Data
         public DbSet<CargaCombustibleRemolque> CargaCombustibleRemolque { get; set; }
         public DbSet<Ciudades> Ciudades { get; set; }
         public DbSet<Vueltas> Vueltas { get; set; }
+        public virtual DbSet<DetalleVuelta> DetalleVueltas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<DetalleVuelta>()
+                .HasNoKey();
+
             builder.Entity<Vueltas>()
                  .HasOne(x => x.EmpresaResponsable)
                  .WithMany(x => x.EmpresaResponsable)
