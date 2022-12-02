@@ -1,8 +1,9 @@
 ﻿using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Drawing.Charts;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Dynamic;
 using TransportesMR.Data;
+using TransportesMR.ViewReports;
 
 namespace TransportesMR.Controllers
 {
@@ -11,25 +12,48 @@ namespace TransportesMR.Controllers
         public readonly ApplicationDbContext _context;
 
         public ReportesController(ApplicationDbContext context)
-        {            
+        {
             _context = context;
         }
 
         [HttpGet]
         public IActionResult DetalleVuelta()
         {
-            
-            ViewBag.Camion = _context.Camion.Where(x => x.Estado == 1).ToList();
+            ViewBag.Camiones = _context.Camion.Where(x => x.Estado == 1).ToList();
             ViewBag.Trabajador = _context.Trabajador.Where(x => x.Estado == 1)
-                .Select(x => new { x.IdTrabajador, Nombre =  x.Nombre + " " + x.ApellidoPaterno })
+                .Select(x => new { x.IdTrabajador, Nombre = x.Nombre + " " + x.ApellidoPaterno })
                 .ToList();
             ViewBag.Empresa = _context.Empresa.ToList();
+            ViewBag.Meses = new List<Object>
+            {
+                new { id = 1, value = "01 - Enero" },
+                new { id = 2, value = "02 - Febrero" },
+                new { id = 3, value = "03 - Marzo" },
+                new { id = 4, value = "04 - Abril" },
+                new { id = 5, value = "05 - Mayo" },
+                new { id = 6, value = "06 - Junio" },
+                new { id = 7, value = "07 - Julio" },
+                new { id = 8, value = "08 - Agosto" },
+                new { id = 9, value = "09 - Septiembre" },
+                new { id = 10, value = "10 - Octubre" },
+                new { id = 11, value = "11 - Noviembre" },
+                new { id = 12, value = "12 - Diciembre" }
+            };
+            ViewBag.Years = _context.Vueltas
+                .ToList()
+                .DistinctBy((x) => x.FechaSalida!.Value.Year)
+                .Select(x => new
+                {
+                    id = x.FechaSalida!.Value.Year,
+                    value = x.FechaSalida!.Value.Year
+                })
+                .OrderByDescending(x => x.id);
 
             return View();
         }
+
         [HttpPost]
-        public FileResult DetalleVueltaExcel()
-        //public void DetalleVuelta(Empresa empresa)
+        public FileResult DetalleCamionesExcel()
         {
             //FILTRO CON DATOS
             var fecha = DateTime.Today;
@@ -52,6 +76,42 @@ namespace TransportesMR.Controllers
 
             return ExportarExcel(nombreArchivo, dtExportar);
         }
+
+        [HttpPost]
+        public FileResult DetalleVueltaExcel(DetalleVueltaFilters filters)
+        {
+            //FILTRO CON DATOS
+            var fecha = DateTime.Today;
+            var nombreArchivo = $"DetalleVuelta - {fecha.ToString("dd_MM_yyyy")}.xlsx";
+
+
+            List<DetalleVuelta> listVueltas = GetDetalleVuelta(filters.YearDV, filters.MonthDV, filters.IdCamionDV);;
+
+            var dtExportar = new DataTable("Reporte");
+            dtExportar.Columns.Add(new DataColumn("Id Vuelta", Type.GetType("System.Int32")!));
+            dtExportar.Columns.Add(new DataColumn("Id Camion", Type.GetType("System.Int32")!));
+            dtExportar.Columns.Add(new DataColumn("Nombre", Type.GetType("System.String")!));
+            dtExportar.Columns.Add(new DataColumn("Apellido Paterno", Type.GetType("System.String")!));
+            dtExportar.Columns.Add(new DataColumn("Apellido Materno", Type.GetType("System.String")!));
+
+            foreach (var vuelta in listVueltas)
+                dtExportar.Rows.Add(
+                    vuelta.IdVueltas,
+                    vuelta.IdCamion,
+                    vuelta.Nombre,
+                    vuelta.ApellidoPaterno,
+                    vuelta.ApellidoMaterno);
+
+            return ExportarExcel(nombreArchivo, dtExportar);
+        }
+
+        private List<DetalleVuelta> GetDetalleVuelta(int year, int month, int idCamion)
+        {
+            return _context.DetalleVueltas
+                .FromSqlInterpolated($"call `GetDetalleVueltas`({year},{month},{idCamion})")
+                .ToList();
+        }
+
         private FileResult ExportarExcel(string nombreArchivo, System.Data.DataTable dtDatos)
         {
             using (XLWorkbook wb = new XLWorkbook())
