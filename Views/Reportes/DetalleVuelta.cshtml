@@ -19,9 +19,9 @@
     </div>
 </div>
 
-<div class="row">
+@* <div class="row">
     <div class="col-lg-12">
-        <div class="card">
+       <div class="card">
             <div class="card-header align-items-center d-flex">
                 <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
             </div><!-- end card header -->
@@ -42,24 +42,8 @@
                                     <label>Camiones</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="form-floating">
-                                    <select asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","Nombre"))" class="form-select">
-                                        <option value="">[Seleccione]</option>
-                                        <option value="0">Todos...</option>
-                                    </select>
-                                    <label>Conductor</label>
-                                </div>
-                            </div>                            
-                            <div class="col-lg-3">
-                                <div class="form-floating">
-                                    <select asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","Rut"))" class="form-select">
-                                        <option value="">[Seleccione]</option>
-                                        <option value="0">Todos...</option>
-                                    </select>
-                                    <label>Empresa</label>
-                                </div>
-                            </div>                            
+                                                   
+                                                      
                             
                             <div class="col-lg-3">
                                 <div class="text-end">
@@ -71,7 +55,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
@@ -85,6 +69,16 @@
 
                         <div class="row g-3">
                             <!--FILA 1-->
+                                <div class="col-lg-3">
+                                    <div class="form-floating">
+                                        <select asp-for="MonthDV" asp-items="@(new SelectList(ViewBag.Meses,"id","value"))" class="form-select">
+                                            <option value="">[Seleccione]</option>
+                                            <option value="0">Todos...</option>
+                                        </select>
+                                        <label asp-for="MonthDV">Mes</label>
+                                        <span asp-validation-for="MonthDV"></span>
+                                    </div>
+                                </div>
                             <div class="col-lg-3">
                                 <div class="form-floating">
                                     <select asp-for="YearDV" asp-items="@(new SelectList(ViewBag.Years,"id","value"))" class="form-select">
@@ -94,17 +88,7 @@
                                     <label asp-for="YearDV">Año</label>
                                     <span asp-validation-for="YearDV"></span>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-floating">
-                                    <select asp-for="MonthDV" asp-items="@(new SelectList(ViewBag.Meses,"id","value"))" class="form-select">
-                                        <option value="">[Seleccione]</option>
-                                        <option value="0">Todos...</option>
-                                    </select>
-                                    <label asp-for="MonthDV">Mes</label>
-                                    <span asp-validation-for="MonthDV"></span>
-                                </div>
-                            </div>
+                            </div>                            
                             <div class="col-lg-3">
                                 <div class="form-floating">
                                     <select asp-for="IdCamionDV" asp-items="@(new SelectList(ViewBag.Camiones,"IdCamion","NumeroCamion"))" class="form-select">
@@ -116,7 +100,47 @@
                                 </div>
                             </div>
 
+                             <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","Nombre"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="0">Todos...</option>
+                                    </select>
+                                    <label>Conductor</label>
+                                </div>                                
+                            </div>
+
                             <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","Rut"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="0">Todos...</option>
+                                    </select>
+                                    <label>Empresa Responsable</label>
+                                </div>
+                            </div>  
+
+                             <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","Rut"))" class="form-select">
+                                        <option value="">[Seleccione]</option>
+                                        <option value="0">Todos...</option>
+                                    </select>
+                                    <label>Lugar de carga</label>
+                                </div>
+                            </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-floating">
+                                <select asp-items="@(new SelectList(ViewBag.Empresa,"IdEmpresa","Rut"))" class="form-select">
+                                    <option value="">[Seleccione]</option>
+                                    <option value="0">Todos...</option>
+                                </select>
+                                <label>Lugar de descarga</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
                                 <div class="text-end">
                                     <button type="submit" class="btn btn-success">Mostrar Datos</button>
                                 </div>

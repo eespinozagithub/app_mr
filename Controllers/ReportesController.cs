@@ -26,18 +26,18 @@ namespace TransportesMR.Controllers
             ViewBag.Empresa = _context.Empresa.ToList();
             ViewBag.Meses = new List<Object>
             {
-                new { id = 1, value = "01 - Enero" },
-                new { id = 2, value = "02 - Febrero" },
-                new { id = 3, value = "03 - Marzo" },
-                new { id = 4, value = "04 - Abril" },
-                new { id = 5, value = "05 - Mayo" },
-                new { id = 6, value = "06 - Junio" },
-                new { id = 7, value = "07 - Julio" },
-                new { id = 8, value = "08 - Agosto" },
-                new { id = 9, value = "09 - Septiembre" },
-                new { id = 10, value = "10 - Octubre" },
-                new { id = 11, value = "11 - Noviembre" },
-                new { id = 12, value = "12 - Diciembre" }
+                new { id = 1, value = "Enero" },
+                new { id = 2, value = "Febrero" },
+                new { id = 3, value = "Marzo" },
+                new { id = 4, value = "Abril" },
+                new { id = 5, value = "Mayo" },
+                new { id = 6, value = "Junio" },
+                new { id = 7, value = "Julio" },
+                new { id = 8, value = "Agosto" },
+                new { id = 9, value = "Septiembre" },
+                new { id = 10, value = "Octubre" },
+                new { id = 11, value = "Noviembre" },
+                new { id = 12, value = "Diciembre" }
             };
             ViewBag.Years = _context.Vueltas
                 .ToList()
