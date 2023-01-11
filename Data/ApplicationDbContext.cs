@@ -27,6 +27,7 @@ namespace TransportesMR.Data
         public DbSet<Ciudades> Ciudades { get; set; }
         public DbSet<Vueltas> Vueltas { get; set; }
         public virtual DbSet<DetalleVuelta> DetalleVueltas { get; set; } //agregar por cada reporte
+        public virtual DbSet<DetalleSueldo> DetalleSueldos { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

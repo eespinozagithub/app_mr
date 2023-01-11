@@ -1,0 +1,147 @@
+﻿@model TransportesMR.ViewReports.DetalleSueldoFilters
+@{
+    ViewData["Title"] = "Cálculo de Sueldos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--datatable css-->
+@*<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+<!--datatable responsive css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">*@
+<link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<!-- BARRA SUPERIOR -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Reporte</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header align-items-center d-flex">
+            <h4 class="card-title mb-0 flex-grow-1">@ViewData["Title"]</h4>
+        </div><!-- end card header -->
+        <div class="card-body">
+
+            <div class="live-preview">
+                <!--<form method="post" asp-action="DetalleSueldosExcel">-->
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row g-3">
+                        <!--FILA 1-->
+                        <div class="col-lg-3">
+                            <div class="form-floating">
+                            <select asp-for="MonthDV" asp-items="@(new SelectList(ViewBag.Meses,"id","value"))" class="form-select" id="MonthDV">
+                                    <option value="">[Seleccione]</option>
+                                </select>
+                                <label asp-for="MonthDV">Mes</label>
+                                <span asp-validation-for="MonthDV"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-floating">
+                            <select asp-for="YearDV" asp-items="@(new SelectList(ViewBag.Years,"id","value"))" class="form-select" id="YearDV">
+                                    <option value="">[Seleccione]</option>
+                                </select>
+                                <label asp-for="YearDV">Año</label>
+                                <span asp-validation-for="YearDV"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-floating">
+                            <select asp-for="IdTrabajador" asp-items="@(new SelectList(ViewBag.Trabajador,"IdTrabajador","Nombre"))" class="form-select" id="IdTrabajador">
+                                    <option value="">[Seleccione]</option>
+                                    <option value="0">Todos...</option>
+                                </select>
+                                <label asp-for="IdTrabajador">Conductor</label>
+                                <span asp-validation-for="IdTrabajador"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="text-end">
+                                <button type="submit" id="btnMostrarDatos" class="btn btn-success">Mostrar Datos</button>
+                            </div>
+                        </div>
+                    </div>
+                <!--</form>-->
+            </div>
+
+
+        </div>
+    </div>
+
+    <div></div>
+
+    <div class="card">
+        <div class="card-header align-items-center d-flex">
+        </div><!-- end card header -->
+        <div class="card-body">
+
+            <div class="live-preview">
+
+
+
+                <div class="row g-3">
+                    <!--FILA 1-->
+  
+
+                        <div class="table-responsive" style="margin-top:30px;">
+        <table id="tblDetSueldo" class="table table-bordered dt-responsive nowrap table-striped align-middle dataTable no-footer dtr-inline" style="width:100%">
+        </table>
+    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!--datatable js-->
+@*<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>*@
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+
+
+    <script src="~/js/CalculoSueldo.js"></script>
+
+}
